@@ -1,7 +1,7 @@
 import React from 'react';
 import AuthForm from './auth_form';
 import { connect } from 'react-redux';
-import { login, logout, signup } from '../../actions/session_actions';
+import { login, logout, signup, receiveErrors } from '../../actions/session_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,11 +10,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  const formType = location.hash.slice(2);
-  const processForm = formType === 'login' ? login : signup;
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const formType = ownProps.location.pathname.slice(1);
+  const processForm = (formType === 'login') ? login : signup;
   return ({
     processForm: user => dispatch(processForm(user)),
+    clearErrors: () => dispatch(receiveErrors([])),
     formType
   });
 };

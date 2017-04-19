@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import UserSubComp from './user_sub_comp';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -25,10 +26,9 @@ class NavBar extends React.Component {
           <li>
             <Link to='/upload' className="navBarLink">Upload</Link>
           </li>
-          <li>
-            <Link to='/profile' className="navBarLink">Sample User</Link>
-            {/* <AuthFormContainer /> */}
-          </li>
+          {/* <Link to='/profile' className="navBarLink">Sample User</Link> */}
+          {/* <AuthFormContainer /> */}
+            <UserSubComp currentUser={this.props.currentUser} logout={this.props.logout}/>
           <li>
             {/* <DropdownMenuContainer /> */}
           </li>

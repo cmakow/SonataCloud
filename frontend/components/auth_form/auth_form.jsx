@@ -5,9 +5,44 @@ class AuthForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { username: "", password: "" };
+    this.state = { email: "", username: "", password: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  redirectIfLoggedIn() {
+		if (this.props.loggedIn) {
+			this.props.router.push("/");
+		}
+	}
+
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
+  componentWillReceiveProps(newProps) {
+    const currentForm = this.props.location.pathname.slice(1);
+    const newForm = newProps.location.pathname.slice(1);
+    if (currentForm !== newForm) {
+      this.props.clearErrors();
+    }
+  }
+
+  renderErrors() {
+    if (this.props.errors.length !== 0) {
+      return(
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className="login-error">
+              {error}
+            </li>
+          ))}
+          <br />
+        </ul>
+      );
+    } else {
+      return null;
+    }
+	}
 
   update(field) {
     return e => {
@@ -16,27 +51,44 @@ class AuthForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
 		e.preventDefault();
-		this.props.processForm(this.state);
-    this.props.router.push("/");
+		this.props.processForm(this.state).then(() => this.props.router.push("/"), errors => null);
 	}
 
   render() {
-    const actionText = this.props.route.path.slice(1) === "login" ? "Sign in" : "Sign up";
+    const action = this.props.route.path.slice(1);
+    const actionText = action === "login" ? "Sign in" : "Sign up";
+    const usernameInput = () => {
+      if (action === "login") {
+        return null;
+      } else {
+        return (
+          <div>
+            <label>Username:
+              <br />
+            <input type="text" value={this.state.username} onChange={this.update("username")} className="login-input" placeholder="Username"/>
+            </label>
+            <br />
+          </div>
+        );
+      }
+    };
     return (
-      <div className="AuthForm">
+      <div className="authForm">
+        <h1>SonataCloud</h1>
+        {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
           <label>
             Email Address:
             <br/>
-            <input type="text" value={this.state.username} onChange={this.update("username")} className="login-input"/>
+          <input type="text" value={this.state.email} onChange={this.update("email")} className="login-input" placeholder="Email"/>
           </label>
           <br/>
+          {usernameInput()}
           <label>
             Password:
             <br/>
-            <input type="password" value={this.state.password} onChange={this.update("password")} className="login-input"/>
+          <input type="password" value={this.state.password} onChange={this.update("password")} className="login-input" placeholder="Password"/>
           </label>
           <br/>
           <input type="submit" value={actionText} />
