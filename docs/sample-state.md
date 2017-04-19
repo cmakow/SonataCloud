@@ -49,23 +49,18 @@
       image_url: "sample-image-url.com"
     }
   },
-  liked_songs: {
+  playlists: {
     1: {
-      title: "Sample song",
-      data: "sample-url.com",
-      artist_id: 1,
-      album_id: 1,
-      liker_id: 2,
-      image_url: "sample-image-url.com"
+      title: "Cool playlist",
+      user_id: 1,
+      image_url: "sample-playlist-image.com"
     }
-  },
-  listening_history: {
+  }
+  albums: {
     1: {
-      title: "Sample song",
-      data: "sample-url.com",
+      title: "Best album",
       artist_id: 1,
-      album_id: 1,
-      image_url: "sample-image-url.com"
+      image_url: "sample-album-image.com"
     }
   }
 }
