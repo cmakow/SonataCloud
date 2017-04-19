@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import UserSubComp from './user_sub_comp';
+import SearchBarContainer from './search_bar_container';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class NavBar extends React.Component {
             <Link to='/charts' className="navBarLink">Charts</Link>
           </li>
           <li>
-            {/* <SearchBarContainer /> */}
+            <SearchBarContainer />
           </li>
           <li>
             <Link to='/upload' className="navBarLink">Upload</Link>
