@@ -7,6 +7,9 @@ const App = ({ children }) => {
     <div className="app">
       <NavBarContainer />
       { children }
+      <div className="footer">
+        <p>dis my site pls no take</p>
+      </div>
     </div>
   );
 }

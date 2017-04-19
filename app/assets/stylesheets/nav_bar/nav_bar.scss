@@ -1,0 +1,14 @@
+.navBarUl {
+  display: flex;
+  justify-content: space-around;
+  background: #333;
+  height: 50px;
+}
+
+.navBarLink {
+  color: white;
+  display: block;
+  margin: 0 auto;
+  text-decoration: none;
+  text-align: center;
+}
