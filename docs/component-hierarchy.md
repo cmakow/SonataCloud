@@ -3,10 +3,10 @@
 **AuthFormContainer**
 - AuthForm
 
-**HomeContainer**
-- Sidebar
-- Feed
+**LandingPageContainer**
 - NavBar
+- AuthForm
+- SongIndex
 - SongPlay
 
 **ProfileContainer**
@@ -24,15 +24,13 @@
 **FeedContainer**
 - Feed
   - SongIndex
-- Sidebar
-- NavBar
 
 **NavBar**
 - SearchBar
+- SearchResult
 
 **SearchResultContainer**
 - Search
-- SongIndex
 
 **SongPlay**
 - Song

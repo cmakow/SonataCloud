@@ -16,8 +16,10 @@ class AuthForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger
 		e.preventDefault();
 		this.props.processForm(this.state);
+    this.props.router.push("/");
 	}
 
   render() {
