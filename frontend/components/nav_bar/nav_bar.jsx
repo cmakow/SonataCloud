@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import UserSubComp from './user_sub_comp';
-import SearchBarContainer from './search_bar_container';
+import SearchBarContainer from './search_bar/search_bar_container';
 
 class NavBar extends React.Component {
   constructor(props) {
