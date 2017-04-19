@@ -76,3 +76,48 @@ table {
   text-decoration: none;
   text-align: center;
 }
+
+/* AUTH FORM */
+.authForm {
+  border: 3px solid #f50;
+  border-radius: 5px;
+  width: 450px;
+  align-items: center;
+  text-align: center;
+  height: 400px;
+  vertical-align: middle;
+  padding-top: 50px;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.login-input {
+  padding: 5px;
+  margin: 5px;
+  width: 400px;
+  border-radius: 5px;
+  border-color: #f50;
+  border-style: solid;
+}
+
+.authForm h1 {
+  font-size: xx-large;
+  color: #f50;
+  padding-bottom: 50px;
+}
+
+.app {
+  align-items: center;
+  text-align: center;
+}
+
+.login-error {
+  color: #f50;
+  border: 2px solid #f50;
+  border-radius: 5px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 5px;
+  margin-bottom: 5px;
+}
