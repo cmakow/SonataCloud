@@ -91,7 +91,7 @@ class AuthForm extends React.Component {
           <input type="password" value={this.state.password} onChange={this.update("password")} className="login-input" placeholder="Password"/>
           </label>
           <br/>
-          <input type="submit" value={actionText} />
+          <input type="submit" value={actionText} className="login-submit"/>
         </form>
       </div>
     );
