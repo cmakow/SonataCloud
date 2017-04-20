@@ -12,6 +12,7 @@ class ProfilePage extends React.Component {
     return (
       <div>
         <HeaderContainer />
+        {/* feed container? sidebar? */}
       </div>
     );
   }

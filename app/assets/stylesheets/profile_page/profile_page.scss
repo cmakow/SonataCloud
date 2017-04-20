@@ -7,18 +7,45 @@
 }
 
 .profileHeader{
-  justify-content: flex-start;
   margin: 0 auto;
   height: 260px;
   width: 1240px;
 }
 
+.profileInfo {
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
 .profilePicture {
+  float: left;
   border-radius: 50000000px;
   width: 200px;
   height: 200px;
   margin-right: 30px;
-  margin-top: 10px;
-  float: left;
-  margin-left: 30px;
+}
+
+.userInfo {
+  text-align: start;
+}
+
+.userUsername {
+  background: black;
+  color: white;
+  font-size: 30px;
+  width: auto;
+  display: inline-block;
+  padding: 7px;
+  font-family: sans-serif;
+}
+
+.userSubInfo {
+  background: black;
+  color: gray;
+  margin-top: 4px;
+  font-size: 15px;
+  width: auto;
+  display: inline-block;
+  padding: 4px;
+  font-family: sans-serif;
 }
