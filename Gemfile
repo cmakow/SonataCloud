@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # AWS File Upload Gems
-gem 'paperclip', '5.0.0.beta1'
+gem 'paperclip', '5.0.0'
 gem 'figaro'
 gem 'aws-sdk', '>= 2.0'
 

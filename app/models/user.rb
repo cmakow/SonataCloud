@@ -22,6 +22,11 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_many :songs,
+    class_name: "Song",
+    foreign_key: :artist_id,
+    primary_key: :id
+
   def self.find_by_credentials(email, password)
     @user = User.find_by(email: email)
     return @user if @user && @user.is_password?(password)
