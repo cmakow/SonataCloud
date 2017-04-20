@@ -3,12 +3,19 @@ import { Provider } from 'react-redux';
 import App from './app';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import AuthFormContainer from './auth_form/auth_form_container';
-import NavBarContainer from './nav_bar/nav_bar_container';
+import ProfilePageContainer from './profile_page/profile_page_container';
 
 const _redirectIfLoggedIn = (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;
   if (currentUser) {
     replace('/');
+  }
+}
+
+const _redirectIfNotLoggedIn = (nextState, replace) => {
+  const currentUser = store.getState().session.currentUser;
+  if (!currentUser) {
+    replace('/login');
   }
 }
 
@@ -19,6 +26,7 @@ const Root = ({ store }) => {
         <Route path="/" component={App} >
           <Route path="/login" component={AuthFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={AuthFormContainer} onEnter={_redirectIfLoggedIn} />
+          <Route path="/profile" component={ProfilePageContainer} onEnter={_redirectIfNotLoggedIn} />
         </Route>
       </Router>
     </Provider>

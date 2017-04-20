@@ -1,6 +1,7 @@
 <script>
   window.navBarIcon = "<%= asset_path('music_notes.png') %>"
   window.landingPageImg = "<%= asset_path('sonatacloud_splash.jpg') %>"
+  window.defaultUserImg = "<%= asset_path('default_user.jpg') %>"
   <% if current_user %>
     window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
   <% end %>

@@ -7,8 +7,6 @@ const App = ({ children }) => {
     <div className="app">
       <NavBarContainer />
       { children }
-      <div className="footer">
-      </div>
     </div>
   );
 }
