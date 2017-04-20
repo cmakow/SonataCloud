@@ -12,3 +12,4 @@ bundle.js.map
 npm-debug.log
 tmp
 /log/*
+/app/assets/songs/*
