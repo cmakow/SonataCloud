@@ -11,7 +11,7 @@ bundle.js.map
 .DS_Store
 npm-debug.log
 tmp
-/log/*
+log/*
 /app/assets/songs/*
 /public/*
 

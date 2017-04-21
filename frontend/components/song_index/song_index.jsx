@@ -14,7 +14,7 @@ class SongIndex extends React.Component {
           <ul>
             {
               Object.keys(this.props.songs).map(id => (
-                <SongIndexItem song={this.props.songs[id]} key={id}/>
+                <SongIndexItem song={this.props.songs[id]} key={id} />
               ))
             }
           </ul>
