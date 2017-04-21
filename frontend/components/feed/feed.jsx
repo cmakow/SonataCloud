@@ -7,10 +7,15 @@ class Feed extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    debugger
+    this.songs = this.props.fetchUserSongs(this.props.currentUser.id);
+  }
+
   render() {
     return (
       <div className='feed'>
-
+        <SongIndexContainer songs={this.songs} />
       </div>
     );
   }

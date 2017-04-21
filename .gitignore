@@ -13,3 +13,4 @@ npm-debug.log
 tmp
 /log/*
 /app/assets/songs/*
+/public/*

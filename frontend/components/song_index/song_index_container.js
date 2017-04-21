@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { receiveSongs } from '../../actions/song_actions';
 
 const mapStateToProps = state => {
+  debugger
   return {
-
+    songs: state.songs
   };
 };
 
