@@ -1,11 +1,12 @@
 import React from 'react';
 import Feed from './feed';
 import { connect } from 'react-redux';
-import { fetchUserSongs } from '../../actions/song_actions';
+import { fetchUserSongs } from '../../actions/song_index_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  songs: state.songs
+  songs: state.songs,
+  currentSong: state.currentSong['current_song']
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

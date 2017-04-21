@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+import { receiveCurrentSong } from './actions/current_song_actions';
+
+window.receiveCurrentSong = receiveCurrentSong;
 
 document.addEventListener('DOMContentLoaded', () => {
     let preloadedState;

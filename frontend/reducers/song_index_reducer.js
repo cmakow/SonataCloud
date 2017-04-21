@@ -1,5 +1,5 @@
 import React from 'react';
-import { RECEIVE_SONG, RECEIVE_SONGS, REMOVE_SONG } from '../actions/song_actions';
+import { RECEIVE_SONG, RECEIVE_SONGS, REMOVE_SONG } from '../actions/song_index_actions';
 
 const SongReducer = (state = {}, action) => {
   Object.freeze(state);

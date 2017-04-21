@@ -14,7 +14,7 @@ class Feed extends React.Component {
   render() {
     return (
       <div className='feed'>
-        <SongIndexContainer songs={this.props.songs} />
+        <SongIndexContainer songs={this.props.songs} currentSong={this.props.currentSong}/>
       </div>
     );
   }

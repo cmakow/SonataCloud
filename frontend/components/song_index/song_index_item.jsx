@@ -10,13 +10,19 @@ class SongIndexItem extends React.Component {
   }
 
   togglePlay(e) {
-    const song = this.refs.song;
-    if (song.paused) {
-      song.play();
-      e.currentTarget.innerHTML = "<i class='fa fa-pause' aria-hidden='true'></i>";
+    // const song = this.refs.song;
+    // if (song.paused) {
+    //   song.play();
+    //   e.currentTarget.innerHTML = "<i class='fa fa-pause' aria-hidden='true'></i>";
+    // } else {
+    //   song.pause();
+    //   e.currentTarget.innerHTML = "<i class='fa fa-play' aria-hidden='true'></i>";
+    // }
+    debugger
+    if (this.props.song === this.props.currentSong) {
+      
     } else {
-      song.pause();
-      e.currentTarget.innerHTML = "<i class='fa fa-play' aria-hidden='true'></i>";
+      this.props.receiveCurrentSong(this.props.song);
     }
   }
 
@@ -27,14 +33,12 @@ class SongIndexItem extends React.Component {
         {/* change this to actual artist image and link to artist page */}
         <img src={window.defaultUserImg} className='artistImage'/>
         <button onClick={this.togglePlay} className='playButton'><i className='fa fa-play' aria-hidden='true'></i></button>
-        <audio id={song.id} ref='song' src={song.data}/>
         <div className='songIndexItemHeader'>
           {/* change to link to user page later */}
           <p className='artistName'>{song.artist.username}</p>
           {/* make into link to song show page later */}
           <p className='songTitle'>{song.title}</p>
         </div>
-        {/* <SongProgressBar songId={song.id}/> */}
       </li>
     );
   }
