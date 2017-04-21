@@ -1,4 +1,4 @@
-export const fetchSongs = (id) => (
+export const fetchUserSongs = (id) => (
   $.ajax({
     url: `/api/users/${id}/songs`
   })

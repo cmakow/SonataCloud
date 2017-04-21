@@ -20,3 +20,5 @@ const SongReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export default SongReducer;

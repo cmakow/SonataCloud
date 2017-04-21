@@ -23,8 +23,8 @@ export const fetchSong = id => dispatch => (
   APIUtil.fetchSong(id).then(song => dispatch(receiveSong(song)))
 );
 
-export const fetchSongs = (userId) => dispatch => (
-  APIUtil.fetchSongs(userId).then(songs => dispatch(receiveSongs(songs)))
+export const fetchUserSongs = (userId) => dispatch => (
+  APIUtil.fetchUserSongs(userId).then(songs => dispatch(receiveSongs(songs)))
 );
 
 export const deleteSong = id => dispatch => (
