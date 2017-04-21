@@ -16,3 +16,7 @@ User.create([
   ])
 
 Song.destroy_all
+
+Song.create([
+  {}
+  ])

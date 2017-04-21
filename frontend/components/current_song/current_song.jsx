@@ -32,6 +32,7 @@ class CurrentSong extends React.Component {
 
   render() {
     if(this.props.currentSong) {
+      debugger
       return (
         <div className='currentSongPlayer'>
           <audio ref='song' src={this.props.currentSong.data} />
