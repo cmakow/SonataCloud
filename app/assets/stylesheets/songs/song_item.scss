@@ -1,0 +1,52 @@
+.songIndexItem {
+  height: 180px;
+  margin-top: 10px;
+}
+
+.playButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f50;
+  border: none;
+  float: left;
+  margin-right: 10px;
+  margin-top: 7px;
+  color: white;
+  font-size: 22px;
+}
+
+.playButton i {
+  padding-left: 3px;
+}
+
+.fa-pause {
+  color: black;
+  font-size: 10px;
+}
+
+.playButton:hover {
+  cursor: pointer;
+  background-color: #e83c1e;
+}
+
+.artistImage {
+  width: 160px;
+  height: 160px;
+  float: left;
+  margin-right: 10px;
+}
+
+.songIndexItemHeader {
+  padding-top: 7px;
+  float: left;
+  text-align: left;
+}
+
+.artistName {
+  color: #999999;
+}
+
+.songTitle {
+  font-size: 20px;
+}
