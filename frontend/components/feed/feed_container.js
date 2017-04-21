@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { fetchUserSongs } from '../../actions/song_actions';
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  songs: state.songs
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

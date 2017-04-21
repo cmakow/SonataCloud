@@ -8,14 +8,13 @@ class Feed extends React.Component {
   }
 
   componentDidMount() {
-    debugger
-    this.songs = this.props.fetchUserSongs(this.props.currentUser.id);
+    this.props.fetchUserSongs(this.props.currentUser.id);
   }
 
   render() {
     return (
       <div className='feed'>
-        <SongIndexContainer songs={this.songs} />
+        <SongIndexContainer songs={this.props.songs} />
       </div>
     );
   }
