@@ -13,7 +13,6 @@ class Header extends React.Component {
     return (
       <div className="profileHeader">
         <div className="backgroundGradient__buffer"></div>
-        <h1>Hello {currentUser.username}</h1>
         <div className="profileInfo">
           <div className="profilePicture">
             <img src={window.defaultUserImg} className="profilePicture" />

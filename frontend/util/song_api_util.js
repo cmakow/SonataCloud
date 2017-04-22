@@ -16,3 +16,14 @@ export const deleteSong = (id) => (
     method: 'DELETE'
   })
 );
+
+export const createSong = (song) => (
+  $.ajax({
+    url: '/api/songs',
+    method: 'POST',
+    data: song,
+    processData: false,
+    contentType: false,
+    dataType: 'json'
+  })
+);

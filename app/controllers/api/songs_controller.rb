@@ -1,7 +1,6 @@
 class Api::SongsController < ApplicationController
   def index
-    @songs = Song.all
-    debugger
+    @songs = Song.includes(:artist).all
   end
 
   def show
@@ -9,6 +8,7 @@ class Api::SongsController < ApplicationController
   end
 
   def create
+    debugger
     @song = Song.new(song_params)
 
     @song.artist_id = current_user.id
