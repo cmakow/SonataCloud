@@ -1,6 +1,11 @@
 class Api::SongsController < ApplicationController
   def index
     @songs = Song.all
+    debugger
+  end
+
+  def show
+    @song = Song.find(params[:id])
   end
 
   def create
