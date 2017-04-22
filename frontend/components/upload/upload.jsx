@@ -57,19 +57,19 @@ class Upload extends React.Component {
       <div className='uploadFormContainer'>
         <h2>Upload to SonataCloud</h2>
         <form className='uploadForm'>
-          <label>Title <br/>
+          <label>Title:<br/>
             <input type='text' value={this.state.title} onChange={this.update('title')} />
           </label>
           <br />
-          <label>Song File: <br />
+          <label>Song File:<br />
             <input type='file' onChange={this.updateFile} />
           </label>
           <br />
-          <label>Cover Art: <br />
+          <label>Cover Art:<br />
             <input type='file' onChange={this.updateImage} />
           </label>
           <br />
-          <label>Cover Art Preview: <br />
+          <label>Cover Art Preview:<br />
             <img src={this.state.cover_art_url} className='coverImagePreview'/>
           </label>
           <br />

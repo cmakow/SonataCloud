@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import HeaderContainer from './header/header_container';
+import FeedContainer from '../feed/feed_container';
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class ProfilePage extends React.Component {
     return (
       <div>
         <HeaderContainer />
-        {/* feed container? sidebar? */}
+        <FeedContainer />
       </div>
     );
   }

@@ -8,7 +8,6 @@ class Api::SongsController < ApplicationController
   end
 
   def create
-    debugger
     @song = Song.new(song_params)
 
     @song.artist_id = current_user.id

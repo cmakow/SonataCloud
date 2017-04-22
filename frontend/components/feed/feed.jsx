@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import SongIndexContainer from '../song_index/song_index_container';
 
 class Feed extends React.Component {
@@ -15,9 +15,10 @@ class Feed extends React.Component {
     return (
       <div className='feed'>
         <SongIndexContainer songs={this.props.songs} currentSong={this.props.currentSong}/>
+        {/* SideBarContainer? */}
       </div>
     );
   }
 }
 
-export default Feed;
+export default withRouter(Feed);
