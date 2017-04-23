@@ -41,7 +41,6 @@ class Upload extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
     e.preventDefault();
 
     let formData = new FormData();
