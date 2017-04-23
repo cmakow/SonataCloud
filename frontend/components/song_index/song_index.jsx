@@ -8,7 +8,6 @@ class SongIndex extends React.Component {
   }
 
   render() {
-    debugger
     if (Object.keys(this.props.songs).length > 0) {
       return (
         <div className='songIndex'>

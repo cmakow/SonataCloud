@@ -5,6 +5,11 @@ class CurrentSong extends React.Component {
     super(props);
 
     this.togglePlay = this.togglePlay.bind(this);
+    this.updateVolume = this.updateVolume.bind(this);
+
+    this.state = {
+      volume: 1
+    }
   }
 
   togglePlay(e) {
@@ -18,17 +23,34 @@ class CurrentSong extends React.Component {
     }
   }
 
+  updateVolume(e) {
+    debugger
+    e.preventDefault();
+    const song = this.refs.song;
+    const targetVol = (e.target.value / 100);
+    this.setState({volume: targetVol});
+    song.volume = targetVol;
+  }
+
+  componentDidUpdate() {
+    this.refs.song.play();
+  }
+
   render() {
     if(this.props.currentSong) {
       return (
         <div className='currentSongPlayer'>
           <audio ref='song' src={this.props.currentSong.data} />
-          <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='play' className='fa fa-play' aria-hidden='true'></i></button>
+          <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='play' className='fa fa-pause' aria-hidden='true'></i></button>
+          <p className='songInfo'>
+            {this.props.currentSong.title} - {this.props.currentSong.artist.username}
+          </p>
+          <input type='range' onChange={this.updateVolume} value={this.state.volume * 100} min='0' max='100' />
         </div>
       );
     } else {
       return (
-        <div className='xd'></div>
+        <div className='xD'></div>
       );
     }
   }

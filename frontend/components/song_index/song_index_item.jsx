@@ -44,7 +44,6 @@ class SongIndexItem extends React.Component {
         <button onClick={this.removeSong}>Remove Song</button>
       </div>
     );
-    debugger
     return (
       <li className='songIndexItem'>
         {/* change this to actual artist image and link to artist page */}
