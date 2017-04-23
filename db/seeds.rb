@@ -12,11 +12,14 @@ User.destroy_all
 
 User.create([
   { email: 'demo@demo.com', username: 'demo', password: 'password' },
-  { email: 'test@test.com', username: 'test', password: 'password123'}
+  { email: 'test@test.com', username: 'test', password: 'password123'},
   ])
+
+f = User.create({ email: 'dontenterthis@dontenterthis.com', username: 'Wankwinkel', password: 'neverfindthis'})
 
 Song.destroy_all
 
 Song.create([
-  {}
+  { title: 'Wankwinkel - Garden Song', artist_id: User.last.id, data: 'https://s3.us-east-2.amazonaws.com/sonatacloud-dev/songs/data/000/000/016/original/Garden_Song.mp3'},
+  { title: 'Fixing a Hole (Colorful Mix)', artist_id: User.first.id, data: 'https://s3.us-east-2.amazonaws.com/sonatacloud-dev/songs/data/000/000/011/original/Fixing_a_Hole_(Colorful_Mix).mp3'}
   ])

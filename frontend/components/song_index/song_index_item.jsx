@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import SongProgressBar from './song_progress_bar';
 
 class SongIndexItem extends React.Component {
@@ -7,6 +7,7 @@ class SongIndexItem extends React.Component {
     super(props);
 
     this.togglePlay = this.togglePlay.bind(this);
+    this.removeSong = this.removeSong.bind(this);
   }
 
   togglePlay(e) {
@@ -18,16 +19,32 @@ class SongIndexItem extends React.Component {
     //   song.pause();
     //   e.currentTarget.innerHTML = "<i class='fa fa-play' aria-hidden='true'></i>";
     // }
-    debugger
     if (this.props.song === this.props.currentSong) {
-      
+
     } else {
       this.props.receiveCurrentSong(this.props.song);
     }
   }
 
+  removeSong(e) {
+    e.preventDefault();
+    this.props.deleteSong(this.props.song.id)
+  }
+
+  directToEdit() {
+    hashHistory.push('/edit');
+  }
+
   render() {
     const song = this.props.song;
+    const currentUser = this.props.currentUser;
+    let editButtons = (currentUser.id !== song.artist.id) ? null : (
+      <div className='songEditInfo'>
+        <button onClick={this.directToEdit}>Edit Song</button>
+        <button onClick={this.removeSong}>Remove Song</button>
+      </div>
+    );
+    debugger
     return (
       <li className='songIndexItem'>
         {/* change this to actual artist image and link to artist page */}
@@ -39,6 +56,7 @@ class SongIndexItem extends React.Component {
           {/* make into link to song show page later */}
           <p className='songTitle'>{song.title}</p>
         </div>
+        { editButtons }
       </li>
     );
   }

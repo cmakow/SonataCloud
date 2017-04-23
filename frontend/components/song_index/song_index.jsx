@@ -8,13 +8,20 @@ class SongIndex extends React.Component {
   }
 
   render() {
+    debugger
     if (Object.keys(this.props.songs).length > 0) {
       return (
         <div className='songIndex'>
           <ul>
             {
               Object.keys(this.props.songs).map(id => (
-                <SongIndexItem song={this.props.songs[id]} key={id} currentSong={this.props.currentSong} receiveCurrentSong={this.props.receiveCurrentSong}/>
+                <SongIndexItem song={this.props.songs[id]}
+                  key={id}
+                  currentSong={this.props.currentSong}
+                  receiveCurrentSong={this.props.receiveCurrentSong}
+                  currentUser={this.props.currentUser}
+                  deleteSong={this.props.deleteSong}
+                />
               ))
             }
           </ul>
