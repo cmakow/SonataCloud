@@ -24,7 +24,6 @@ class CurrentSong extends React.Component {
   }
 
   updateVolume(e) {
-    debugger
     e.preventDefault();
     const song = this.refs.song;
     const targetVol = (e.target.value / 100);
@@ -32,8 +31,8 @@ class CurrentSong extends React.Component {
     song.volume = targetVol;
   }
 
-  componentDidUpdate() {
-    this.refs.song.play();
+  componentDidUpdate(props) {
+    // this.refs.song.play(); //updates when volume slider changed - see if we can fix later
   }
 
   render() {
@@ -45,7 +44,13 @@ class CurrentSong extends React.Component {
           <p className='songInfo'>
             {this.props.currentSong.title} - {this.props.currentSong.artist.username}
           </p>
-          <input type='range' onChange={this.updateVolume} value={this.state.volume * 100} min='0' max='100' />
+          <input
+            type='range'
+            className='volumeSlider'
+            onChange={this.updateVolume}
+            value={this.state.volume * 100}
+            min='0' max='100'
+          />
         </div>
       );
     } else {
