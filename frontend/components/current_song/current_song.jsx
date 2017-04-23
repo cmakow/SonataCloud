@@ -40,7 +40,7 @@ class CurrentSong extends React.Component {
       return (
         <div className='currentSongPlayer'>
           <audio ref='song' src={this.props.currentSong.data} />
-          <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='play' className='fa fa-pause' aria-hidden='true'></i></button>
+          <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='play' className='fa fa-play' aria-hidden='true'></i></button>
           <p className='songInfo'>
             {this.props.currentSong.title} - {this.props.currentSong.artist.username}
           </p>
