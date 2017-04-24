@@ -17,7 +17,6 @@ class Upload extends React.Component {
     this.updateFile = this.updateFile.bind(this);
     this.updateImage = this.updateImage.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(field) {

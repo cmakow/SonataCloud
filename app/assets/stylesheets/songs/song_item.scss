@@ -3,6 +3,10 @@
   margin-top: 10px;
 }
 
+.songIndexItem:last-child {
+  align-items: flex-end;
+}
+
 .playButton {
   width: 36px;
   height: 36px;
@@ -54,4 +58,18 @@
 
 .songTitle {
   font-size: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.songEditInfo button {
+  border-radius: 3px;
+  border: 1px solid #e5e5e5;
+  background-color: white;
+  margin-right: 10px;
+}
+
+.songEditInfo button:hover {
+  cursor: pointer;
+  border: 1px solid #bbbbbb;
 }

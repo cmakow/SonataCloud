@@ -19,7 +19,7 @@ class Api::SongsController < ApplicationController
   end
 
   def update
-    @song = Song.find(params[:id])
+    @song = Song.find(params[:song][:id])
 
     if @song.update(song_params)
       render :show
@@ -30,12 +30,7 @@ class Api::SongsController < ApplicationController
 
   def destroy
     @song = Song.find(params[:id])
-
-    if @song.destroy
-      render :show
-    else
-      render json: ["Unable to delete song"], status: 404
-    end
+    @song.destroy
   end
 
   private

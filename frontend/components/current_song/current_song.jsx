@@ -9,7 +9,7 @@ class CurrentSong extends React.Component {
 
     this.state = {
       volume: 1
-    }
+    };
   }
 
   togglePlay(e) {
@@ -39,8 +39,8 @@ class CurrentSong extends React.Component {
     if(this.props.currentSong) {
       return (
         <div className='currentSongPlayer'>
-          <audio ref='song' src={this.props.currentSong.data} />
-          <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='play' className='fa fa-play' aria-hidden='true'></i></button>
+          <audio ref='song' src={this.props.currentSong.data} autoPlay/>
+          <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='pause' className='fa fa-pause' aria-hidden='true'></i></button>
           <p className='songInfo'>
             {this.props.currentSong.title} - {this.props.currentSong.artist.username}
           </p>

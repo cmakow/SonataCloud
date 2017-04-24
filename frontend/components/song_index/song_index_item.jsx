@@ -55,9 +55,10 @@ class SongIndexItem extends React.Component {
           {/* change to link to user page later */}
           <p className='artistName'>{song.artist.username}</p>
           {/* make into link to song show page later */}
-          <p className='songTitle'>{song.title}</p>
+          <Link to={`/songs/${song.id}`} className='songTitle'>{song.title}</Link>
+          <br/>
+          { editButtons }
         </div>
-        { editButtons }
       </li>
     );
   }

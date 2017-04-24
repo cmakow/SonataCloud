@@ -3,5 +3,5 @@ json.array! @songs do |song|
   json.title song.title
   json.artist song.artist
   json.data song.data.url
-  json.cover_art song.cover_art.url
+  json.cover_art asset_path(song.cover_art.url)
 end

@@ -1,5 +1,6 @@
 import * as APIUtil from '../util/song_api_util';
 import { hashHistory } from 'react-router';
+import { receiveSong } from './song_index_actions';
 
 export const EDIT_SONG = 'EDIT_SONG';
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
@@ -15,7 +16,6 @@ export const receiveErrors = errors => ({
 });
 
 export const updateSong = editedSong => dispatch => {
-  debugger
   return APIUtil.updateSong(editedSong).then(song => dispatch(receiveSong(song)),
     err => dispatch(receiveErrors(song)))
     .then(() => hashHistory.push('/')); // update later to go to song show page

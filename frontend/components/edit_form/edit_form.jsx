@@ -1,4 +1,5 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 class EditForm extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class EditForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.updateImage = this.updateImage.bind(this);
   }
 
   componentDidMount() {
@@ -24,23 +26,6 @@ class EditForm extends React.Component {
       this.props.fetchSong(this.props.params.id);
     }
   }
-
-  renderErrors() {
-    if (this.props.errors.length !== 0) {
-      return(
-        <ul>
-          {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`} className="login-error">
-              {error}
-            </li>
-          ))}
-          <br />
-        </ul>
-      );
-    } else {
-      return null;
-    }
-	}
 
   componentWillReceiveProps(newProps) {
     if(!this.props.editedSong && newProps.editedSong) {
@@ -57,8 +42,7 @@ class EditForm extends React.Component {
     if (this.state.cover_art) {
       formData.append('song[cover_art]', this.state.cover_art);
     }
-    debugger
-    this.props.updateSong(formData);
+    this.props.updateSong(formData).then(() => hashHistory.push('/'));
   }
 
   update(field) {

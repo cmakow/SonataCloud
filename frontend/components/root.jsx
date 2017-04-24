@@ -7,6 +7,7 @@ import ProfilePageContainer from './profile_page/profile_page_container';
 import FeedContainer from './feed/feed_container';
 import UploadContainer from './upload/upload_container';
 import EditContainer from './edit_form/edit_form_container';
+import SongContainer from './song/song_container';
 
 const _redirectIfLoggedIn = (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;
@@ -42,7 +43,8 @@ const Root = ({ store }) => {
           <Route path="/profile" component={ProfilePageContainer} onEnter={_redirectIfNotLoggedIn} />
           <Route path="/feed" component={FeedContainer} onEnter={_redirectIfNotLoggedIn} />
           <Route path="/upload" component={UploadContainer} onEnter={_redirectIfNotLoggedIn} />
-          <Route path="/edit/:id" component={EditContainer} />
+          <Route path="/edit/:id" component={EditContainer} onEnter={_redirectIfNotLoggedIn} />
+          <Route path="/songs/:id" component={SongContainer} onEnter={_redirectIfNotLoggedIn} />
         </Route>
       </Router>
     </Provider>
