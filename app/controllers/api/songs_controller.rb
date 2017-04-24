@@ -32,7 +32,7 @@ class Api::SongsController < ApplicationController
     @song = Song.find(params[:id])
 
     if @song.destroy
-      render :index
+      render :show
     else
       render json: ["Unable to delete song"], status: 404
     end

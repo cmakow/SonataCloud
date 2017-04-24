@@ -25,7 +25,7 @@ module SonataCloud
     storage: :s3,
     url: ':s3_domain_url',
     path: ':class/:attachment/:id_partition/:style/:filename',
-    s3_region: 'us-east-1',
+    s3_region: 'us-east-2',
     s3_credentials: {
         bucket: ENV['s3_bucket'],
         access_key_id: ENV['s3_access_key_id'],

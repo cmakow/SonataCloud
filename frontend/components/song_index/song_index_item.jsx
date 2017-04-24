@@ -8,6 +8,7 @@ class SongIndexItem extends React.Component {
 
     this.togglePlay = this.togglePlay.bind(this);
     this.removeSong = this.removeSong.bind(this);
+    this.directToEdit = this.directToEdit.bind(this);
   }
 
   togglePlay(e) {
@@ -28,11 +29,12 @@ class SongIndexItem extends React.Component {
 
   removeSong(e) {
     e.preventDefault();
-    this.props.deleteSong(this.props.song.id)
+    this.props.deleteSong(this.props.song.id);
   }
 
   directToEdit() {
-    hashHistory.push('/edit');
+    this.props.editSong(this.props.song);
+    hashHistory.push(`/edit/${this.props.song.id}`);
   }
 
   render() {
@@ -47,7 +49,7 @@ class SongIndexItem extends React.Component {
     return (
       <li className='songIndexItem'>
         {/* change this to actual artist image and link to artist page */}
-        <img src={window.defaultUserImg} className='artistImage'/>
+        <img src={song.cover_art} className='artistImage'/>
         <button onClick={this.togglePlay} className='playButton'><i className='fa fa-play' aria-hidden='true'></i></button>
         <div className='songIndexItemHeader'>
           {/* change to link to user page later */}

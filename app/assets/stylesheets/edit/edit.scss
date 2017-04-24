@@ -1,4 +1,4 @@
-.uploadFormContainer {
+.editFormContainer {
   border: 3px solid #f50;
   border-radius: 5px;
   width: 800px;
@@ -13,13 +13,13 @@
   font-size: 20px;
 }
 
-.uploadFormContainer h2 {
+.editFormContainer h2 {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.uploadForm input {
+.editForm input {
   padding: 5px;
   margin: 5px;
   width: 500px;
@@ -28,16 +28,16 @@
   border-style: solid;
 }
 
-.fileInput:hover {
+.coverArtInput:hover {
   cursor: pointer;
 }
 
-.uploadForm img {
+.editForm img {
   max-width: 700px;
   max-height: 350px;
   margin: 5px auto;
 }
 
-.uploadForm button:hover {
+.editForm button:hover {
   cursor: pointer;
 }

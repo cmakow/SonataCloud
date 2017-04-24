@@ -17,6 +17,7 @@ class Upload extends React.Component {
     this.updateFile = this.updateFile.bind(this);
     this.updateImage = this.updateImage.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(field) {
@@ -61,11 +62,11 @@ class Upload extends React.Component {
           </label>
           <br />
           <label>Song File:<br />
-            <input type='file' onChange={this.updateFile} />
+            <input type='file' className='fileInput' onChange={this.updateFile} />
           </label>
           <br />
           <label>Cover Art:<br />
-            <input type='file' onChange={this.updateImage} />
+            <input type='file' className='fileInput' onChange={this.updateImage} />
           </label>
           <br />
           <label>Cover Art Preview:<br />

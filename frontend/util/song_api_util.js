@@ -27,3 +27,14 @@ export const createSong = (song) => (
     dataType: 'json'
   })
 );
+
+export const updateSong = (song) => (
+  $.ajax({
+    url: `/api/songs/${song.id}`,
+    method: 'PATCH',
+    data: song,
+    processData: false,
+    contentType: false,
+    dataType: 'json'
+  })
+);
