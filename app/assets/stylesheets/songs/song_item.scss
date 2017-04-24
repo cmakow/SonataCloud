@@ -1,6 +1,7 @@
 .songIndexItem {
   height: 180px;
   margin-top: 10px;
+  position: relative;
 }
 
 .songIndexItem:last-child {
@@ -60,6 +61,11 @@
   font-size: 20px;
   text-decoration: none;
   color: black;
+}
+
+.songEditInfo {
+  position: absolute;
+  bottom: 23px;
 }
 
 .songEditInfo button {
