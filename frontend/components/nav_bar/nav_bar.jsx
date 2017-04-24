@@ -12,27 +12,34 @@ class NavBar extends React.Component {
     return (
       <div className="navBar">
         <ul className="navBarUl">
-          <li>
-            <Link to='/feed' className="navBarLink"><img src={window.navBarIcon} height="50px"></img></Link> {/* Change to image of logo */}
-          </li>
-          <li>
-            <Link to='/feed' className="navBarLink">Home</Link>
-          </li>
-          <li>
-            <Link to='/charts' className="navBarLink">Charts</Link>
-          </li>
+          <div className='leftSideNav'>
+            <Link to='/feed' className="navBarLink">
+              <li>
+                <img src={window.navBarIcon} height="50px"></img> {/* Change to image of logo */}
+              </li>
+            </Link>
+            <Link to='/feed' className="navBarLink homeButton">
+              <li>
+                Home
+              </li>
+            </Link>
+          </div>
+          {/* <li> */}
+          {/*   <Link to='/charts' className="navBarLink">Charts</Link> */}
+          {/* </li> */}
           <li>
             <SearchBarContainer />
           </li>
-          <li>
-            <Link to='/upload' className="navBarLink">Upload</Link>
-          </li>
-          {/* <Link to='/profile' className="navBarLink">Sample User</Link> */}
-          {/* <AuthFormContainer /> */}
+          <div className='rightSideNav'>
+            <Link to='/upload' className="navBarLink uploadButton">
+              <li>
+                Upload
+              </li>
+            </Link>
+            {/* <Link to='/profile' className="navBarLink">Sample User</Link> */}
+            {/* <AuthFormContainer /> */}
             <UserSubComp currentUser={this.props.currentUser} logout={this.props.logout}/>
-          <li>
-            {/* <DropdownMenuContainer /> */}
-          </li>
+          </div>
         </ul>
       </div>
     );

@@ -20,10 +20,14 @@ class userSubComp extends React.Component {
   render() {
     if (this.props.currentUser) {
       return (
-        <li className="profile-link">
-          <Link to='/profile' className="navBarLink">{this.props.currentUser.username}</Link>
-          <button onClick={this.props.logout}>Log Out</button>
-        </li>
+        <div className='userSubSection'>
+          <li className="profile-link">
+            <Link to='/profile' className="navBarLink">{this.props.currentUser.username}</Link>
+          </li>
+          <li id='logoutButtonLi'>
+            <button onClick={this.props.logout} className='logoutButton'>Log Out</button>
+          </li>
+        </div>
       );
     } else {
       return (
