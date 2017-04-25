@@ -38186,3 +38186,673 @@ Processing by Api::SongsController#index as */*
 Completed 200 OK in 91ms (Views: 57.4ms | ActiveRecord: 2.3ms)
 
 
+Started GET "/api/songs/10" for ::1 at 2017-04-25 10:03:21 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"10"}
+  [1m[36mSong Load (7.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering api/songs/show.json.jbuilder
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  Rendered api/songs/_song.json.jbuilder (33.1ms)
+  Rendered api/songs/show.json.jbuilder (47.4ms)
+Completed 200 OK in 155ms (Views: 78.3ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 10:03:25 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (0.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (24.5ms)
+Completed 200 OK in 89ms (Views: 51.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 10:04:10 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (86.5ms)
+Completed 200 OK in 144ms (Views: 114.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 10:04:13 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (23.2ms)
+Completed 200 OK in 88ms (Views: 50.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/songs/13" for ::1 at 2017-04-25 10:04:57 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"13"}
+  [1m[36mSong Load (3.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering api/songs/show.json.jbuilder
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  Rendered api/songs/_song.json.jbuilder (17.0ms)
+  Rendered api/songs/show.json.jbuilder (29.6ms)
+Completed 200 OK in 133ms (Views: 56.4ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 10:05:04 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (59.6ms)
+Completed 200 OK in 137ms (Views: 94.9ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/api/songs" for ::1 at 2017-04-25 10:06:43 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"Test", "data"=>#<ActionDispatch::Http::UploadedFile:0x007fa3fc1a8180 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-15448-r5ow7d.mp3>, @original_filename="01 - remembering the source.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"01 - remembering the source.mp3\"\r\nContent-Type: audio/mp3\r\n">, "cover_art"=>#<ActionDispatch::Http::UploadedFile:0x007fa3fc1a8090 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-15448-4c8vpt.jpg>, @original_filename="slowdive-ep.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"song[cover_art]\"; filename=\"slowdive-ep.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/3fdc084eff237e36f78c52dbbb2fe0c620170425-15448-17nw9zt.mp3'
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/616d9e2bd56d1c4bbdc410a29123b22720170425-15448-3vn3k8.jpg'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/3fdc084eff237e36f78c52dbbb2fe0c620170425-15448-gg0jb9.mp3'
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/616d9e2bd56d1c4bbdc410a29123b22720170425-15448-hc54h5.jpg'
+  [1m[35mSQL (113.8ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_id", "created_at", "updated_at", "data_file_name", "data_content_type", "data_file_size", "data_updated_at", "cover_art_file_name", "cover_art_content_type", "cover_art_file_size", "cover_art_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "Test"], ["artist_id", 13], ["created_at", 2017-04-25 14:06:43 UTC], ["updated_at", 2017-04-25 14:06:43 UTC], ["data_file_name", "01_-_remembering_the_source.mp3"], ["data_content_type", "audio/mp3"], ["data_file_size", 6007322], ["data_updated_at", 2017-04-25 14:06:43 UTC], ["cover_art_file_name", "slowdive-ep.jpg"], ["cover_art_content_type", "image/jpeg"], ["cover_art_file_size", 143367], ["cover_art_updated_at", 2017-04-25 14:06:43 UTC]]
+[paperclip] saving songs/data/000/000/014/original/01_-_remembering_the_source.mp3
+[paperclip] saving songs/cover_arts/000/000/014/original/slowdive-ep.jpg
+  [1m[35m (28.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (1.7ms)
+  Rendered api/songs/show.json.jbuilder (8.9ms)
+Completed 200 OK in 3852ms (Views: 71.6ms | ActiveRecord: 143.4ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 10:06:47 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (32.0ms)
+Completed 200 OK in 88ms (Views: 52.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:06:49 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (1.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering api/songs/show.json.jbuilder
+  [1m[36mUser Load (43.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered api/songs/_song.json.jbuilder (47.0ms)
+  Rendered api/songs/show.json.jbuilder (54.1ms)
+Completed 200 OK in 123ms (Views: 46.4ms | ActiveRecord: 44.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:09:31 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (51.3ms)
+Completed 200 OK in 1259ms (Views: 1224.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:09:56 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (70.8ms)
+Completed 200 OK in 355ms (Views: 312.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:10:27 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (135.5ms)
+Completed 200 OK in 931ms (Views: 874.3ms | ActiveRecord: 52.9ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:10:35 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 160ms (Views: 154.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:11:43 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (3.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (75.1ms)
+Completed 200 OK in 1373ms (Views: 1349.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:11:45 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (1.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (2.9ms)
+  Rendered api/songs/show.json.jbuilder (12.8ms)
+Completed 200 OK in 293ms (Views: 52.3ms | ActiveRecord: 135.6ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:12:13 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (2.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (67.3ms)
+Completed 200 OK in 1173ms (Views: 1139.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:12:15 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (94.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (3.6ms)
+  Rendered api/songs/show.json.jbuilder (21.1ms)
+Completed 200 OK in 243ms (Views: 72.4ms | ActiveRecord: 95.3ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:12:49 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 456ms (Views: 452.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:12:50 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (26.6ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (3.9ms)
+  Rendered api/songs/show.json.jbuilder (30.5ms)
+Completed 200 OK in 170ms (Views: 89.0ms | ActiveRecord: 27.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:12:54 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 133ms (Views: 130.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:12:55 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (2.3ms)
+  Rendered api/songs/show.json.jbuilder (10.5ms)
+Completed 200 OK in 77ms (Views: 48.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:13:33 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 173ms (Views: 170.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:13:34 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (2.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (4.6ms)
+  Rendered api/songs/show.json.jbuilder (38.6ms)
+Completed 200 OK in 116ms (Views: 75.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:13:42 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 165ms (Views: 162.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:13:43 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (1.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (2.5ms)
+  Rendered api/songs/show.json.jbuilder (11.8ms)
+Completed 200 OK in 71ms (Views: 37.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:13:46 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 230ms (Views: 225.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:13:47 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (0.9ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (2.7ms)
+  Rendered api/songs/show.json.jbuilder (17.8ms)
+Completed 200 OK in 85ms (Views: 52.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:13:52 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 129ms (Views: 125.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:13:53 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (1.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (2.4ms)
+  Rendered api/songs/show.json.jbuilder (16.1ms)
+Completed 200 OK in 86ms (Views: 50.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:14:03 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 179ms (Views: 176.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:14:04 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (2.4ms)
+  Rendered api/songs/show.json.jbuilder (10.6ms)
+Completed 200 OK in 94ms (Views: 46.0ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:14:30 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 265ms (Views: 244.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:14:31 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (1.8ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (2.8ms)
+  Rendered api/songs/show.json.jbuilder (13.3ms)
+Completed 200 OK in 88ms (Views: 46.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:14:34 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 737ms (Views: 733.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:14:35 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (15.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (2.1ms)
+  Rendered api/songs/show.json.jbuilder (11.4ms)
+Completed 200 OK in 101ms (Views: 47.5ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:14:47 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 74ms (Views: 70.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:14:48 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (1.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (2.9ms)
+  Rendered api/songs/show.json.jbuilder (14.5ms)
+Completed 200 OK in 94ms (Views: 52.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:15:06 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 953ms (Views: 945.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:15:08 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (1.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (15.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (12.8ms)
+  Rendered api/songs/show.json.jbuilder (107.4ms)
+Completed 200 OK in 224ms (Views: 167.5ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:15:13 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 222ms (Views: 218.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:15:14 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (23.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (2.3ms)
+  Rendered api/songs/show.json.jbuilder (12.1ms)
+Completed 200 OK in 108ms (Views: 54.3ms | ActiveRecord: 23.8ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 10:15:26 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (59.4ms)
+Completed 200 OK in 109ms (Views: 54.7ms | ActiveRecord: 26.5ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:15:29 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (20.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (1.7ms)
+  Rendered api/songs/show.json.jbuilder (7.4ms)
+Completed 200 OK in 100ms (Views: 30.0ms | ActiveRecord: 21.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:16:04 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (20.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (59.6ms)
+Completed 200 OK in 404ms (Views: 356.5ms | ActiveRecord: 20.1ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:16:06 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (1.9ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (7.5ms)
+  Rendered api/songs/show.json.jbuilder (21.2ms)
+Completed 200 OK in 200ms (Views: 59.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:16:08 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 617ms (Views: 612.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/songs/14" for ::1 at 2017-04-25 10:16:09 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (1.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (5.2ms)
+  Rendered api/songs/show.json.jbuilder (15.7ms)
+Completed 200 OK in 97ms (Views: 65.1ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/api/songs/14" for ::1 at 2017-04-25 10:16:10 -0400
+Processing by Api::SongsController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"14"}
+  [1m[36mSong Load (1.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (70.0ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 14]]
+  [1m[35m (32.8ms)[0m  [1m[35mCOMMIT[0m
+[paperclip] deleting songs/cover_arts/000/000/014/original/slowdive-ep.jpg
+[paperclip] deleting songs/data/000/000/014/original/01_-_remembering_the_source.mp3
+No template found for Api::SongsController#destroy, rendering head :no_content
+Completed 204 No Content in 858ms (ActiveRecord: 104.4ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 10:16:11 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (18.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (31.3ms)
+Completed 200 OK in 88ms (Views: 38.3ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 10:16:13 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (16.7ms)
+Completed 200 OK in 76ms (Views: 41.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/songs" for ::1 at 2017-04-25 10:17:32 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"dwa", "data"=>#<ActionDispatch::Http::UploadedFile:0x007fa3f45d1700 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-15448-1we0kdn.mp3>, @original_filename="01. Jesus Wept.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"01. Jesus Wept.mp3\"\r\nContent-Type: audio/mp3\r\n">, "cover_art"=>#<ActionDispatch::Http::UploadedFile:0x007fa3f45d16b0 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-15448-xs1x1d.jpg>, @original_filename="slowdivepic.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"song[cover_art]\"; filename=\"slowdivepic.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/1c230642b0e91a851178fa5b9ce64deb20170425-15448-1tsz58k.mp3'
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/aea15b688ff6f306f78703ce5d708c4220170425-15448-k16wrz.jpg'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/1c230642b0e91a851178fa5b9ce64deb20170425-15448-8elfez.mp3'
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/aea15b688ff6f306f78703ce5d708c4220170425-15448-g7u1o0.jpg'
+  [1m[35mSQL (113.9ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_id", "created_at", "updated_at", "data_file_name", "data_content_type", "data_file_size", "data_updated_at", "cover_art_file_name", "cover_art_content_type", "cover_art_file_size", "cover_art_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "dwa"], ["artist_id", 13], ["created_at", 2017-04-25 14:17:32 UTC], ["updated_at", 2017-04-25 14:17:32 UTC], ["data_file_name", "01._Jesus_Wept.mp3"], ["data_content_type", "audio/mp3"], ["data_file_size", 3652009], ["data_updated_at", 2017-04-25 14:17:32 UTC], ["cover_art_file_name", "slowdivepic.jpg"], ["cover_art_content_type", "image/jpeg"], ["cover_art_file_size", 170085], ["cover_art_updated_at", 2017-04-25 14:17:32 UTC]]
+[paperclip] saving songs/data/000/000/015/original/01._Jesus_Wept.mp3
+[paperclip] saving songs/cover_arts/000/000/015/original/slowdivepic.jpg
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (1.7ms)
+  Rendered api/songs/show.json.jbuilder (9.9ms)
+Completed 200 OK in 1861ms (Views: 53.5ms | ActiveRecord: 118.3ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 10:17:34 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (47.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (134.7ms)
+Completed 200 OK in 217ms (Views: 118.8ms | ActiveRecord: 49.2ms)
+
+
+Started GET "/api/songs/15" for ::1 at 2017-04-25 10:17:39 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"15"}
+  [1m[36mSong Load (45.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (2.1ms)
+  Rendered api/songs/show.json.jbuilder (8.6ms)
+Completed 200 OK in 101ms (Views: 32.7ms | ActiveRecord: 46.4ms)
+
+
+Started DELETE "/api/songs/15" for ::1 at 2017-04-25 10:17:40 -0400
+Processing by Api::SongsController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"15"}
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (23.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 15]]
+  [1m[35m (29.7ms)[0m  [1m[35mCOMMIT[0m
+[paperclip] deleting songs/cover_arts/000/000/015/original/slowdivepic.jpg
+[paperclip] deleting songs/data/000/000/015/original/01._Jesus_Wept.mp3
+No template found for Api::SongsController#destroy, rendering head :no_content
+Completed 204 No Content in 487ms (ActiveRecord: 53.8ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 10:17:40 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (36.5ms)
+Completed 200 OK in 80ms (Views: 59.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 10:17:48 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (35.1ms)
+Completed 200 OK in 107ms (Views: 77.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 10:19:43 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (29.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (66.6ms)
+Completed 200 OK in 1084ms (Views: 1035.0ms | ActiveRecord: 29.6ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 10:19:46 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (21.8ms)
+Completed 200 OK in 104ms (Views: 57.6ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/songs" for ::1 at 2017-04-25 10:20:00 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"dwa", "data"=>#<ActionDispatch::Http::UploadedFile:0x007fa3fa993f90 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-15448-18wplnz.mp3>, @original_filename="07. léo.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"07. le\xCC\x81o.mp3\"\r\nContent-Type: audio/mp3\r\n">, "cover_art"=>#<ActionDispatch::Http::UploadedFile:0x007fa3fa993f40 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-15448-12tlgu9.jpg>, @original_filename="slowdivepic.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"song[cover_art]\"; filename=\"slowdivepic.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/59a197466e18befeb0d4077b56d1c16d20170425-15448-hcfn5h.mp3'
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/aea15b688ff6f306f78703ce5d708c4220170425-15448-ezzjxl.jpg'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uSUo2Mn0t7CR4SOJiwDTQA"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/59a197466e18befeb0d4077b56d1c16d20170425-15448-12kyeaj.mp3'
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/aea15b688ff6f306f78703ce5d708c4220170425-15448-8smwov.jpg'
+  [1m[35mSQL (40.2ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_id", "created_at", "updated_at", "data_file_name", "data_content_type", "data_file_size", "data_updated_at", "cover_art_file_name", "cover_art_content_type", "cover_art_file_size", "cover_art_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "dwa"], ["artist_id", 13], ["created_at", 2017-04-25 14:20:01 UTC], ["updated_at", 2017-04-25 14:20:01 UTC], ["data_file_name", "07._léo.mp3"], ["data_content_type", "audio/mp3"], ["data_file_size", 3692544], ["data_updated_at", 2017-04-25 14:20:00 UTC], ["cover_art_file_name", "slowdivepic.jpg"], ["cover_art_content_type", "image/jpeg"], ["cover_art_file_size", 170085], ["cover_art_updated_at", 2017-04-25 14:20:01 UTC]]
+[paperclip] saving songs/data/000/000/016/original/07._léo.mp3
+[paperclip] saving songs/cover_arts/000/000/016/original/slowdivepic.jpg
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (2.3ms)
+  Rendered api/songs/show.json.jbuilder (10.0ms)
+Completed 200 OK in 2114ms (Views: 66.9ms | ActiveRecord: 42.7ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 10:20:03 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (38.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (76.8ms)
+Completed 200 OK in 165ms (Views: 58.6ms | ActiveRecord: 39.9ms)
+
+
+Started GET "/api/songs/16" for ::1 at 2017-04-25 10:20:04 -0400
+Processing by Api::SongsController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"16"}
+  [1m[36mSong Load (1.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (1.8ms)
+  Rendered api/songs/show.json.jbuilder (8.7ms)
+Completed 200 OK in 80ms (Views: 44.1ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/api/songs/16" for ::1 at 2017-04-25 10:20:10 -0400
+Processing by Api::SongsController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"16"}
+  [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (16.8ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 16]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+[paperclip] deleting songs/cover_arts/000/000/016/original/slowdivepic.jpg
+[paperclip] deleting songs/data/000/000/016/original/07._léo.mp3
+No template found for Api::SongsController#destroy, rendering head :no_content
+Completed 204 No Content in 425ms (ActiveRecord: 18.7ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 10:20:10 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (40.5ms)
+Completed 200 OK in 125ms (Views: 94.6ms | ActiveRecord: 3.0ms)
+
+

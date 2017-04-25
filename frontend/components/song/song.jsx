@@ -1,4 +1,5 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 class Song extends React.Component {
   constructor(props) {
@@ -10,6 +11,18 @@ class Song extends React.Component {
     };
 
     this.togglePlay = this.togglePlay.bind(this);
+    this.removeSong = this.removeSong.bind(this);
+    this.directToEdit = this.directToEdit.bind(this);
+  }
+
+  removeSong(e) {
+    e.preventDefault();
+    this.props.deleteSong(this.props.song.id);
+  }
+
+  directToEdit() {
+    this.props.editSong(this.props.song);
+    hashHistory.push(`/edit/${this.props.song.id}`);
   }
 
   componentDidMount() {
@@ -38,6 +51,15 @@ class Song extends React.Component {
 
   render() {
     const song = this.props.song;
+    let editButtons;
+    if(song) {
+      editButtons = (currentUser.id !== song.artist.id) ? null : (
+        <div className='songEditInfo showEdit'>
+          <button onClick={this.directToEdit}>Edit Song</button>
+          <button onClick={this.removeSong}>Remove Song</button>
+        </div>
+      );
+    }
     if(song) {
       return (
         <div className='songShowHeader'>
@@ -50,6 +72,7 @@ class Song extends React.Component {
           </div>
           <div className='songShowCoverArt'>
             <img src={song.cover_art} />
+            { editButtons }
           </div>
         </div>
       );

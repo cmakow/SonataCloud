@@ -4,7 +4,7 @@ class Api::SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find(params[:id])
+    @song = Song.includes(:artist).find(params[:id])
   end
 
   def create
