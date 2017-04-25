@@ -8,6 +8,10 @@ class NavBar extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchSongs();
+  }
+
   render() {
     return (
       <div className="navBar">
@@ -28,7 +32,7 @@ class NavBar extends React.Component {
           {/*   <Link to='/charts' className="navBarLink">Charts</Link> */}
           {/* </li> */}
           <li>
-            <SearchBarContainer />
+            <SearchBarContainer songs={Object.values(this.props.songs)}/>
           </li>
           <div className='rightSideNav'>
             <Link to='/upload' className="navBarLink uploadButton">

@@ -11,6 +11,7 @@ class SongIndex extends React.Component {
     if (Object.keys(this.props.songs).length > 0) {
       return (
         <div className='songIndex'>
+          <h1>Here's the latest songs:</h1>
           <ul>
             {
               Object.keys(this.props.songs).map(id => (

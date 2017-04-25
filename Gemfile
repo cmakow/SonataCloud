@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# PG Search
+gem 'pg_search'
+
 # AWS File Upload Gems
 gem 'paperclip', '5.0.0'
 gem 'figaro'

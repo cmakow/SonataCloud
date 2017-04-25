@@ -21,6 +21,9 @@
 
 class Song < ApplicationRecord
   validates :title, :data, :artist, presence: true
+  include PgSearch
+
+  pg_search_scope :search_for, against: %i(title)
 
   has_attached_file :data
   validates_attachment_content_type :data, content_type: ['audio/mp3', 'audio/mpeg']

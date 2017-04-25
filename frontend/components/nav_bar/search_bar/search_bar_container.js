@@ -1,13 +1,14 @@
 import React from 'react';
 import SearchBar from './search_bar';
 import { connect } from 'react-redux';
+import { fetchSongs } from '../../../actions/song_index_actions';
 
 const mapStateToProps = state => ({
-  // get songs index?
+
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  // do I need anything here?
+  fetchSongs: () => dispatch(fetchSongs(songs))
 });
 
 export default connect(

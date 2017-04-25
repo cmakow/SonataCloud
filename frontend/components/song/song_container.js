@@ -1,7 +1,7 @@
 import React from 'react';
 import Song from './song';
 import { connect } from 'react-redux';
-import { fetchSong } from '../../actions/song_index_actions';
+import { fetchSong, fetchSongs } from '../../actions/song_index_actions';
 import { receiveCurrentSong } from '../../actions/current_song_actions';
 import { editSong } from '../../actions/edit_song_actions';
 import { deleteSong } from '../../actions/song_show_actions';
@@ -17,7 +17,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   editSong: song => dispatch(editSong(song)),
   fetchSong: id => dispatch(fetchSong(id)),
   deleteSong: id => dispatch(deleteSong(id)),
-  receiveCurrentSong: song => dispatch(receiveCurrentSong(song))
+  receiveCurrentSong: song => dispatch(receiveCurrentSong(song)),
+  fetchSongs: () => dispatch(fetchSongs())
 });
 
 export default connect(
