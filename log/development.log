@@ -49721,3 +49721,90 @@ app/controllers/api/songs_controller.rb:11:in `create'
   Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
   Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.2ms)
   Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (111.3ms)
+  [1m[35m (110.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2144267292346103820);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveColumnFromUsers (20170425201440)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (339.3ms)[0m  [1m[35mALTER TABLE "users" DROP "image_url"[0m
+  [1m[35mSQL (28.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170425201440"]]
+  [1m[35m (35.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (16.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2144267292346103820)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2144267292346103820);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAttachmentProfilePictureToUsers (20170425201710)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class AddAttachmentProfilePictureToUsers < ActiveRecord::Migration[4.2] (called from load at /usr/local/var/rbenv/versions/2.3.1/bin/rake:23)
+  [1m[35m (64.8ms)[0m  [1m[35mALTER TABLE "users" ADD "profile_picture_file_name" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "profile_picture_content_type" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "profile_picture_file_size" integer[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" ADD "profile_picture_updated_at" timestamp[0m
+  [1m[35mSQL (25.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170425201710"]]
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAttachmentHeaderImageToUsers (20170425201746)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class AddAttachmentHeaderImageToUsers < ActiveRecord::Migration[4.2] (called from load at /usr/local/var/rbenv/versions/2.3.1/bin/rake:23)
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "header_image_file_name" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "header_image_content_type" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "header_image_file_size" integer[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "header_image_updated_at" timestamp[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170425201746"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2144267292346103820)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 16:35:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (243.5ms)
+Completed 200 OK in 436ms (Views: 207.3ms | ActiveRecord: 107.6ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 16:35:40 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (0.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (36.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (64.6ms)
+Completed 200 OK in 123ms (Views: 52.9ms | ActiveRecord: 37.1ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 16:35:49 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (136.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (20.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (435.3ms)
+Completed 200 OK in 1978ms (Views: 1837.3ms | ActiveRecord: 137.4ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 16:35:53 -0400
+Started GET "/api/users/13/songs?artist_id=13" for ::1 at 2017-04-25 16:35:53 -0400
+Processing by Api::SongsController#index as */*
+Processing by Api::SongsController#index as */*
+  Parameters: {"artist_id"=>"13", "default"=>{"format"=>:json}, "user_id"=>"13"}
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (92.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."artist_id" = $1 LIMIT $2[0m  [["artist_id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (322.1ms)
+Completed 200 OK in 33314ms (Views: 191.8ms | ActiveRecord: 184.1ms)
+
+
+  [1m[36mSong Load (1.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."artist_id" = $1 LIMIT $2[0m  [["artist_id", 13], ["LIMIT", 1]]

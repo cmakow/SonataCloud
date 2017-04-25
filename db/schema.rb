@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170422164658) do
+ActiveRecord::Schema.define(version: 20170425201746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,15 +36,22 @@ ActiveRecord::Schema.define(version: 20170422164658) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",         null: false
-    t.string   "email",            null: false
-    t.string   "password_digest",  null: false
-    t.string   "session_token",    null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "image_url"
+    t.string   "username",                     null: false
+    t.string   "email",                        null: false
+    t.string   "password_digest",              null: false
+    t.string   "session_token",                null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.text     "bio"
     t.string   "header_image_url"
+    t.string   "profile_picture_file_name"
+    t.string   "profile_picture_content_type"
+    t.integer  "profile_picture_file_size"
+    t.datetime "profile_picture_updated_at"
+    t.string   "header_image_file_name"
+    t.string   "header_image_content_type"
+    t.integer  "header_image_file_size"
+    t.datetime "header_image_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
