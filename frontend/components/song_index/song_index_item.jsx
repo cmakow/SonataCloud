@@ -33,7 +33,7 @@ class SongIndexItem extends React.Component {
         }
     } else {
       this.props.receiveCurrentSong(this.props.song);
-      e.currentTarget.innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";  
+      e.currentTarget.innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";
     }
   }
 
@@ -56,18 +56,30 @@ class SongIndexItem extends React.Component {
         <button onClick={this.removeSong}>Remove Song</button>
       </div>
     );
+    const songUploadDate = new Date(this.props.song.date);
+    const today = new Date();
+    const timeDiff = Math.floor((today - songUploadDate)/36e5)
+    let hours = 'hours';
+    if (timeDiff === 1) {
+      hours = 'hour';
+    }
     return (
-      <li className='songIndexItem'>
+      <li className='songIndexItemLi'>
         {/* change this to actual artist image and link to artist page */}
-        <img src={song.cover_art} className='artistImage'/>
-        <button onClick={this.togglePlay} className='playButton'><i className='fa fa-play' aria-hidden='true'></i></button>
-        <div className='songIndexItemHeader'>
-          {/* change to link to user page later */}
-          <p className='artistName'>{song.artist.username}</p>
-          {/* make into link to song show page later */}
-          <Link to={`/songs/${song.id}`} className='songTitle'>{song.title}</Link>
-          <br/>
-          { editButtons }
+        <div className='uploaderInfo'>
+          <p>{song.artist.username} uploaded <Link to={`/songs/${song.id}`}>a track</Link> {timeDiff} {hours} ago.</p>
+        </div>
+        <div className='songIndexItem'>
+          <img src={song.cover_art} className='artistImage'/>
+          <button onClick={this.togglePlay} className='playButton'><i className='fa fa-play' aria-hidden='true'></i></button>
+          <div className='songIndexItemHeader'>
+            {/* change to link to user page later */}
+            <p className='artistName'>{song.artist.username}</p>
+            {/* make into link to song show page later */}
+            <Link to={`/songs/${song.id}`} className='songTitle'>{song.title}</Link>
+            <br/>
+            { editButtons }
+          </div>
         </div>
       </li>
     );
