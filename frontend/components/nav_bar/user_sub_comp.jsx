@@ -33,10 +33,14 @@ class userSubComp extends React.Component {
       );
     } else {
       return (
-        <li className="login-links">
-          <button onClick={this.sendToLogin}>Sign in</button>
-          <button onClick={this.sendToSignUp}>Create account</button>
-        </li>
+        <div className='userSubSection'>
+          <li id="loginButtonLi">
+            <button className='loginButtons' onClick={this.sendToLogin}>Sign in</button>
+          </li>
+          <li id='loginButtonLi'>
+            <button className='loginButtons' onClick={this.sendToSignUp}>Create account</button>
+          </li>
+        </div>
       );
     }
   }

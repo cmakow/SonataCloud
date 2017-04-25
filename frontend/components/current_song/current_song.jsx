@@ -50,6 +50,7 @@ class CurrentSong extends React.Component {
       song.play().then(() => {
         this.setState({duration: song.duration, playing: true});
       });
+      $('#currentSongPlay')[0].innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";
     }
   }
 
@@ -67,10 +68,10 @@ class CurrentSong extends React.Component {
 
   render() {
     let playButton = <i id='pause' className='fa fa-pause' aria-hidden='true'></i>;
-    if (this.refs.song) {
-      playButton = this.refs.song.paused ? <i id='play' className='fa fa-play' aria-hidden='true'></i> : <i id='pause' className='fa fa-pause' aria-hidden='true'></i>;
-    }
     if(this.props.currentSong) {
+      // if (this.refs.song) {
+      //   playButton = this.refs.song.paused ? <i id='play' className='fa fa-play' aria-hidden='true'></i> : <i id='pause' className='fa fa-pause' aria-hidden='true'></i>;
+      // }
       const songInfo = `${this.props.currentSong.title} - ${this.props.currentSong.artist.username}`;
       let songInfoComponent;
       if (songInfo.length > 20) {
@@ -83,7 +84,7 @@ class CurrentSong extends React.Component {
           <div className='currentSongControls'>
             <audio ref='song' src={this.props.currentSong.data} />
             <img src={this.props.currentSong.cover_art} className='currentSongThumb' />
-            <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'>{playButton}</button>
+            <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='pause' className='fa fa-pause' aria-hidden='true'></i></button>
             <div className='progressBarContainer'>
               {this.parseTime(this.state.currentTime)}
               <progress className='songProgressBar' value={this.state.currentTime} max={this.state.duration}></progress>

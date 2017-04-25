@@ -43,7 +43,6 @@
 }
 
 .uploadButton {
-
   border-left: 1px solid black;
 }
 
@@ -105,6 +104,28 @@
 }
 
 .logoutButton:hover {
+  cursor: pointer;
+  color: white;
+}
+
+#loginButtonLi {
+  padding: 0px 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.loginButtons {
+  width: 100%;
+  height: 100%;
+  padding: 0px 10px;
+  background: #333;
+  color: #CCCCC2;
+  font-weight: bold;
+  border: none;
+  font-size: 11px;
+}
+
+.loginButtons:hover {
   cursor: pointer;
   color: white;
 }
