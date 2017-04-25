@@ -55,6 +55,7 @@ class Upload extends React.Component {
 
   renderErrors() {
     if (this.props.errors.length !== 0) {
+      this.setState({uploading: false})
       return(
         <h3 className='errorHeader'>Oops, something went wrong! Please make sure you are uploading an mp3 file!</h3>
       );
