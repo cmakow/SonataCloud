@@ -16,6 +16,16 @@ class Feed extends React.Component {
     }
   }
 
+  componentWillReceiveProps(newProps) {
+    if(newProps.params.user_id !== this.props.params.user_id) {
+      if(newProps.params.user_id) {
+        this.props.fetchUserSongs(newProps.params.user_id);
+      } else {
+        this.props.fetchSongs();
+      }
+    }
+  }
+
   render() {
     return (
       <div className='feed'>

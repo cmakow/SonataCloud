@@ -50,7 +50,7 @@ class SongIndexItem extends React.Component {
     );
     const songUploadDate = new Date(this.props.song.date);
     const today = new Date();
-    const timeDiff = Math.floor((today - songUploadDate)/36e5)
+    const timeDiff = Math.floor((today - songUploadDate)/36e5);
     let hours = 'hours';
     if (timeDiff === 1) {
       hours = 'hour';
@@ -72,7 +72,7 @@ class SongIndexItem extends React.Component {
       <li className='songIndexItemLi'>
         {/* change this to actual artist image and link to artist page */}
         <div className='uploaderInfo'>
-          <p>{song.artist.username} uploaded <Link to={`/songs/${song.id}`}>a track</Link> {timeDiff} {hours} ago.</p>
+          <p><Link to={`/profile/${song.artist.id}`}>{song.artist.username}</Link> uploaded <Link to={`/songs/${song.id}`}>a track</Link> {timeDiff} {hours} ago.</p>
         </div>
         <div className='songIndexItem'>
           <img src={song.cover_art} className='artistImage'/>

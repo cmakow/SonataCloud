@@ -6,11 +6,11 @@ const EditSongReducer = (state = {editedSong: null, errors: []}, action) => {
   let nextState;
   switch(action.type) {
     case EDIT_SONG:
-      nextState = Object.assign({}, state)
+      nextState = Object.assign({}, state);
       nextState.editedSong = action.editedSong;
       return nextState;
     case RECEIVE_EDIT_ERRORS:
-      nextState = Object.assign({}, state)
+      nextState = Object.assign({}, state);
       nextState.errors = action.errors;
       return nextState;
     default:
