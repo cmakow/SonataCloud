@@ -21,7 +21,7 @@ class userSubComp extends React.Component {
     if (this.props.currentUser) {
       return (
         <div className='userSubSection'>
-          <Link to='/profile' className="navBarLink">
+          <Link to={`/profile/${this.props.currentUser.id}`} className="navBarLink">
             <li className="profile-link">
               {this.props.currentUser.username}
             </li>

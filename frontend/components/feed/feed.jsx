@@ -8,7 +8,12 @@ class Feed extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserSongs(this.props.currentUser.id);
+    const loc = location.hash.slice(2);
+    if (loc === 'feed') {
+      this.props.fetchSongs();
+    } else if (loc.startsWith('profile')) {
+      this.props.fetchUserSongs(this.props.params.user_id);
+    }
   }
 
   render() {

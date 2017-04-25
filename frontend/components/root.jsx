@@ -40,7 +40,7 @@ const Root = ({ store }) => {
           <IndexRoute component={FeedContainer} />
           <Route path="/login" component={AuthFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={AuthFormContainer} onEnter={_redirectIfLoggedIn} />
-          <Route path="/profile" component={ProfilePageContainer} onEnter={_redirectIfNotLoggedIn} />
+          <Route path="/profile/:user_id" component={ProfilePageContainer} onEnter={_redirectIfNotLoggedIn} />
           <Route path="/feed" component={FeedContainer} onEnter={_redirectIfNotLoggedIn} />
           <Route path="/upload" component={UploadContainer} onEnter={_redirectIfNotLoggedIn} />
           <Route path="/edit/:id" component={EditContainer} onEnter={_redirectIfNotLoggedIn} />

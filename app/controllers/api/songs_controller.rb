@@ -1,8 +1,7 @@
 class Api::SongsController < ApplicationController
   def index
-    debugger
     if params[:artist_id]
-      @songs = Song.find_by(artist_id: params[:artist_id]).includes(:artist).order('created_at DESC')
+      @songs = Song.where(artist_id: params[:artist_id]).includes(:artist).order('created_at DESC')
     else
       @songs = Song.includes(:artist).order('created_at DESC').all
     end
