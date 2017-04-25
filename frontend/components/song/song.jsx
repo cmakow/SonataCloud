@@ -5,7 +5,8 @@ class Song extends React.Component {
     super(props);
 
     this.state = {
-      song: null
+      song: null,
+      isCurrentSong: false
     };
 
     this.togglePlay = this.togglePlay.bind(this);
@@ -17,10 +18,21 @@ class Song extends React.Component {
   }
 
   togglePlay(e) {
-    if (this.props.song === this.props.currentSong) {
-
+    if (this.state.isCurrentSong) {
+      const song = $('audio')[0];
+        if (song.paused) {
+          song.play();
+          this.setState({playing: true});
+          e.currentTarget.innerHTML = "<i id='showPause' class='fa fa-pause' aria-hidden='true'></i>";
+        } else {
+          song.pause();
+          this.setState({playing: false});
+          e.currentTarget.innerHTML = "<i id='play' class='fa fa-play' aria-hidden='true'></i>";
+        }
     } else {
       this.props.receiveCurrentSong(this.props.song);
+      e.currentTarget.innerHTML = "<i id='showPause' class='fa fa-pause' aria-hidden='true'></i>";
+      this.setState({isCurrentSong: true})
     }
   }
 

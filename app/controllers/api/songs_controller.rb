@@ -1,6 +1,6 @@
 class Api::SongsController < ApplicationController
   def index
-    @songs = Song.includes(:artist).all
+    @songs = Song.includes(:artist).order('created_at DESC').all
   end
 
   def show

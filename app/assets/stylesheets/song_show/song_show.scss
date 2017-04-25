@@ -1,7 +1,7 @@
 .songShowHeader {
   margin: 0 auto;
   display: flex;
-  width: 1200px;
+  width: 1240px;
   height: 375px;
   justify-content: space-between;
   background: linear-gradient(315deg, rgb(213, 222, 236) 0%, rgb(122, 143, 184) 100%);
@@ -25,6 +25,11 @@
 
 .showPlayButton i {
   padding-left: 8px;
+}
+
+#showPause {
+  font-size: 35px;
+  padding-left: 2px;
 }
 
 .showPlayButton:hover {

@@ -21,9 +21,19 @@ class SongIndexItem extends React.Component {
     //   e.currentTarget.innerHTML = "<i class='fa fa-play' aria-hidden='true'></i>";
     // }
     if (this.props.song === this.props.currentSong) {
-
+      const song = $('audio')[0];
+        if (song.paused) {
+          song.play();
+          this.setState({playing: true});
+          e.currentTarget.innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";
+        } else {
+          song.pause();
+          this.setState({playing: false});
+          e.currentTarget.innerHTML = "<i id='play' class='fa fa-play' aria-hidden='true'></i>";
+        }
     } else {
       this.props.receiveCurrentSong(this.props.song);
+      e.currentTarget.innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";  
     }
   }
 

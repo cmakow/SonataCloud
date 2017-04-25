@@ -6,7 +6,8 @@ import { receiveCurrentSong } from '../../actions/current_song_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
-    song: state.songs[ownProps.params.id]
+    song: state.songs[ownProps.params.id],
+    currentSong: state.currentSong.current_song
   });
 };
 

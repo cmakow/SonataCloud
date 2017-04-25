@@ -15,7 +15,7 @@ class NavBar extends React.Component {
           <div className='leftSideNav'>
             <Link to='/feed' className="navBarLink">
               <li>
-                <img src={window.navBarIcon} height="50px"></img> {/* Change to image of logo */}
+                <img src={window.navBarIcon} className='homeIcon'></img> {/* Change to image of logo */}
               </li>
             </Link>
             <Link to='/feed' className="navBarLink homeButton">
