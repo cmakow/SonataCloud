@@ -63,23 +63,27 @@ class EditForm extends React.Component {
   }
 
   render() {
+    let imagePreview;
+    if (this.props.editedSong) {
+      imagePreview = this.state.cover_art_url ? this.state.cover_art_url : this.props.editedSong.cover_art;
+    }
     return (
       <div className='editFormContainer'>
         <h2>Edit Your Song</h2>
         <form className='editForm'>
-          <label>Title:<br/>
-            <input type='text' value={this.state.title} onChange={this.update('title')} />
-          </label>
-          <br />
-          <label>Cover Art:<br />
-            <input type='file' className='coverArtInput' onChange={this.updateImage} />
-          </label>
-          <br />
-          <label>Cover Art Preview:<br />
-            <img src={this.state.cover_art_url} className='coverImagePreview'/>
-          </label>
-          <br />
-          <button onClick={this.handleSubmit}>Update Song</button>
+          <div className='coverArtSection'>
+            <label>Cover Art:<br />
+              <input type='file' className='imageInput' onChange={this.updateImage} />
+            </label>
+            <img src={imagePreview} className='coverImagePreview'/>
+          </div>
+          <div className='songEditFormInfo'>
+            <label>Title:<br/>
+              <input type='text' value={this.state.title} onChange={this.update('title')} />
+            </label>
+            <br />
+            <button onClick={this.handleSubmit} className='editSubmit'>Update Song</button>
+          </div>
         </form>
       </div>
     );

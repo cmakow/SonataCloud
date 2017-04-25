@@ -10,7 +10,8 @@ class Upload extends React.Component {
       cover_art_url: null,
       data: null,
       artist_id: this.props.currentUser.id,
-      track_num: null
+      track_num: null,
+      uploading: false
     };
 
     this.update = this.update.bind(this);
@@ -49,30 +50,51 @@ class Upload extends React.Component {
     formData.append('song[cover_art]', this.state.cover_art);
 
     this.props.createSong(formData);
+    this.setState({uploading: true});
   }
 
+  renderErrors() {
+    if (this.props.errors.length !== 0) {
+      return(
+        <h3 className='errorHeader'>Oops, something went wrong! Please make sure you are uploading an mp3 file!</h3>
+      );
+    } else {
+      return null;
+    }
+	}
+
   render() {
+    let opts = {}
+    if(this.state.data && this.state.title.length > 0) {
+      opts['disabled'] = '';
+    } else {
+      opts['disabled'] = 'disabled';
+    }
+    if(this.state.uploading) {
+      opts['disabled'] = 'disabled';
+    }
     return(
       <div className='uploadFormContainer'>
         <h2>Upload to SonataCloud</h2>
+        {this.renderErrors()}
         <form className='uploadForm'>
-          <label>Title:<br/>
-            <input type='text' value={this.state.title} onChange={this.update('title')} />
-          </label>
-          <br />
-          <label>Song File:<br />
-            <input type='file' className='fileInput' onChange={this.updateFile} />
-          </label>
-          <br />
-          <label>Cover Art:<br />
-            <input type='file' className='fileInput' onChange={this.updateImage} />
-          </label>
-          <br />
-          <label>Cover Art Preview:<br />
+          <div className='coverArtSection'>
+            <label>Cover Art:<br />
+              <input type='file' className='imageInput' onChange={this.updateImage} />
+            </label>
             <img src={this.state.cover_art_url} className='coverImagePreview'/>
-          </label>
-          <br />
-          <button onClick={this.handleSubmit}>Upload Song</button>
+          </div>
+          <div className='songInfoSection'>
+            <label>Title:<br/>
+              <input type='text' value={this.state.title} onChange={this.update('title')} />
+            </label>
+            <br />
+            <label>Song File:<br />
+              <input type='file' className='fileInput' onChange={this.updateFile} />
+            </label>
+            <br />
+            <button onClick={this.handleSubmit} className='uploadSubmit' {...opts}>Upload Song</button>
+          </div>
         </form>
       </div>
     );

@@ -46,7 +46,12 @@
 .songInfo {
   display: flex;
   padding-right: 10px;
-  flex-direction: row-reverse
+  flex-direction: row-reverse;
+  width: 150px;
+}
+
+.progressBarContainer {
+  width: 900px;
 }
 
 input[type=range] {

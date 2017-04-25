@@ -4,7 +4,7 @@
   width: 800px;
   align-items: center;
   text-align: center;
-  height: 700px;
+  height: 450px;
   vertical-align: middle;
   padding-top: 50px;
   background-color: white;
@@ -19,13 +19,27 @@
   margin-bottom: 20px;
 }
 
-.editForm input {
+.editForm {
+  display: flex;
+  justify-content: space-between;
+}
+
+.songEditFormInfo {
+  margin-right: 20px;
+}
+
+.songEditFormInfo input {
   padding: 5px;
   margin: 5px;
-  width: 500px;
+  width: 430px;
   border-radius: 5px;
-  border-color: #f50;
+  border-color: #CCCCCC;
   border-style: solid;
+}
+
+.songEditFormInfo input:focus {
+  outline: none;
+  border-color: #f50;
 }
 
 .coverArtInput:hover {
@@ -40,4 +54,13 @@
 
 .editForm button:hover {
   cursor: pointer;
+}
+
+.editSubmit {
+  background: #f50;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  padding: 10px;
+  font-size: 15px;
 }

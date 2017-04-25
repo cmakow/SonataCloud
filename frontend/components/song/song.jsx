@@ -26,13 +26,10 @@ class Song extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSongs();
     this.props.fetchSong(this.props.params.id);
-    debugger
   }
 
   togglePlay(e) {
-    debugger
     if (this.state.isCurrentSong) {
       const song = $('audio')[0];
         if (song.paused) {

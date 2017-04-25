@@ -12,28 +12,20 @@ class SongIndexItem extends React.Component {
   }
 
   togglePlay(e) {
-    // const song = this.refs.song;
-    // if (song.paused) {
-    //   song.play();
-    //   e.currentTarget.innerHTML = "<i class='fa fa-pause' aria-hidden='true'></i>";
-    // } else {
-    //   song.pause();
-    //   e.currentTarget.innerHTML = "<i class='fa fa-play' aria-hidden='true'></i>";
-    // }
     if (this.props.song === this.props.currentSong) {
-      const song = $('audio')[0];
-        if (song.paused) {
-          song.play();
-          this.setState({playing: true});
-          e.currentTarget.innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";
-        } else {
-          song.pause();
-          this.setState({playing: false});
-          e.currentTarget.innerHTML = "<i id='play' class='fa fa-play' aria-hidden='true'></i>";
-        }
+      // const song = $('audio')[0];
+      //   if (song.paused) {
+      //     song.play();
+      //     this.setState({playing: true});
+      //     e.currentTarget.innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";
+      //   } else {
+      //     song.pause();
+      //     this.setState({playing: false});
+      //     e.currentTarget.innerHTML = "<i id='play' class='fa fa-play' aria-hidden='true'></i>";
+      //   }
     } else {
       this.props.receiveCurrentSong(this.props.song);
-      e.currentTarget.innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";
+      // e.currentTarget.innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";
     }
   }
 
@@ -63,6 +55,19 @@ class SongIndexItem extends React.Component {
     if (timeDiff === 1) {
       hours = 'hour';
     }
+    let playButton = <i className='fa fa-play' aria-hidden='true'></i>;
+    // if(this.props.currentSong) {
+    //   if(song === this.props.currentSong) {
+    //     const audio = $('audio')[0];
+    //     if (audio.paused) {
+    //       playButton = <i className='fa fa-play' aria-hidden='true'></i>;
+    //     } else {
+    //       playButton = <i className='fa fa-pause' aria-hidden='true'></i>;
+    //     }
+    //   } else {
+    //     playButton = <i className='fa fa-play' aria-hidden='true'></i>;
+    //   }
+    // }
     return (
       <li className='songIndexItemLi'>
         {/* change this to actual artist image and link to artist page */}

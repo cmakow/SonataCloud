@@ -18,6 +18,10 @@
   color: #666666;
 }
 
+.searchBarInput:focus {
+  outline: none;
+}
+
 .searchBarInput::-webkit-input-placeholder {
   font-size: 13px;
   color: #9999AF;

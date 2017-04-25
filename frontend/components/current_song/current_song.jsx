@@ -71,6 +71,13 @@ class CurrentSong extends React.Component {
       playButton = this.refs.song.paused ? <i id='play' className='fa fa-play' aria-hidden='true'></i> : <i id='pause' className='fa fa-pause' aria-hidden='true'></i>;
     }
     if(this.props.currentSong) {
+      const songInfo = `${this.props.currentSong.title} - ${this.props.currentSong.artist.username}`;
+      let songInfoComponent;
+      if (songInfo.length > 20) {
+        songInfoComponent = <marquee>{songInfo}</marquee>;
+      } else {
+        songInfoComponent = songInfo;
+      }
       return (
         <div className='currentSongPlayer'>
           <div className='currentSongControls'>
@@ -90,7 +97,7 @@ class CurrentSong extends React.Component {
               min='0' max='100'
               />
             <p className='songInfo'>
-              {this.props.currentSong.title} - {this.props.currentSong.artist.username}
+              {songInfoComponent}
             </p>
           </div>
         </div>
