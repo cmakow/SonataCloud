@@ -60,6 +60,14 @@ table {
  	border-spacing: 0;
 }
 
+input:focus {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
 .playButton:focus {
   outline: none;
 }

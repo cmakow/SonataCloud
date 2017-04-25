@@ -1,7 +1,7 @@
 import React from 'react';
 import Upload from './upload';
 import { connect } from 'react-redux';
-import { createSong } from '../../actions/upload_actions';
+import { createSong, receiveUploadErrors } from '../../actions/upload_actions';
 
 const mapStateToProps = state => {
   return {
@@ -11,7 +11,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  createSong: song => dispatch(createSong(song))
+  createSong: song => dispatch(createSong(song)),
+  clearErrors: () => dispatch(receiveUploadErrors([]))
 });
 
 export default connect(

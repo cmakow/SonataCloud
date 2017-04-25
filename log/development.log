@@ -49196,3 +49196,528 @@ Processing by Api::SongsController#index as */*
 Completed 200 OK in 194ms (Views: 138.7ms | ActiveRecord: 2.0ms)
 
 
+Started GET "/" for ::1 at 2017-04-25 15:06:02 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (18.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "wQTFtYqsOcxx0z_cKWRUrQ"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (56.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (1567.9ms)
+Completed 200 OK in 2558ms (Views: 2508.5ms | ActiveRecord: 29.8ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:06:06 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 15:06:06 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (8.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mSong Load (3.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (168.3ms)
+Completed 200 OK in 300ms (Views: 152.2ms | ActiveRecord: 51.8ms)
+
+
+  Rendered api/songs/index.json.jbuilder (198.3ms)
+Completed 200 OK in 557ms (Views: 357.1ms | ActiveRecord: 17.6ms)
+
+
+Started DELETE "/api/session" for ::1 at 2017-04-25 15:06:10 -0400
+Processing by Api::SessionsController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "wQTFtYqsOcxx0z_cKWRUrQ"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "demo"], ["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "demo@demo.com"], ["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["session_token", "bCli8o7ov0zDPLvWN_heag"], ["id", 13], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "bCli8o7ov0zDPLvWN_heag"], ["updated_at", 2017-04-25 19:06:11 UTC], ["id", 13]]
+  [1m[35m (37.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 577ms (Views: 1.1ms | ActiveRecord: 41.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 15:06:16 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 180ms (Views: 172.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:06:16 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (13.5ms)
+Completed 200 OK in 107ms (Views: 60.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 15:06:30 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 217ms (Views: 205.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:06:30 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (33.2ms)
+Completed 200 OK in 104ms (Views: 68.8ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/api/session" for ::1 at 2017-04-25 15:06:37 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@demo.com", "username"=>"demo", "password"=>"[FILTERED]"}, "default"=>{"format"=>:json}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@demo.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "demo"], ["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "demo@demo.com"], ["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["id", 13], ["LIMIT", 1]]
+  [1m[35mSQL (15.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["updated_at", 2017-04-25 19:06:37 UTC], ["id", 13]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/sessions/show.json.jbuilder
+  Rendered api/sessions/_user.json.jbuilder (1.1ms)
+  Rendered api/sessions/show.json.jbuilder (13.4ms)
+Completed 200 OK in 178ms (Views: 59.5ms | ActiveRecord: 18.9ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 15:06:37 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (13.3ms)
+Completed 200 OK in 195ms (Views: 66.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 15:06:55 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (64.9ms)
+Completed 200 OK in 241ms (Views: 135.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 15:10:27 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (2.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (52.2ms)
+Completed 200 OK in 1193ms (Views: 1171.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:10:30 -0400
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 15:10:30 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (23.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mSong Load (2.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (38.3ms)
+Completed 200 OK in 112ms (Views: 39.4ms | ActiveRecord: 25.3ms)
+
+
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15[0m
+  Rendered api/songs/index.json.jbuilder (18.0ms)
+Completed 200 OK in 95ms (Views: 31.3ms | ActiveRecord: 11.1ms)
+
+
+Started POST "/api/songs" for ::1 at 2017-04-25 15:10:56 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"dw", "data"=>#<ActionDispatch::Http::UploadedFile:0x007f94770c49d8 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-26291-198hrqs.mp3>, @original_filename="03 Carolyn's Fingers 1.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"03 Carolyn's Fingers 1.mp3\"\r\nContent-Type: audio/mp3\r\n">, "cover_art"=>#<ActionDispatch::Http::UploadedFile:0x007f94770c4988 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-26291-1ugg2zm.jpg>, @original_filename="slowdivepic.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"song[cover_art]\"; filename=\"slowdivepic.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/71c606d9b2681578fe0480a24ba73d9420170425-26291-oqn0oj.mp3'
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/aea15b688ff6f306f78703ce5d708c4220170425-26291-19xv5k5.jpg'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/71c606d9b2681578fe0480a24ba73d9420170425-26291-7kykis.mp3'
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/aea15b688ff6f306f78703ce5d708c4220170425-26291-1so2dhl.jpg'
+  [1m[35mSQL (50.4ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_id", "created_at", "updated_at", "data_file_name", "data_content_type", "data_file_size", "data_updated_at", "cover_art_file_name", "cover_art_content_type", "cover_art_file_size", "cover_art_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "dw"], ["artist_id", 13], ["created_at", 2017-04-25 19:10:57 UTC], ["updated_at", 2017-04-25 19:10:57 UTC], ["data_file_name", "03_Carolyn's_Fingers_1.mp3"], ["data_content_type", "audio/mp3"], ["data_file_size", 7540194], ["data_updated_at", 2017-04-25 19:10:56 UTC], ["cover_art_file_name", "slowdivepic.jpg"], ["cover_art_content_type", "image/jpeg"], ["cover_art_file_size", 170085], ["cover_art_updated_at", 2017-04-25 19:10:57 UTC]]
+[paperclip] saving songs/data/000/000/020/original/03_Carolyn's_Fingers_1.mp3
+[paperclip] saving songs/cover_arts/000/000/020/original/slowdivepic.jpg
+  [1m[35m (84.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/songs/show.json.jbuilder
+  Rendered api/songs/_song.json.jbuilder (10.6ms)
+  Rendered api/songs/show.json.jbuilder (273.4ms)
+Completed 200 OK in 9592ms (Views: 587.0ms | ActiveRecord: 136.0ms)
+
+
+Started GET "/api/users/13/songs" for ::1 at 2017-04-25 15:11:05 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}, "user_id"=>"13"}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (118.6ms)
+Completed 200 OK in 252ms (Views: 149.1ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/api/songs" for ::1 at 2017-04-25 15:11:47 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"d", "data"=>#<ActionDispatch::Http::UploadedFile:0x007f9474b89790 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-26291-nvsa2p.mp3>, @original_filename="06 After Rapidly Circling The Plaza (LP Version).mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"06 After Rapidly Circling The Plaza (LP Version).mp3\"\r\nContent-Type: audio/mp3\r\n">, "cover_art"=>"null"}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/f7712ecd8bfcac3b0f07288cd6a3aa8a20170425-26291-njzc05.mp3'
+Completed 500 Internal Server Error in 1295ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::AdapterRegistry::NoHandlerError (No handler found for "null"):
+  
+app/controllers/api/songs_controller.rb:11:in `create'
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (1.1ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (108.4ms)
+Started POST "/api/songs" for ::1 at 2017-04-25 15:12:18 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"d", "data"=>#<ActionDispatch::Http::UploadedFile:0x007f946e8deeb0 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-26291-rqmc81.m4a>, @original_filename="01 god bless our dead marines.m4a", @content_type="audio/x-m4a", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"01 god bless our dead marines.m4a\"\r\nContent-Type: audio/x-m4a\r\n">, "cover_art"=>"null"}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/6aa8ffe0c923297ddd5868c4ec70484520170425-26291-105v4cw.m4a'
+Completed 500 Internal Server Error in 530ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::AdapterRegistry::NoHandlerError (No handler found for "null"):
+  
+app/controllers/api/songs_controller.rb:11:in `create'
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.7ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.4ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (99.4ms)
+Started GET "/" for ::1 at 2017-04-25 15:12:36 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (2.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (37.3ms)
+Completed 200 OK in 354ms (Views: 337.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:12:38 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (2.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (27.2ms)
+Completed 200 OK in 117ms (Views: 55.0ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/api/songs" for ::1 at 2017-04-25 15:12:50 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"d", "data"=>#<ActionDispatch::Http::UploadedFile:0x007f946e91de30 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-26291-q1unyb.m4a>, @original_filename="06 ring them bells (freedom has come.m4a", @content_type="audio/x-m4a", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"06 ring them bells (freedom has come.m4a\"\r\nContent-Type: audio/x-m4a\r\n">, "cover_art"=>"null"}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/bdac394c6d664e0a9f7f97b775392d5120170425-26291-1mbn6pk.m4a'
+Completed 500 Internal Server Error in 432ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::AdapterRegistry::NoHandlerError (No handler found for "null"):
+  
+app/controllers/api/songs_controller.rb:11:in `create'
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (1.4ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (133.5ms)
+Started GET "/" for ::1 at 2017-04-25 15:13:23 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (4.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (73.5ms)
+Completed 200 OK in 1690ms (Views: 1660.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:13:28 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (46.8ms)
+Completed 200 OK in 129ms (Views: 76.3ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 15:13:44 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (81.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (91.8ms)
+Completed 200 OK in 150ms (Views: 65.7ms | ActiveRecord: 81.3ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:13:45 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (28.4ms)
+Completed 200 OK in 98ms (Views: 66.6ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/songs" for ::1 at 2017-04-25 15:13:53 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"dwa", "data"=>#<ActionDispatch::Http::UploadedFile:0x007f94770af380 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-26291-hclav5.m4a>, @original_filename="06 ring them bells (freedom has come.m4a", @content_type="audio/x-m4a", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"06 ring them bells (freedom has come.m4a\"\r\nContent-Type: audio/x-m4a\r\n">, "cover_art"=>"null"}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/bdac394c6d664e0a9f7f97b775392d5120170425-26291-1o79353.m4a'
+Completed 500 Internal Server Error in 411ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::AdapterRegistry::NoHandlerError (No handler found for "null"):
+  
+app/controllers/api/songs_controller.rb:11:in `create'
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.7ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (113.8ms)
+Started GET "/" for ::1 at 2017-04-25 15:13:58 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 810ms (Views: 777.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:13:59 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (23.7ms)
+Completed 200 OK in 106ms (Views: 64.8ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/songs" for ::1 at 2017-04-25 15:14:07 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"dwa", "data"=>#<ActionDispatch::Http::UploadedFile:0x007f94700fd118 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-26291-1jsutmz.m4a>, @original_filename="06 ring them bells (freedom has come.m4a", @content_type="audio/x-m4a", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"06 ring them bells (freedom has come.m4a\"\r\nContent-Type: audio/x-m4a\r\n">, "cover_art"=>"null"}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/bdac394c6d664e0a9f7f97b775392d5120170425-26291-nqds0m.m4a'
+Completed 500 Internal Server Error in 336ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::AdapterRegistry::NoHandlerError (No handler found for "null"):
+  
+app/controllers/api/songs_controller.rb:11:in `create'
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.8ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (104.5ms)
+Started GET "/" for ::1 at 2017-04-25 15:14:31 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 233ms (Views: 216.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:14:32 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (22.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (162.9ms)
+Completed 200 OK in 253ms (Views: 187.8ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 15:14:33 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 85ms (Views: 80.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:14:33 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (21.8ms)
+Completed 200 OK in 88ms (Views: 58.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/songs" for ::1 at 2017-04-25 15:14:53 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"d", "data"=>#<ActionDispatch::Http::UploadedFile:0x007f9476f72440 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-26291-1gema4a.m4a>, @original_filename="06 ring them bells (freedom has come.m4a", @content_type="audio/x-m4a", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"06 ring them bells (freedom has come.m4a\"\r\nContent-Type: audio/x-m4a\r\n">, "cover_art"=>"null"}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/bdac394c6d664e0a9f7f97b775392d5120170425-26291-13rmyay.m4a'
+Completed 500 Internal Server Error in 454ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::AdapterRegistry::NoHandlerError (No handler found for "null"):
+  
+app/controllers/api/songs_controller.rb:11:in `create'
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.8ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (140.3ms)
+Started GET "/" for ::1 at 2017-04-25 15:15:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (3.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (82.8ms)
+Completed 200 OK in 659ms (Views: 614.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:15:27 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (3.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (83.8ms)
+Completed 200 OK in 290ms (Views: 194.9ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/api/songs" for ::1 at 2017-04-25 15:15:36 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"d", "data"=>#<ActionDispatch::Http::UploadedFile:0x007f9474dd28f8 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-26291-1ipqbsj.m4a>, @original_filename="06 ring them bells (freedom has come.m4a", @content_type="audio/x-m4a", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"06 ring them bells (freedom has come.m4a\"\r\nContent-Type: audio/x-m4a\r\n">, "cover_art"=>"null"}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/bdac394c6d664e0a9f7f97b775392d5120170425-26291-1bob950.m4a'
+Completed 500 Internal Server Error in 700ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::AdapterRegistry::NoHandlerError (No handler found for "null"):
+  
+app/controllers/api/songs_controller.rb:11:in `create'
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.8ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (92.8ms)
+Started GET "/" for ::1 at 2017-04-25 15:16:17 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (3.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (68.6ms)
+Completed 200 OK in 624ms (Views: 595.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:16:20 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (11.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (63.2ms)
+Completed 200 OK in 158ms (Views: 85.7ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/" for ::1 at 2017-04-25 15:17:38 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (3.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (1207.9ms)
+Started GET "/" for ::1 at 2017-04-25 15:17:45 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+Completed 200 OK in 7816ms (Views: 7778.4ms | ActiveRecord: 5.5ms)
+
+
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "eMBAwRVY8og8q5WzXoyPtg"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (217.5ms)
+Completed 200 OK in 966ms (Views: 962.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/songs" for ::1 at 2017-04-25 15:17:48 -0400
+Processing by Api::SongsController#index as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  Rendering api/songs/index.json.jbuilder
+  [1m[36mSong Load (1.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (13, 15)[0m
+  Rendered api/songs/index.json.jbuilder (118.0ms)
+Completed 200 OK in 193ms (Views: 157.2ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/api/songs" for ::1 at 2017-04-25 15:17:56 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"d", "data"=>#<ActionDispatch::Http::UploadedFile:0x007f946f157c40 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-26291-1nwvr7o.m4a>, @original_filename="06 ring them bells (freedom has come.m4a", @content_type="audio/x-m4a", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"06 ring them bells (freedom has come.m4a\"\r\nContent-Type: audio/x-m4a\r\n">, "cover_art"=>"null"}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/bdac394c6d664e0a9f7f97b775392d5120170425-26291-j28bx3.m4a'
+Completed 500 Internal Server Error in 448ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::AdapterRegistry::NoHandlerError (No handler found for "null"):
+  
+app/controllers/api/songs_controller.rb:11:in `create'
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (1.6ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (2.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (105.4ms)
+Started POST "/api/songs" for ::1 at 2017-04-25 15:18:09 -0400
+Processing by Api::SongsController#create as JSON
+  Parameters: {"song"=>{"title"=>"d", "data"=>#<ActionDispatch::Http::UploadedFile:0x007f946f1bcc80 @tempfile=#<Tempfile:/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/RackMultipart20170425-26291-1futl7x.m4a>, @original_filename="06 ring them bells (freedom has come.m4a", @content_type="audio/x-m4a", @headers="Content-Disposition: form-data; name=\"song[data]\"; filename=\"06 ring them bells (freedom has come.m4a\"\r\nContent-Type: audio/x-m4a\r\n">, "cover_art"=>"null"}, "default"=>{"format"=>:json}}
+Command :: file -b --mime '/var/folders/5f/r3jlcm815sb7tw7lp72ybp8r0000gn/T/bdac394c6d664e0a9f7f97b775392d5120170425-26291-13o15ja.m4a'
+Completed 500 Internal Server Error in 349ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::AdapterRegistry::NoHandlerError (No handler found for "null"):
+  
+app/controllers/api/songs_controller.rb:11:in `create'
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.8ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendering /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (111.3ms)
