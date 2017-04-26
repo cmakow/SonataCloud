@@ -9,20 +9,19 @@ class ProfilePage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.profileUserId);
+    this.props.fetchUser(this.props.params.user_id);
   }
 
   componentWillReceiveProps(newProps) {
-    // if(this.props.user !== newProps.user) {
-    //   this.props.fetchUser(newProps.user.id);
-    // }
-    // infinitely looping!
+    if(this.props.params.user_id !== newProps.params.user_id) {
+      this.props.fetchUser(newProps.params.user_id);
+    }
   }
 
   render () {
     return (
       <div>
-        <HeaderContainer user={this.props.user}/>
+        <HeaderContainer />
         <FeedContainer />
       </div>
     );

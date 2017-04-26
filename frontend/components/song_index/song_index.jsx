@@ -30,7 +30,11 @@ class SongIndex extends React.Component {
       );
     } else {
       return (
-        <div>Loading...</div>
+        <div className='songIndex'>
+          <h1>
+            Nothing here! Get started by uploading your music!
+          </h1>
+        </div>
       );
     }
   }

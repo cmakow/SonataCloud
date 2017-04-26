@@ -10,7 +10,6 @@
 #  created_at                   :datetime         not null
 #  updated_at                   :datetime         not null
 #  bio                          :text
-#  header_image_url             :string
 #  profile_picture_file_name    :string
 #  profile_picture_content_type :string
 #  profile_picture_file_size    :integer
@@ -19,6 +18,7 @@
 #  header_image_content_type    :string
 #  header_image_file_size       :integer
 #  header_image_updated_at      :datetime
+#  location                     :string
 #
 
 require 'test_helper'
