@@ -29,10 +29,16 @@ class SongIndex extends React.Component {
         </div>
       );
     } else {
+      let text = 'Nothing here!';
+      if (this.props.currentUser && this.props.profileUser) {
+        if (this.props.currentUser.id === this.props.profileUser.id) {
+          text = 'Nothing here! Get started by uploading your music!';
+        }
+      }
       return (
         <div className='songIndex'>
           <h1>
-            Nothing here! Get started by uploading your music!
+            {text}
           </h1>
         </div>
       );

@@ -8,7 +8,8 @@ import { editSong } from '../../actions/edit_song_actions';
 const mapStateToProps = state => {
   return {
     currentUser: state.session.currentUser,
-    currentSong: state.currentSong.current_song
+    currentSong: state.currentSong.current_song,
+    profileUser: state.profile.user
   };
 };
 

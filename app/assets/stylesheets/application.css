@@ -60,14 +60,6 @@ table {
  	border-spacing: 0;
 }
 
-input:focus {
-  outline: none;
-}
-
-button:focus {
-  outline: none;
-}
-
-.playButton:focus {
+input:focus, textarea:focus, button:focus, .playButton:focus {
   outline: none;
 }

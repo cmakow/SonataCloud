@@ -1,0 +1,91 @@
+.editProfile {
+  margin: 0 auto;
+  width: 1400px;
+  justify-content: center;
+  margin-top: 20px;
+  height: 800px;
+  border-radius: 5px;
+  border: 3px solid #f50;
+  padding: 20px;
+  justify-content: center;
+}
+
+.editProfileForm {
+  text-align: left;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.profileFlex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.editProfile h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.profilePicSection {
+  position: relative;
+}
+
+.profilePicPreview {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+}
+
+.headerUpload {
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+}
+
+.headerImgPreview {
+  height: 260px;
+  width: 1240px;
+}
+
+.headerImageInput {
+  position: absolute;
+  bottom: 10px;
+  left: 620px;
+}
+
+.profileImageInput {
+  position: absolute;
+  bottom: 10px;
+  left: 50px;
+}
+
+.profileEditFormInfo input {
+  width: 500px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.profileEditFormInfo textarea {
+  width: 500px;
+  height: 130px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.editProfileForm h3 {
+  font-size: 20px;
+}
+
+.profileSubmit {
+  align-self: center;
+  margin-top: 20px;
+}
+
+.profileSubmit:hover {
+  cursor: pointer;
+}

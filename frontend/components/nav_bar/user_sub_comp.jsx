@@ -22,8 +22,8 @@ class userSubComp extends React.Component {
       return (
         <div className='userSubSection'>
           <Link to={`/profile/${this.props.currentUser.id}`} className="navBarLink">
-            <li className="profile-link">
-              {this.props.currentUser.username}
+            <li id="profile-link">
+              <img src={this.props.currentUser.prof_pic} className='profPicIcon'/><div className='profileUsername'>{this.props.currentUser.username}</div>
             </li>
           </Link>
           <li id='logoutButtonLi'>

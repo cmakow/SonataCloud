@@ -28,7 +28,7 @@ class Header extends React.Component {
           <div className="profileInfo">
             <div className='leftSideHeader'>
               <div className="profilePicture">
-                <img src={window.defaultUserImg} className="profilePicture" />
+                <img src={user.prof_pic} className="profilePicture" />
                 {profilePictureButton}
               </div>
               <div className="userInfo">

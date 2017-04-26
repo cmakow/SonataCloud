@@ -22,5 +22,4 @@ export const updateUser = user => dispatch => (
   APIUtil.updateUser(user)
     .then(user => dispatch(receiveProfileUser(user)),
       err => dispatch(receiveProfileErrors(err)))
-    .then(() => hashHistory.push(`/profile/${user.id}`))
 );

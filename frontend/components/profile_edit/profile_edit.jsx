@@ -1,4 +1,5 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 class ProfileEdit extends React.Component {
   constructor(props) {
@@ -13,6 +14,10 @@ class ProfileEdit extends React.Component {
       header_image_url: null,
       updating: false
     };
+
+    this.update = this.update.bind(this);
+    this.updateImage = this.updateImage.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -52,7 +57,8 @@ class ProfileEdit extends React.Component {
     if(this.state.header_image) {
       formData.append('user[header_image]', this.state.header_image);
     }
-    this.props.updateUser(formData);
+    debugger
+    this.props.updateUser(formData).then(({ user }) => hashHistory.push(`/profile/${user.id}`));
     this.setState({updating: true});
   }
 
@@ -66,31 +72,33 @@ class ProfileEdit extends React.Component {
       headerPreview = this.state.header_image_url ? this.state.header_image_url : this.props.currentUser.header;
     }
     return (
-      <div>
+      <div className='editProfile'>
         <h2>Edit Your Profile</h2>
         <form className='editProfileForm'>
-          <div className='profilePicSection'>
-            <label>Profile Picture:<br />
-              <input type='file' className='imageInput' onChange={this.updateImage('profile_picture')} />
-            </label>
-            <img src={profilePicPreview} className='profilePicPreview'/>
-          </div>
-          <div className='profileEditFormInfo'>
-            <label>Location:<br/>
-              <input type='text' value={this.state.location} onChange={this.update('location')} />
-            </label>
-            <br />
-            <label>Bio:<br/>
-              <textarea className='bioText'></textarea>
-            </label>
+          <div className='profileFlex'>
+            <div className='profilePicSection'>
+              <label><h3>Profile Picture:</h3><br />
+                <input type='file' className='profileImageInput' onChange={this.updateImage('profile_picture')} />
+              </label>
+              <img src={profilePicPreview} className='profilePicPreview'/>
+            </div>
+            <div className='profileEditFormInfo'>
+              <label><h3>Location:</h3><br/>
+                <input type='text' value={this.state.location} onChange={this.update('location')} />
+              </label>
+              <br />
+              <label><h3>Bio:</h3><br/>
+                <textarea className='bioText' placeholder='Tell the world about yourself.' onChange={this.update('bio')}></textarea>
+              </label>
+            </div>
           </div>
           <div className='headerUpload'>
-            <label>Header Image: <br/>
-              <input type='file' className='imageInput' onChange={this.updateImage('header_image')} />
+            <label><h3>Header Image: </h3><br/>
+              <input type='file' className='headerImageInput' onChange={this.updateImage('header_image')} />
             </label>
             <img src={headerPreview} className='headerImgPreview'/>
           </div>
-          <button onClick={this.handleSubmit} className='editSubmit'>Update Song</button>
+          <button onClick={this.handleSubmit} className='editSubmit profileSubmit'>Update Profile</button>
         </form>
       </div>
     );

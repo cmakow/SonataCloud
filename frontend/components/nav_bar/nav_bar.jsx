@@ -22,11 +22,11 @@ class NavBar extends React.Component {
                 <img src={window.navBarIcon} className='homeIcon'></img> {/* Change to image of logo */}
               </li>
             </Link>
-            <Link to='/feed' className="navBarLink homeButton">
-              <li>
-                Home
-              </li>
-            </Link>
+            <li>
+              <Link to='/feed' className="navBarLink homeButton">
+                  Home
+              </Link>
+            </li>
           </div>
           {/* <li> */}
           {/*   <Link to='/charts' className="navBarLink">Charts</Link> */}
