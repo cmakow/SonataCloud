@@ -79,7 +79,7 @@ class SongIndexItem extends React.Component {
           <button onClick={this.togglePlay} className='playButton'><i className='fa fa-play' aria-hidden='true'></i></button>
           <div className='songIndexItemHeader'>
             {/* change to link to user page later */}
-            <p className='artistName'>{song.artist.username}</p>
+            <Link to={`/profile/${song.artist.id}`} className='artistName'>{song.artist.username}</Link> <br />
             {/* make into link to song show page later */}
             <Link to={`/songs/${song.id}`} className='songTitle'>{song.title}</Link>
             <br/>

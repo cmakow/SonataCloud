@@ -63,6 +63,10 @@
   text-align: left;
 }
 
+.songIndexItemHeader a {
+  text-decoration: none;
+}
+
 .artistName {
   color: #999999;
   font-size: 13px;
@@ -76,8 +80,9 @@
 }
 
 .songEditInfo {
-  // position: absolute;
-  // bottom: 23px;
+  position: absolute;
+  bottom: 23px;
+  margin-top: 5px;
 }
 
 .songEditInfo button {

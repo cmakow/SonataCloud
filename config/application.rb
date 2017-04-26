@@ -21,6 +21,11 @@ module SonataCloud
     #     :s3_region => ENV["s3_region"],
     #   }
     # }
+
+    Paperclip.options[:content_type_mappings] = {
+      :mp3 => "application/octet-stream"
+    }
+
     config.paperclip_defaults = {
     storage: :s3,
     url: ':s3_domain_url',
