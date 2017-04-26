@@ -14,10 +14,10 @@ class Header extends React.Component {
     let headerUpdate;
     if(user){
       if(user.id === this.props.currentUser.id) {
-        location = user.location || <Link to='/profile/edit'>Add location!</Link>;
-        bio = user.bio || <Link to='/profile/edit'>Add bio!</Link>;
-        profilePictureButton = <Link to='/profile/edit' className='profilePicEdit'><i className="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</Link>;
-        headerUpdate = <div className='updateHeader'><Link to='/profile/edit' className='profilePicEdit'><i className="fa fa-camera" aria-hidden="true"></i> Update Header</Link></div>;
+        location = user.location || <Link to='/profile-edit'>Add location!</Link>;
+        bio = user.bio || <Link to='/profile-edit'>Add bio!</Link>;
+        profilePictureButton = <Link to='/profile-edit' className='profilePicEdit'><i className="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</Link>;
+        headerUpdate = <div className='updateHeader'><Link to='/profile-edit' className='profilePicEdit'><i className="fa fa-camera" aria-hidden="true"></i> Update Header</Link></div>;
       } else {
         location = user.location;
         bio = user.bio;

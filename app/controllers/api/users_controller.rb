@@ -10,12 +10,17 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    debugger
+    @user = User.find()
+  end
+
   def show
     @user = User.find_by(id: params[:id])
   end
 
   private
   def user_params
-    params.require(:user).permit(:email, :username, :password)
+    params.require(:user).permit(:email, :username, :password, :location, :bio, :profile_picture, :header_image)
   end
 end
