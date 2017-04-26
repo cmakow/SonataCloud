@@ -1,7 +1,7 @@
 .backgroundGradient__buffer{
   background: linear-gradient(315deg, rgb(213, 222, 236) 0%, rgb(122, 143, 184) 100%);
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   height: 260px;
   width: 1240px;
 }
@@ -10,7 +10,6 @@
   margin: 0 auto;
   height: 260px;
   width: 1240px;
-  margin-bottom: 40px;
 }
 
 .leftSideHeader {

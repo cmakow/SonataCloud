@@ -63,3 +63,7 @@ table {
 input:focus, textarea:focus, button:focus, .playButton:focus {
   outline: none;
 }
+
+.app {
+  background: #f2f2f2;
+}
