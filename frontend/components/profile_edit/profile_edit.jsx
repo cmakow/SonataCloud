@@ -88,7 +88,7 @@ class ProfileEdit extends React.Component {
               </label>
               <br />
               <label><h3>Bio:</h3><br/>
-            <textarea className='bioText' placeholder='Tell the world about yourself.' onChange={this.update('bio')} value={this.state.bio}></textarea>
+                <textarea className='bioText' placeholder='Tell the world about yourself.' onChange={this.update('bio')} value={this.state.bio}></textarea>
               </label>
             </div>
           </div>

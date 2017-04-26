@@ -1,5 +1,6 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
+import CommentIndexContainer from '../comment/comment_index_container';
 
 class Song extends React.Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class Song extends React.Component {
     } else {
       this.props.receiveCurrentSong(this.props.song);
       e.currentTarget.innerHTML = "<i id='showPause' class='fa fa-pause' aria-hidden='true'></i>";
-      this.setState({isCurrentSong: true})
+      this.setState({isCurrentSong: true});
     }
   }
 
@@ -61,18 +62,21 @@ class Song extends React.Component {
     }
     if(song) {
       return (
-        <div className='songShowHeader'>
-          <div className='songShowHeaderInfo'>
-            <button onClick={this.togglePlay} className='showPlayButton'><i className='fa fa-play' aria-hidden='true'></i></button>
-            <div className='songShowInfo'>
-              <p>{song.artist.username}</p>
-              <h2>{song.title}</h2>
+        <div className='songShowPage'>
+          <div className='songShowHeader'>
+            <div className='songShowHeaderInfo'>
+              <button onClick={this.togglePlay} className='showPlayButton'><i className='fa fa-play' aria-hidden='true'></i></button>
+              <div className='songShowInfo'>
+                <p>{song.artist.username}</p>
+                <h2>{song.title}</h2>
+              </div>
+            </div>
+            <div className='songShowCoverArt'>
+              <img src={song.cover_art} />
+              { editButtons }
             </div>
           </div>
-          <div className='songShowCoverArt'>
-            <img src={song.cover_art} />
-            { editButtons }
-          </div>
+          <CommentIndexContainer song={song} />
         </div>
       );
     } else {
