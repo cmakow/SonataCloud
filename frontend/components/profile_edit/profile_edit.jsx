@@ -57,7 +57,6 @@ class ProfileEdit extends React.Component {
     if(this.state.header_image) {
       formData.append('user[header_image]', this.state.header_image);
     }
-    debugger
     this.props.updateUser(formData).then(({ user }) => hashHistory.push(`/profile/${user.id}`));
     this.setState({updating: true});
   }

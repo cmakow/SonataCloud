@@ -26,7 +26,6 @@ const _redirectIfNotLoggedIn = (nextState, replace) => {
 
 const _redirectIfNotArtist = (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;
-  debugger
   const editedSongArtist = store.getState().edit.editedSong.artist;
   if (currentUser.id !== editedSongArtist.id ) {
     replace('/feed');

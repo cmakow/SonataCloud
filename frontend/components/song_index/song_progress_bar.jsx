@@ -9,7 +9,6 @@ class SongProgressBar extends React.Component {
 
   componentDidMount() {
     this.setState({song: $(`#${this.props.songId}`)[0]});
-    debugger
   }
 
   render() {
