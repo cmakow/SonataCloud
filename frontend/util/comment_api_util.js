@@ -14,7 +14,10 @@ export const postComment = comment => (
   $.ajax({
     url: '/api/comments',
     method: 'POST',
-    data: comment
+    data: comment,
+    processData: false,
+    contentType: false,
+    dataType: 'json'
   })
 );
 
