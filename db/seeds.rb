@@ -15,7 +15,7 @@ User.create([
   { email: 'test@test.com', username: 'test', password: 'password123'},
   ])
 
-f = User.create({ email: 'dontenterthis@dontenterthis.com', username: 'Wankwinkel', password: 'neverfindthis'})
+f = User.create({ email: 'dontenterthis@dontenterthis.com', username: 'Wankwinkel', password: 'neverfindthis', bio: 'Well hello there', location: 'New York, New York'})
 
 Song.destroy_all
 

@@ -66,4 +66,6 @@ input:focus, textarea:focus, button:focus, .playButton:focus {
 
 .app {
   background: #f2f2f2;
+  width: 100%;
+  height: 100%;
 }

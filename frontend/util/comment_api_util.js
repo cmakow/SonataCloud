@@ -12,9 +12,9 @@ export const fetchSongComments = song_id => (
 
 export const postComment = comment => (
   $.ajax({
-    url: `/api/comments`,
+    url: '/api/comments',
     method: 'POST',
-    data: { comment }
+    data: comment
   })
 );
 
@@ -22,7 +22,7 @@ export const updateComment = comment => (
   $.ajax({
     url: `/api/comments/${comment.id}`,
     method: 'PATCH',
-    data: { comment }
+    data: comment
   })
 );
 

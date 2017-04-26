@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class CommentForm extends React.Component {
   constructor(props) {
@@ -19,8 +20,10 @@ class CommentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let formData = new FormData();
-    debugger
     formData.append('comment[body]', this.state.body);
+    formData.append('comment[author_id]', this.props.currentUser.id);
+    formData.append('comment[song_id]', this.props.params.id);
+    this.props.postComment(formData);
   }
 
   render() {
@@ -34,10 +37,10 @@ class CommentForm extends React.Component {
               <input type='submit' onClick={this.handleSubmit} value='Post Comment' className='commentSubmitButton'/>
             </form>
           </div>
-        </div>    
+        </div>
       </div>
     );
   }
 }
 
-export default CommentForm;
+export default withRouter(CommentForm);
