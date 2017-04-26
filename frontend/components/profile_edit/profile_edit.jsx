@@ -6,8 +6,8 @@ class ProfileEdit extends React.Component {
     super(props);
 
     this.state = {
-      bio: "",
-      location: "",
+      bio: this.props.currentUser.bio,
+      location: this.props.currentUser.location,
       profile_picture: null,
       profile_picture_url: null,
       header_image: null,
@@ -88,7 +88,7 @@ class ProfileEdit extends React.Component {
               </label>
               <br />
               <label><h3>Bio:</h3><br/>
-                <textarea className='bioText' placeholder='Tell the world about yourself.' onChange={this.update('bio')}></textarea>
+            <textarea className='bioText' placeholder='Tell the world about yourself.' onChange={this.update('bio')} value={this.state.bio}></textarea>
               </label>
             </div>
           </div>
