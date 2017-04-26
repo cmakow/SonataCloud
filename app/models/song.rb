@@ -21,9 +21,9 @@
 
 class Song < ApplicationRecord
   validates :title, :data, :artist, presence: true
-  include PgSearch
 
-  pg_search_scope :search_for, against: %i(title)
+  # include PgSearch # not sure how to utilize this
+  # pg_search_scope :search_for, against: %i(title)
 
   has_attached_file :data
   validates_attachment_content_type :data, content_type: ['audio/mp3', 'audio/mpeg']
@@ -33,7 +33,12 @@ class Song < ApplicationRecord
 
   belongs_to :artist,
     class_name: 'User',
-    foreign_key: :artist_id,
-    primary_key: :id
+    primary_key: :id,
+    foreign_key: :artist_id
+
+  has_many :comments,
+    class_name: 'Comment',
+    primary_key: :id,
+    foreign_key: :song_id
 
 end
