@@ -8,8 +8,13 @@ class HomePage extends React.Component {
 
   render () {
     return (
-      <div>
-
+      <div className='homePageContainer'>
+        <div className='headerHomePage'>
+          <h1 className='headerTitle'>SonataCloud</h1>
+          <img src={window.headerImg} className='landingImg'/>
+          <Link to='/login' className='homePageButton loginButton'>Login</Link>
+          <Link to='/signup' className='homePageButton signupButton'>Sign up</Link>
+        </div>
       </div>
     );
   }

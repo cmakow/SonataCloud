@@ -13,41 +13,47 @@ class NavBar extends React.Component {
   }
 
   render() {
-    return (
-      <div className="navBar">
-        <ul className="navBarUl">
-          <div className='leftSideNav'>
-            <Link to='/feed' className="navBarLink">
+    if(location.hash === '#/') {
+      return (
+        <div></div>
+      );
+    } else {
+      return (
+        <div className="navBar">
+          <ul className="navBarUl">
+            <div className='leftSideNav'>
+              <Link to='/feed' className="navBarLink">
+                <li>
+                  <img src={window.navBarIcon} className='homeIcon'></img> {/* Change to image of logo */}
+                  </li>
+                </Link>
+                <li>
+                  <Link to='/feed' className="navBarLink homeButton">
+                    Home
+                  </Link>
+                </li>
+              </div>
+              {/* <li> */}
+              {/*   <Link to='/charts' className="navBarLink">Charts</Link> */}
+              {/* </li> */}
               <li>
-                <img src={window.navBarIcon} className='homeIcon'></img> {/* Change to image of logo */}
+                <SearchBarContainer songs={Object.values(this.props.songs)}/>
               </li>
-            </Link>
-            <li>
-              <Link to='/feed' className="navBarLink homeButton">
-                  Home
-              </Link>
-            </li>
+              <div className='rightSideNav'>
+                <Link to='/upload' className="navBarLink uploadButton">
+                  <li>
+                    Upload
+                  </li>
+                </Link>
+                {/* <Link to='/profile' className="navBarLink">Sample User</Link> */}
+                {/* <AuthFormContainer /> */}
+                <UserSubComp currentUser={this.props.currentUser} logout={this.props.logout}/>
+              </div>
+            </ul>
           </div>
-          {/* <li> */}
-          {/*   <Link to='/charts' className="navBarLink">Charts</Link> */}
-          {/* </li> */}
-          <li>
-            <SearchBarContainer songs={Object.values(this.props.songs)}/>
-          </li>
-          <div className='rightSideNav'>
-            <Link to='/upload' className="navBarLink uploadButton">
-              <li>
-                Upload
-              </li>
-            </Link>
-            {/* <Link to='/profile' className="navBarLink">Sample User</Link> */}
-            {/* <AuthFormContainer /> */}
-            <UserSubComp currentUser={this.props.currentUser} logout={this.props.logout}/>
-          </div>
-        </ul>
-      </div>
-    );
-  }
+        );
+      }
+    }
 }
 
 export default NavBar;

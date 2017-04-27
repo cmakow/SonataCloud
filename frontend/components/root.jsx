@@ -9,6 +9,7 @@ import UploadContainer from './upload/upload_container';
 import EditContainer from './edit_form/edit_form_container';
 import SongContainer from './song/song_container';
 import ProfileEditContainer from './profile_edit/profile_edit_container';
+import HomeContainer from './home_page/home_page_container';
 
 const _redirectIfLoggedIn = (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;
@@ -37,7 +38,7 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={App} >
-          <IndexRoute component={FeedContainer} />
+          <IndexRoute component={HomeContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/login" component={AuthFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={AuthFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/profile/:user_id" component={ProfilePageContainer} onEnter={_redirectIfNotLoggedIn} />

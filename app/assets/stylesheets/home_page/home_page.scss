@@ -1,0 +1,39 @@
+.homePageContainer {
+  border-top: 3px solid #f50;
+  width: 1240px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.landingImg {
+
+}
+
+.headerTitle {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  color: gray;
+}
+
+.headerTitle:hover {
+  cursor: default;
+}
+
+.homePageButton {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  color: white;
+  background: #f50;
+  padding: 10px 20px;
+  font-size: 13px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.loginButton {
+  margin-right: 100px;
+  background: none;
+  border: 1px solid white;
+}

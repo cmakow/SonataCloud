@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { login, logout, signup } from '../../actions/session_actions';
 import { fetchSongs } from '../../actions/song_index_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.currentUser,
     songs: state.songs
