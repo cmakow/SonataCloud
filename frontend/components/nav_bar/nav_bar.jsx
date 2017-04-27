@@ -29,20 +29,20 @@ class NavBar extends React.Component {
               <Link to='/feed' className="navBarLink">
                 <li>
                   <img src={window.navBarIcon} className='homeIcon'></img> {/* Change to image of logo */}
-                  </li>
-                </Link>
-                <li>
-                  <Link to='/feed' className="navBarLink homeButton">
-                    Home
-                  </Link>
                 </li>
-              </div>
-              {/* <li> */}
-              {/*   <Link to='/charts' className="navBarLink">Charts</Link> */}
-              {/* </li> */}
+              </Link>
               <li>
-                <SearchBarContainer />
+                <Link to='/feed' className="navBarLink homeButton">
+                  Home
+                </Link>
               </li>
+            </div>
+            {/* <li> */}
+            {/*   <Link to='/charts' className="navBarLink">Charts</Link> */}
+            {/* </li> */}
+            <li>
+              <SearchBarContainer />
+            </li>
               <div className='rightSideNav'>
                 <Link to='/upload' className="navBarLink uploadButton">
                   <li>
