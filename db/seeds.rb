@@ -62,3 +62,5 @@ Song.create([
   { title: 'Within You Without You (Open Door Mix)', artist_id: User.first.id, data: opened_songs[7], cover_art: opened_cover_arts[3]},
   { title: 'Your Gold Dress', artist_id: User.first.id, data: opened_songs[8], cover_art: opened_cover_arts[4]}
   ])
+
+Comment.destroy_all
