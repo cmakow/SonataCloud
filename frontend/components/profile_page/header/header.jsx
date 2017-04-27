@@ -19,8 +19,8 @@ class Header extends React.Component {
         profilePictureButton = <Link to='/profile-edit' className='profilePicEdit'><i className="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</Link>;
         headerUpdate = <div className='updateHeader'><Link to='/profile-edit' className='profilePicEdit'><i className="fa fa-camera" aria-hidden="true"></i> Update Header</Link></div>;
       } else {
-        location = user.location;
-        bio = user.bio;
+        location = user.location || null;
+        bio = user.bio || null;
       }
       return (
         <div className="profileHeader">

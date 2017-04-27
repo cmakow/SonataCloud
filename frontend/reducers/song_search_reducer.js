@@ -2,7 +2,7 @@ import React from 'react';
 import { RECEIVE_SEARCH_SONGS } from '../actions/song_search_actions';
 import { merge } from 'lodash';
 
-const SongSearchReducer = (state = {songs: []}, action) => {
+const SongSearchReducer = (state = {}, action) => {
   Object.freeze(state);
   let nextState;
   switch(action.type) {
