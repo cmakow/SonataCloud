@@ -6,6 +6,7 @@ import EditSongReducer from './edit_song_reducer';
 import UploadSongReducer from './upload_song_reducer';
 import ProfileReducer from './profile_reducer';
 import CommentReducer from './comment_reducer';
+import SongSearchReducer from './song_search_reducer';
 
 const rootReducer = combineReducers({
   session: SessionReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   edit: EditSongReducer,
   upload: UploadSongReducer,
   profile: ProfileReducer,
-  comment: CommentReducer
+  comment: CommentReducer,
+  search: SongSearchReducer
 });
 
 export default rootReducer;

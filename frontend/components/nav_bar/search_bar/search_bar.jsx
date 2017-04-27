@@ -17,10 +17,14 @@ class SearchBar extends React.Component {
     this.setState({input: e.currentTarget.value});
   }
 
+  componentDidMount() {
+    this.props.fetchSearchSongs('search');
+  }
+
   matches() {
     const matches = [];
     if (this.state.input.length === 0) {
-      return this.props.songs;
+      return matches;
     }
 
     this.props.songs.forEach(song => {
@@ -43,19 +47,26 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    let potentialMatches = this.matches();
+    let potentialMatches;
+    if(this.props.songs) {
+      if(this.props.songs.length > 0) {
+        potentialMatches = this.matches();
+      }
+    }
     let results = null;
-    if(Object.keys(potentialMatches).length > 0) {
-      results = this.matches().map((result, i) => {
-        return (
-          <Link to={`/songs/${result.id}`} className='searchResultLink'>
-            <li key={i} className='searchResultLi'>
-              <img src={result.cover_art} className='searchResultIcon'/>
-              <div className='searchResultTitle'>{result.title}</div>
-            </li>
-          </Link>
-        );
-      });
+    if(potentialMatches) {
+      if(Object.keys(potentialMatches).length > 0) {
+        results = this.matches().map((result, i) => {
+          return (
+            <Link to={`/songs/${result.id}`} className='searchResultLink'>
+              <li key={i} className='searchResultLi'>
+                <img src={result.cover_art} className='searchResultIcon'/>
+                <div className='searchResultTitle'>{result.title}</div>
+              </li>
+            </Link>
+          );
+        });
+      }
     }
     if(this.state.input.length === 0) {
       results = null;

@@ -2,6 +2,12 @@ class Api::SongsController < ApplicationController
   def index
     if params[:artist_id]
       @songs = Song.where(artist_id: params[:artist_id]).includes(:artist).order('created_at DESC').limit(15)
+    elsif params[:input]
+      if params[:input] == 'search'
+        @songs = Song.all
+      else
+        @songs = Song.where('title like ?', params[:input])
+      end
     else
       @songs = Song.includes(:artist).order('created_at DESC').all.limit(15)
     end

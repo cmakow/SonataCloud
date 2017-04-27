@@ -41,7 +41,7 @@ class NavBar extends React.Component {
               {/*   <Link to='/charts' className="navBarLink">Charts</Link> */}
               {/* </li> */}
               <li>
-                <SearchBarContainer songs={Object.values(this.props.songs)}/>
+                <SearchBarContainer />
               </li>
               <div className='rightSideNav'>
                 <Link to='/upload' className="navBarLink uploadButton">

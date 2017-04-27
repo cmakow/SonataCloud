@@ -30,21 +30,27 @@ class Song extends React.Component {
     this.props.fetchSong(this.props.params.id);
   }
 
+  componentWillReceiveProps(newProps) {
+    if(this.props.params.id !== newProps.params.id) {
+      this.props.fetchSong(newProps.params.id);
+    }
+  }
+
   togglePlay(e) {
     if (this.state.isCurrentSong) {
-      const song = $('audio')[0];
-        if (song.paused) {
-          song.play();
-          this.setState({playing: true});
-          e.currentTarget.innerHTML = "<i id='showPause' class='fa fa-pause' aria-hidden='true'></i>";
-        } else {
-          song.pause();
-          this.setState({playing: false});
-          e.currentTarget.innerHTML = "<i id='play' class='fa fa-play' aria-hidden='true'></i>";
-        }
+      // const song = $('audio')[0];
+      //   if (song.paused) {
+      //     song.play();
+      //     this.setState({playing: true});
+      //     e.currentTarget.innerHTML = "<i id='showPause' class='fa fa-pause' aria-hidden='true'></i>";
+      //   } else {
+      //     song.pause();
+      //     this.setState({playing: false});
+      //     e.currentTarget.innerHTML = "<i id='play' class='fa fa-play' aria-hidden='true'></i>";
+      //   }
     } else {
       this.props.receiveCurrentSong(this.props.song);
-      e.currentTarget.innerHTML = "<i id='showPause' class='fa fa-pause' aria-hidden='true'></i>";
+      // e.currentTarget.innerHTML = "<i id='showPause' class='fa fa-pause' aria-hidden='true'></i>";
       this.setState({isCurrentSong: true});
     }
   }
