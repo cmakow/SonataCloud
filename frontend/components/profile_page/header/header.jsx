@@ -22,6 +22,22 @@ class Header extends React.Component {
         location = user.location || null;
         bio = user.bio || null;
       }
+      let bioComp;
+      if(bio) {
+        bioComp = (
+          <h3 className="userSubInfo">
+            {bio}
+          </h3>
+        );
+      }
+      let locationComp;
+      if(location) {
+        locationComp = (
+          <h3 className="userSubInfo">
+            {location}
+          </h3>
+        );
+      }
       return (
         <div className="profileHeader">
           <div className="backgroundGradient__buffer"></div>
@@ -36,13 +52,9 @@ class Header extends React.Component {
                   {user.username}
                 </h3>
                 <br />
-                <h3 className="userSubInfo">
-                  {bio}
-                </h3>
+                {bioComp}
                 <br />
-                <h3 className="userSubInfo">
-                  {location}
-                </h3>
+                {locationComp}
               </div>
             </div>
             {headerUpdate}
