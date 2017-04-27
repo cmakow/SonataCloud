@@ -4,7 +4,6 @@ import CurrentSongContainer from './current_song/current_song_container';
 import { Link } from 'react-router';
 
 const App = (props) => {
-  debugger
   if (props.location.pathname === '/') {
     return (
       <div className='app'>
