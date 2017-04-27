@@ -11,6 +11,13 @@ export const fetchSongs = () => (
   })
 );
 
+export const fetchMatchingSongs = (input) => (
+  $.ajax({
+    url: `/api/songs`,
+    data: { input }
+  })
+);
+
 export const fetchSong = (id) => (
   $.ajax({
     url: `/api/songs/${id}`

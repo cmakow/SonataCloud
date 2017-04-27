@@ -1,7 +1,13 @@
 .commentLi {
   display: flex;
   margin-bottom: 5px;
-  margin-top: 10px;
+  padding-top: 10px;
+  justify-content: space-between;
+  width: 850px;
+}
+
+.commentInfo {
+  display: flex;
 }
 
 .commentItem {
@@ -37,4 +43,18 @@
   height: 40px;
   margin-right: 10px;
   border-radius: 50%;
+}
+
+.deleteButton {
+  font-family: sans-serif;
+  background: #f50;
+  color: white;
+  padding: 4px;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.deleteButton:hover {
+  cursor: pointer;
 }

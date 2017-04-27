@@ -18,13 +18,14 @@ class CommentIndex extends React.Component {
   }
 
   render() {
-    debugger
     let comments;
-    if(this.props.comments.length > 0) {
-      comments = this.props.comments.map((comment, i) => (
+    if(Object.keys(this.props.comments).length > 0) {
+      comments = Object.values(this.props.comments).map((comment, i) => (
         <CommentIndexItem
           key={i}
           comment={comment}
+          currentUser={this.props.currentUser}
+          deleteComment={this.props.deleteComment}
           />
       ));
     } else {

@@ -37,5 +37,5 @@ export const updateComment = comment => dispatch => (
 );
 
 export const deleteComment = id => dispatch => (
-  APIUtil.deleteComment(id).then(id => dispatch(removeComment(id)))
+  APIUtil.deleteComment(id).then(() => dispatch(removeComment(id)))
 );
