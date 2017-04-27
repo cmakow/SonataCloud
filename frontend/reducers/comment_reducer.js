@@ -1,23 +1,22 @@
 import React from 'react';
-import { RECEIVE_COMMENT, RECEIVE_COMMENTS, RECEIVE_COMMENT_ERRORS } from '../actions/comment_actions';
+import { RECEIVE_COMMENT, RECEIVE_COMMENTS } from '../actions/comment_actions';
+import { merge } from 'lodash';
 
-const CommentReducer = (state = {errors: []}, action) => {
+const CommentReducer = (state = {comments: []}, action) => {
   Object.freeze(state);
   let nextState;
   switch(action.type) {
     case RECEIVE_COMMENTS:
-      nextState = Object.assign({}, state);
-      nextState.comments = action.comments;
+      nextState = merge({}, state);
+      nextState.comments = Array.from(action.comments);
       return nextState;
     case RECEIVE_COMMENT:
-      nextState = Object.assign({}, state);
-      nextState[action.comment.id] = action.comment;
-      return nextState;
-    case RECEIVE_COMMENT_ERRORS:
-      nextState = Object.assign({}, state);
-      nextState.errors = action.errors;
+      nextState = merge({}, state);
+      nextState.comments.unshift(action.comment);
       return nextState;
     default:
       return state;
   }
 };
+
+export default CommentReducer;

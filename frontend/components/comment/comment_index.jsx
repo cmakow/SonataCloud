@@ -7,11 +7,35 @@ class CommentIndex extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchSongComments(this.props.song.id);
+  }
+
+  componentWillReceiveProps(newProps) {
+    // if(this.props.comments.length !== newProps.comments.length) {
+    //   this.props.fetchSongComments(this.props.song.id);
+    // }
+  }
+
   render() {
+    debugger
+    let comments;
+    if(this.props.comments.length > 0) {
+      comments = this.props.comments.map((comment, i) => (
+        <CommentIndexItem
+          key={i}
+          comment={comment}
+          />
+      ));
+    } else {
+      comments = (<p className='fillerText'>Nothing here! Be the first to comment!</p>);
+    }
     return (
       <div>
         <CommentFormContainer />
-        {/* map comments to comment index items */}
+        <ul className='commentIndex'>
+          { comments }
+        </ul>
       </div>
     );
   }

@@ -1,9 +1,9 @@
 class Api::SongsController < ApplicationController
   def index
     if params[:artist_id]
-      @songs = Song.where(artist_id: params[:artist_id]).includes(:artist).order('created_at DESC')
+      @songs = Song.where(artist_id: params[:artist_id]).includes(:artist).order('created_at DESC').limit(15)
     else
-      @songs = Song.includes(:artist).order('created_at DESC').all
+      @songs = Song.includes(:artist).order('created_at DESC').all.limit(15)
     end
   end
 

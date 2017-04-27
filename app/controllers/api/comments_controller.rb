@@ -1,6 +1,6 @@
 class Api::CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    @comments = Comment.where('song_id = ?', params[:song_id]).includes(:author).order('created_at DESC')
   end
 
   def create
@@ -18,7 +18,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    
+
   end
 
   private

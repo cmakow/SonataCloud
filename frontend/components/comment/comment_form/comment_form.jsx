@@ -23,7 +23,7 @@ class CommentForm extends React.Component {
     formData.append('comment[body]', this.state.body);
     formData.append('comment[author_id]', this.props.currentUser.id);
     formData.append('comment[song_id]', this.props.params.id);
-    this.props.postComment(formData);
+    this.props.postComment(formData).then(() => this.setState({body: ''}));
   }
 
   render() {

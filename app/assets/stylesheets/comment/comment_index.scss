@@ -1,0 +1,40 @@
+.commentLi {
+  display: flex;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.commentItem {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.commentItem a {
+  text-decoration: none;
+  color: #99a6b7;
+}
+
+.commentUsername {
+  font-size: 14px;
+}
+
+.commentIndex {
+  padding-left: 30px;
+  background: white;
+}
+
+.fillerText {
+  padding-left: 30px;
+  text-align: left;
+  padding-top: 20px;
+  font-size: 22px;
+  color: gray;
+}
+
+.commentProfPicIcon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
