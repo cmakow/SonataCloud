@@ -6,6 +6,10 @@ import SearchBarContainer from './search_bar/search_bar_container';
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      location: null
+    };
   }
 
   componentDidMount() {

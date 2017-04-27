@@ -8,7 +8,7 @@ class SongIndex extends React.Component {
   }
 
   render() {
-    if (Object.keys(this.props.songs).length > 0) {
+    if (this.props.currentUser && Object.keys(this.props.songs).length > 0) {
       return (
         <div className='songIndex'>
           <h1>Here's the latest songs:</h1>
@@ -28,7 +28,7 @@ class SongIndex extends React.Component {
           </ul>
         </div>
       );
-    } else {
+    } else if (this.props.currentUser) {
       let text = 'Nothing here!';
       if (this.props.currentUser && this.props.profileUser) {
         if (this.props.currentUser.id === this.props.profileUser.id) {
@@ -39,6 +39,14 @@ class SongIndex extends React.Component {
         <div className='songIndex'>
           <h1>
             {text}
+          </h1>
+        </div>
+      );
+    } else {
+      return (
+        <div className='songIndex'>
+          <h1>
+            Please log in or create an account to view music!
           </h1>
         </div>
       );

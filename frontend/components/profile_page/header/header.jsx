@@ -12,7 +12,7 @@ class Header extends React.Component {
     let bio;
     let profilePictureButton;
     let headerUpdate;
-    if(user){
+    if(this.props.currentUser && user){
       if(user.id === this.props.currentUser.id) {
         location = user.location || <Link to='/profile-edit'>Add location!</Link>;
         bio = user.bio || <Link to='/profile-edit'>Add bio!</Link>;
@@ -54,7 +54,7 @@ class Header extends React.Component {
         <div>
           Loading...
         </div>
-      )
+      );
     }
   }
 }

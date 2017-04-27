@@ -52,15 +52,15 @@ class Song extends React.Component {
   render() {
     const song = this.props.song;
     let editButtons;
-    if(song) {
-      editButtons = (currentUser.id !== song.artist.id) ? null : (
+    if(this.props.currentUser && song) {
+      editButtons = (this.props.currentUser.id !== song.artist.id) ? null : (
         <div className='songEditInfo showEdit'>
           <button onClick={this.directToEdit}>Edit Song</button>
           <button onClick={this.removeSong}>Remove Song</button>
         </div>
       );
     }
-    if(song) {
+    if(this.props.currentUser && song) {
       return (
         <div className='songShowPage'>
           <div className='songShowHeader'>

@@ -8,6 +8,7 @@ import { deleteSong } from '../../actions/song_show_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
+    currentUser: state.session.currentUser,
     song: state.songs[ownProps.params.id],
     currentSong: state.currentSong.current_song
   });
