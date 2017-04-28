@@ -6,12 +6,15 @@ class CurrentSong extends React.Component {
 
     this.togglePlay = this.togglePlay.bind(this);
     this.updateVolume = this.updateVolume.bind(this);
+    this.toggleVolume = this.toggleVolume.bind(this);
+    this.renderVolumeButton = this.renderVolumeButton.bind(this);
 
     this.state = {
       volume: 1,
       currentTime: 0,
       duration: 0,
-      playing: false
+      playing: false,
+      lastVol: null
     };
   }
 
@@ -73,6 +76,37 @@ class CurrentSong extends React.Component {
     return (`${minutes}:${seconds}`);
   }
 
+  toggleVolume(e) {
+    e.preventDefault();
+    const song = this.refs.song;
+    const vol = song.volume;
+    let target;
+    if (vol > 0) {
+      this.setState({lastVol: vol, volume: 0});
+      song.volume = 0;
+      e.currentTarget.innerHTML = '<i class="fa fa-volume-off" aria-hidden="true"></i>';
+    } else {
+      target = this.state.lastVol;
+      this.setState({lastVol: 0, volume: target});
+      song.volume = target;
+      e.currentTarget.innerHTML = '<i class="fa fa-volume-up" aria-hidden="true"></i>';
+    }
+  }
+
+  renderVolumeButton() {
+    if(this.refs.song) {
+      const song = this.refs.song;
+      const vol = song.volume;
+      let volumeButton;
+      if(vol > 0) {
+        volumeButton = <button onClick={this.toggleVolume} className='volumeButton'><i className="fa fa-volume-up" aria-hidden="true"></i></button>;
+      } else {
+        volumeButton = <button onClick={this.toggleVolume} className='volumeButton'><i className="fa fa-volume-off" aria-hidden="true"></i></button>;
+      }
+      return volumeButton;
+    }
+  }
+
   render() {
     let playButton = <i id='pause' className='fa fa-pause' aria-hidden='true'></i>;
     if(this.props.currentUser) {
@@ -98,6 +132,7 @@ class CurrentSong extends React.Component {
                 <progress className='songProgressBar' value={this.state.currentTime} max={this.state.duration}></progress>
                 {this.parseTime(this.state.duration)}
               </div>
+              { this.renderVolumeButton() }
               <input
                 type='range'
                 className='volumeSlider'

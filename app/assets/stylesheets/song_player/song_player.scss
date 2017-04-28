@@ -54,6 +54,24 @@
   width: 900px;
 }
 
+.volumeButton {
+  border: none;
+  padding: 4px;
+  font-size: 20px;
+  background: white;
+  color: #515151;
+  width: 30px;
+}
+
+.volumeButton:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.fa-volume-off {
+  padding-right: 10px;
+}
+
 input[type=range] {
   -webkit-appearance: none;
   margin: 18px 10px;
