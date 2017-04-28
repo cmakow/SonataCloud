@@ -15,6 +15,13 @@ class CurrentSong extends React.Component {
     };
   }
 
+  // componentWillReceiveProps(newProps) {
+  //   if(!newProps.currentUser) {
+  //     this.setState({playing: false});
+  //     this.props.clearCurrentSong();
+  //   }
+  // }
+
   togglePlay(e) {
     const song = this.refs.song;
     if (song.paused) {
@@ -68,41 +75,47 @@ class CurrentSong extends React.Component {
 
   render() {
     let playButton = <i id='pause' className='fa fa-pause' aria-hidden='true'></i>;
-    if(this.props.currentSong) {
-      // if (this.refs.song) {
-      //   playButton = this.refs.song.paused ? <i id='play' className='fa fa-play' aria-hidden='true'></i> : <i id='pause' className='fa fa-pause' aria-hidden='true'></i>;
-      // }
-      const songInfo = `${this.props.currentSong.title} - ${this.props.currentSong.artist.username}`;
-      let songInfoComponent;
-      if (songInfo.length > 20) {
-        songInfoComponent = <marquee>{songInfo}</marquee>;
-      } else {
-        songInfoComponent = songInfo;
-      }
-      return (
-        <div className='currentSongPlayer'>
-          <div className='currentSongControls'>
-            <audio ref='song' src={this.props.currentSong.data} />
-            <img src={this.props.currentSong.cover_art} className='currentSongThumb' />
-            <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='pause' className='fa fa-pause' aria-hidden='true'></i></button>
-            <div className='progressBarContainer'>
-              {this.parseTime(this.state.currentTime)}
-              <progress className='songProgressBar' value={this.state.currentTime} max={this.state.duration}></progress>
-              {this.parseTime(this.state.duration)}
+    if(this.props.currentUser) {
+      if(this.props.currentSong) {
+        // if (this.refs.song) {
+        //   playButton = this.refs.song.paused ? <i id='play' className='fa fa-play' aria-hidden='true'></i> : <i id='pause' className='fa fa-pause' aria-hidden='true'></i>;
+        // }
+        const songInfo = `${this.props.currentSong.title} - ${this.props.currentSong.artist.username}`;
+        let songInfoComponent;
+        if (songInfo.length > 20) {
+          songInfoComponent = <marquee>{songInfo}</marquee>;
+        } else {
+          songInfoComponent = songInfo;
+        }
+        return (
+          <div className='currentSongPlayer'>
+            <div className='currentSongControls'>
+              <audio ref='song' src={this.props.currentSong.data} />
+              <img src={this.props.currentSong.cover_art} className='currentSongThumb' />
+              <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='pause' className='fa fa-pause' aria-hidden='true'></i></button>
+              <div className='progressBarContainer'>
+                {this.parseTime(this.state.currentTime)}
+                <progress className='songProgressBar' value={this.state.currentTime} max={this.state.duration}></progress>
+                {this.parseTime(this.state.duration)}
+              </div>
+              <input
+                type='range'
+                className='volumeSlider'
+                onChange={this.updateVolume}
+                value={this.state.volume * 100}
+                min='0' max='100'
+                />
+              <p className='songInfo'>
+                {songInfoComponent}
+              </p>
             </div>
-            <input
-              type='range'
-              className='volumeSlider'
-              onChange={this.updateVolume}
-              value={this.state.volume * 100}
-              min='0' max='100'
-              />
-            <p className='songInfo'>
-              {songInfoComponent}
-            </p>
           </div>
-        </div>
-      );
+        );
+      } else {
+        return (
+          <div className='xD'></div>
+        );
+      }
     } else {
       return (
         <div className='xD'></div>

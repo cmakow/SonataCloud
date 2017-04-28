@@ -5,13 +5,15 @@ import { receiveCurrentSong } from '../../actions/current_song_actions';
 
 const mapStateToProps = state => {
   return {
+    currentUser: state.session.currentUser,
     currentSong: state.currentSong.current_song,
     playing: state.currentSong.playing
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  receiveSongs: songs => dispatch(receiveSongs(songs))
+  receiveCurrentSong: song => dispatch(receiveCurrentSongs(song)),
+  clearCurrentSong: () => dispatch(receiveCurrentSong(null))
 });
 
 export default connect(

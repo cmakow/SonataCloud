@@ -65,14 +65,14 @@ Song.create([
 
 Comment.destroy_all
 
-# Comment.create([
-#   { artist_id: User.second.id, song_id: Song.first.id, body: 'Well hello'},
-#   { artist_id: User.last.id, song_id: Song.first.id, body: 'Well hi'},
-#   { artist_id: User.last.id, song_id: Song.second.id, body: 'HEY!'},
-#   { artist_id: User.last.id, song_id: Song.third.id, body: 'This is a comment.'},
-#   { artist_id: User.second.id, song_id: Song.fourth.id, body: 'Great song, bro'},
-#   { artist_id: User.second.id, song_id: Song.fifth.id, body: 'I like this'},
-#   { artist_id: User.first.id, song_id: Song.first.id, body: 'I like this'},
-#   { artist_id: User.first.id, song_id: Song.second.id, body: 'I like this'},
-#   { artist_id: User.first.id, song_id: Song.third.id, body: 'I like this'}
-#   ])
+Comment.create([
+  { author_id: User.second.id, song_id: Song.first.id, body: 'Well hello'},
+  { author_id: User.last.id, song_id: Song.first.id, body: 'Well hi'},
+  { author_id: User.last.id, song_id: Song.second.id, body: 'HEY!'},
+  { author_id: User.last.id, song_id: Song.third.id, body: 'This is a comment.'},
+  { author_id: User.second.id, song_id: Song.fourth.id, body: 'Great song, bro'},
+  { author_id: User.second.id, song_id: Song.fifth.id, body: 'I like this'},
+  { author_id: User.first.id, song_id: Song.first.id, body: 'I like this'},
+  { author_id: User.first.id, song_id: Song.second.id, body: 'I like this'},
+  { author_id: User.first.id, song_id: Song.third.id, body: 'I like this'}
+  ])
