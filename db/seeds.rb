@@ -8,14 +8,27 @@
 
 # Users
 
+# header = open('https://s3.us-east-2.amazonaws.com/sonatacloud-dev/users/header_images/000/000/006/original/open-uri20170428-3172-wfbkt4')
+#
+# profile_pics = [
+#   'https://s3.us-east-2.amazonaws.com/sonatacloud-dev/users/profile_pictures/000/000/001/original/joel_test_subject_ver__id_card__by_aperture_prof_joel-da4w2dj.png',
+#   'https://s3.us-east-2.amazonaws.com/sonatacloud-dev/users/profile_pictures/000/000/016/original/test2.png',
+#   'https://s3.us-east-2.amazonaws.com/sonatacloud-dev/users/profile_pictures/000/000/006/original/open-uri20170428-3172-smenq2'
+# ]
+#
+# opened_prof = []
+# profile_pics.each_with_index do |pic, i|
+#   opened_prof[i] = open(pic)
+# end
+
 User.destroy_all
 
 User.create([
   { email: 'demo@demo.com', username: 'demo', password: 'password' },
-  { email: 'test@test.com', username: 'test', password: 'password123'},
+  { email: 'test@test.com', username: 'test', password: 'password123' },
   ])
 
-f = User.create({ email: 'dontenterthis@dontenterthis.com', username: 'Wankwinkel', password: 'neverfindthis', bio: 'Well hello there', location: 'New York, New York'})
+f = User.create({ email: 'dontenterthis@dontenterthis.com', username: 'Wankwinkel', password: 'neverfindthis', bio: 'Well hello there', location: 'New York, New York' })
 
 Song.destroy_all
 
