@@ -12,6 +12,7 @@ class Header extends React.Component {
     let bio;
     let profilePictureButton;
     let headerUpdate;
+    let headerBackground;
     if(this.props.currentUser && user){
       if(user.id === this.props.currentUser.id) {
         location = user.location || <Link to='/profile-edit'>Add location!</Link>;
@@ -38,9 +39,18 @@ class Header extends React.Component {
           </h3>
         );
       }
+      const headerUrl = user.header;
+      if(headerUrl !== "/header_images/original/missing.png") {
+        var sectionStyle = {
+          backgroundImage: 'url('+ headerUrl + ')'
+        };
+        headerBackground = <div className='headerBackground' style={ sectionStyle }></div>;
+      } else {
+        headerBackground = <div className="backgroundGradient__buffer"></div>;
+      }
       return (
         <div className="profileHeader">
-          <div className="backgroundGradient__buffer"></div>
+          { headerBackground }
           <div className="profileInfo">
             <div className='leftSideHeader'>
               <div className="profilePicture">
