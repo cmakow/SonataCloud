@@ -50,10 +50,18 @@ class SongIndexItem extends React.Component {
     );
     const songUploadDate = new Date(this.props.song.date);
     const today = new Date();
-    const timeDiff = Math.floor((today - songUploadDate)/36e5);
+    let timeDiff = Math.floor((today - songUploadDate)/36e5);
     let hours = 'hours';
     if (timeDiff === 1) {
       hours = 'hour';
+    }
+    if (timeDiff >= 24) {
+      timeDiff = Math.floor(timeDiff / 24);
+      if (timeDiff > 1) {
+        hours = 'days';
+      } else {
+        hours = 'day';
+      }
     }
     let playButton = <i className='fa fa-play' aria-hidden='true'></i>;
     // if(this.props.currentSong) {
