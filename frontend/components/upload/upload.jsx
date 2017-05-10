@@ -71,6 +71,10 @@ class Upload extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   render() {
     let opts = {}
     if(this.state.data && this.state.title.length > 0) {
