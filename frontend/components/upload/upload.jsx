@@ -81,6 +81,11 @@ class Upload extends React.Component {
     if(this.state.uploading) {
       opts['disabled'] = 'disabled';
     }
+    let loader = <div></div>;
+    debugger
+    if(this.state.uploading) {
+      loader = (<div className="loader">Loading...</div>);
+    }
     return(
       <div className='uploadFormContainer'>
         <h2>Upload to SonataCloud</h2>
@@ -102,6 +107,7 @@ class Upload extends React.Component {
             </label>
             <br />
             <button onClick={this.handleSubmit} className='uploadSubmit' {...opts}>Upload Song</button>
+            { loader }
           </div>
         </form>
       </div>
