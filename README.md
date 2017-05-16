@@ -29,3 +29,13 @@ This results in creating an intuitive, easy to use interface in which every play
 ### User Pages
 
 Users are stored in the database with an association to the songs they have uploaded. Upon rendering a user page, a fetch is made to fetch all of the songs the user created and these songs replace the ones in the store, allowing the same feed component to be used on both the main feed page and the user pages.
+
+## Future Plans
+
+### Playlists
+
+Playlists will make the website more fun and intuitive to use, allowing users to queue up songs and let them play automatically.
+
+### Follows
+
+Following popular artists is a major feature of SoundCloud and I would love to implement a similar feature for SonataCloud.
