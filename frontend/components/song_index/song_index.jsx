@@ -14,9 +14,17 @@ class SongIndex extends React.Component {
           <h1>Here's the latest songs:</h1>
           <ul>
             {
-              Object.keys(this.props.songs).map(id => (
-                <SongIndexItem song={this.props.songs[id]}
-                  key={id}
+              Object.keys(this.props.songs).map(id => this.props.songs[id]).sort((song1, song2) => {
+                if(song1.date < song2.date) {
+                  return 1;
+                } else if (song1.date > song2.date) {
+                  return -1;
+                } else {
+                  return 0;
+                }
+              }).map(song => (
+                <SongIndexItem song={this.props.songs[song.id]}
+                  key={song.id}
                   currentSong={this.props.currentSong}
                   receiveCurrentSong={this.props.receiveCurrentSong}
                   currentUser={this.props.currentUser}

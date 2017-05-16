@@ -1,7 +1,7 @@
 class Api::SongsController < ApplicationController
   def index
     if params[:artist_id]
-      @songs = Song.where(artist_id: params[:artist_id]).includes(:artist).order('created_at DESC').limit(15)
+      @songs = Song.where(artist_id: params[:artist_id]).includes(:artist).order('created_at DESC').limit(10).offset(params[:offset])
     elsif params[:input]
       if params[:input] == 'ALLSONGS#145123'
         @songs = Song.all
@@ -9,7 +9,7 @@ class Api::SongsController < ApplicationController
         @songs = Song.where('title like ?', "#{params[:input]}%")
       end
     else
-      @songs = Song.includes(:artist).order('created_at DESC').all.limit(15)
+      @songs = Song.includes(:artist).order('created_at DESC').all.limit(10).offset(params[:offset])
     end
   end
 

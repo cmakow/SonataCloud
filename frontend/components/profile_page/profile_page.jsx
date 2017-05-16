@@ -22,7 +22,7 @@ class ProfilePage extends React.Component {
     return (
       <div>
         <HeaderContainer currentUser={this.props.currentUser}/>
-        <FeedContainer />
+        <FeedContainer user_id={this.props.params.user_id} />
       </div>
     );
   }

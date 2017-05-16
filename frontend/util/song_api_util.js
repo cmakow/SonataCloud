@@ -1,13 +1,14 @@
-export const fetchUserSongs = (artist_id) => (
+export const fetchUserSongs = (artist_id, offset) => (
   $.ajax({
     url: `/api/users/${artist_id}/songs`,
-    data: { artist_id }
+    data: { artist_id, offset }
   })
 );
 
-export const fetchSongs = () => (
+export const fetchSongs = (offset) => (
   $.ajax({
-    url: `/api/songs`
+    url: `/api/songs/`,
+    data: { offset }
   })
 );
 

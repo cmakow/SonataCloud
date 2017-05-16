@@ -86,7 +86,6 @@ class Upload extends React.Component {
       opts['disabled'] = 'disabled';
     }
     let loader = <div></div>;
-    debugger
     if(this.state.uploading) {
       loader = (<div className="loader">Loading...</div>);
     }

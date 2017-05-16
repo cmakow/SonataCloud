@@ -1,7 +1,7 @@
 import React from 'react';
 import Feed from './feed';
 import { connect } from 'react-redux';
-import { fetchUserSongs, fetchSongs } from '../../actions/song_index_actions';
+import { fetchUserSongs, fetchSongs, clearSongs } from '../../actions/song_index_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
@@ -10,8 +10,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchUserSongs: userId => dispatch(fetchUserSongs(userId)),
-  fetchSongs: () => dispatch(fetchSongs())
+  fetchUserSongs: (userId, offset) => dispatch(fetchUserSongs(userId, offset)),
+  fetchSongs: (offset) => dispatch(fetchSongs(offset)),
+  clearSongs: () => dispatch(clearSongs())
 });
 
 export default connect(
