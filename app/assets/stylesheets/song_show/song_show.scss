@@ -12,6 +12,7 @@
   height: 375px;
   justify-content: space-between;
   background: linear-gradient(315deg, rgb(234, 149, 75) 0%, rgb(58, 18, 1) 100%);
+  position: relative;
 }
 
 .songShowHeaderInfo {
@@ -59,6 +60,7 @@
 .songShowInfo {
   display: flex;
   flex-direction: column;
+  height: 100px;
 }
 
 .songShowInfo p {
@@ -83,7 +85,7 @@
   opacity: 0.9;
   position: absolute;
   width: auto;
-  top: 115px;
+  top: 60px;
 }
 
 .songShowCoverArt img {
@@ -102,4 +104,13 @@
   position: absolute;
   bottom: 40px;
   left: 92px;
+}
+
+.songShowWaveform {
+  position: absolute;
+  width: 700px;
+  height: 200px;
+  bottom: 50px;
+  left: 100px;
+  z-index: 0;
 }

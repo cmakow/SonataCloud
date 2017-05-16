@@ -7,7 +7,6 @@ class SongIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.togglePlay = this.togglePlay.bind(this);
     this.removeSong = this.removeSong.bind(this);
     this.directToEdit = this.directToEdit.bind(this);
   }
@@ -15,11 +14,17 @@ class SongIndexItem extends React.Component {
   componentDidMount() {
     this.wavesurfer = WaveSurfer.create({
       container: `#waveform-${this.props.song.id}`,
-      waveColor: 'violet',
-      progressColor: 'purple',
+      waveColor: 'gray',
+      progressColor: '#f50',
       height: '75'
     });
     this.wavesurfer.load(this.props.song.data)
+  }
+
+  componentDidReceiveProps(oldProps) {
+    if(this.props.currentSong === this.props.song) {
+      this.wavesurfer.load($('audio')[0].src);
+    }
   }
 
   removeSong(e) {

@@ -29,30 +29,18 @@ class Song extends React.Component {
 
   componentDidMount() {
     this.props.fetchSong(this.props.params.id);
+    this.wavesurfer = WaveSurfer.create({
+      container: `#waveform-${this.props.song.id}`,
+      waveColor: 'gray',
+      progressColor: '#f50',
+      height: '200'
+    });
+    this.wavesurfer.load(this.props.song.data);
   }
 
   componentWillReceiveProps(newProps) {
     if(this.props.params.id !== newProps.params.id) {
       this.props.fetchSong(newProps.params.id);
-    }
-  }
-
-  togglePlay(e) {
-    if (this.state.isCurrentSong) {
-      // const song = $('audio')[0];
-      //   if (song.paused) {
-      //     song.play();
-      //     this.setState({playing: true});
-      //     e.currentTarget.innerHTML = "<i id='showPause' class='fa fa-pause' aria-hidden='true'></i>";
-      //   } else {
-      //     song.pause();
-      //     this.setState({playing: false});
-      //     e.currentTarget.innerHTML = "<i id='play' class='fa fa-play' aria-hidden='true'></i>";
-      //   }
-    } else {
-      this.props.receiveCurrentSong(this.props.song);
-      // e.currentTarget.innerHTML = "<i id='showPause' class='fa fa-pause' aria-hidden='true'></i>";
-      this.setState({isCurrentSong: true});
     }
   }
 
@@ -72,11 +60,13 @@ class Song extends React.Component {
         <div className='songShowPage'>
           <div className='songShowHeader'>
             <div className='songShowHeaderInfo'>
-              {/* <button onClick={this.togglePlay} className='playButton' id='showPlayButton'><i className='fa fa-play' aria-hidden='true'></i></button> */}
               <PlayButtonContainer song={song} songShow='true' />
               <div className='songShowInfo'>
                 <p>{song.artist.username}</p>
                 <h2>{song.title}</h2>
+                <div className='songShowWaveform'>
+                  <div id={`waveform-${song.id}`}></div>
+                </div>
               </div>
             </div>
             <div className='songShowCoverArt'>
