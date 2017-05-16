@@ -12,22 +12,14 @@ class SongIndexItem extends React.Component {
     this.directToEdit = this.directToEdit.bind(this);
   }
 
-  togglePlay(e) {
-    if (this.props.song === this.props.currentSong) {
-      // const song = $('audio')[0];
-      //   if (song.paused) {
-      //     song.play();
-      //     this.setState({playing: true});
-      //     e.currentTarget.innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";
-      //   } else {
-      //     song.pause();
-      //     this.setState({playing: false});
-      //     e.currentTarget.innerHTML = "<i id='play' class='fa fa-play' aria-hidden='true'></i>";
-      //   }
-    } else {
-      this.props.receiveCurrentSong(this.props.song);
-      // e.currentTarget.innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";
-    }
+  componentDidMount() {
+    this.wavesurfer = WaveSurfer.create({
+      container: `#waveform-${this.props.song.id}`,
+      waveColor: 'violet',
+      progressColor: 'purple',
+      height: '75'
+    });
+    this.wavesurfer.load(this.props.song.data)
   }
 
   removeSong(e) {
@@ -64,36 +56,26 @@ class SongIndexItem extends React.Component {
         hours = 'day';
       }
     }
-    let playButton = <i className='fa fa-play' aria-hidden='true'></i>;
-    // if(this.props.currentSong) {
-    //   if(song === this.props.currentSong) {
-    //     const audio = $('audio')[0];
-    //     if (audio.paused) {
-    //       playButton = <i className='fa fa-play' aria-hidden='true'></i>;
-    //     } else {
-    //       playButton = <i className='fa fa-pause' aria-hidden='true'></i>;
-    //     }
-    //   } else {
-    //     playButton = <i className='fa fa-play' aria-hidden='true'></i>;
-    //   }
-    // }
     return (
       <li className='songIndexItemLi'>
-        {/* change this to actual artist image and link to artist page */}
         <div className='uploaderInfo'>
           <p><Link to={`/profile/${song.artist.id}`}>{song.artist.username}</Link> uploaded <Link to={`/songs/${song.id}`}>a track</Link> {timeDiff} {hours} ago.</p>
         </div>
         <div className='songIndexItem'>
           <img src={song.cover_art} className='artistImage'/>
           <PlayButtonContainer song={this.props.song} />
-          {/* <button onClick={this.togglePlay} className='playButton'><i className='fa fa-play' aria-hidden='true'></i></button> */}
           <div className='songIndexItemHeader'>
-            {/* change to link to user page later */}
-            <Link to={`/profile/${song.artist.id}`} className='artistName'>{song.artist.username}</Link> <br />
-            {/* make into link to song show page later */}
-            <Link to={`/songs/${song.id}`} className='songTitle'>{song.title}</Link>
+            <div className='songIndexItemInfo'>
+              <Link to={`/profile/${song.artist.id}`} className='artistName'>{song.artist.username}</Link> <br />
+              <Link to={`/songs/${song.id}`} className='songTitle'>{song.title}</Link>
+            </div>
+            <div className='waveform'>
+              <div id={`waveform-${song.id}`} ></div>
+            </div>
             <br/>
-            { editButtons }
+            <div className='songButtons'>
+              { editButtons }
+            </div>
           </div>
         </div>
       </li>
