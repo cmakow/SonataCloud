@@ -37,7 +37,7 @@ class CurrentSong extends React.Component {
       if (this.state.playing) {
         this.setState({currentTime: this.refs.song.currentTime});
       }
-    }, 1000); //THANKS BRANDON
+    }, 50); //THANKS BRANDON
   }
 
   componentWillUnmount() {
