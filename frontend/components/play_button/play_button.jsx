@@ -35,14 +35,27 @@ class PlayButton extends React.Component {
   render() {
     let idText;
     if(this.props.currentSongPlay) {
-      idText = 'currentSongPlay'
+      idText = 'currentSongPlay';
+    } else if (this.props.songShow) {
+      idText = 'showPlayButton';
+      if (this.props.playing) {
+        idText = 'showPauseButton';
+      }
     }
     let buttonText;
     if(this.isCurrentSong()) {
       if (this.props.playing) {
-        buttonText = <i id='pause' className='fa fa-pause' aria-hidden='true'></i>;
+        if(this.props.songShow) {
+          buttonText = <i id='showPause' className='fa fa-pause' aria-hidden='true'></i>;
+        } else {
+          buttonText = <i id='pause' className='fa fa-pause' aria-hidden='true'></i>;
+        }
       } else {
-        buttonText = <i id='play' className='fa fa-play' aria-hidden='true'></i>;
+        if(this.props.songShow) {
+          buttonText = <i id='showPlay' className='fa fa-play' aria-hidden='true'></i>;
+        } else {
+          buttonText = <i id='play' className='fa fa-play' aria-hidden='true'></i>;
+        }
       }
     } else {
       buttonText = <i id='play' className='fa fa-play' aria-hidden='true'></i>;

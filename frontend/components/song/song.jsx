@@ -1,6 +1,7 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
 import CommentIndexContainer from '../comment/comment_index_container';
+import PlayButtonContainer from '../play_button/play_button_container';
 
 class Song extends React.Component {
   constructor(props) {
@@ -71,7 +72,8 @@ class Song extends React.Component {
         <div className='songShowPage'>
           <div className='songShowHeader'>
             <div className='songShowHeaderInfo'>
-              <button onClick={this.togglePlay} className='showPlayButton'><i className='fa fa-play' aria-hidden='true'></i></button>
+              {/* <button onClick={this.togglePlay} className='playButton' id='showPlayButton'><i className='fa fa-play' aria-hidden='true'></i></button> */}
+              <PlayButtonContainer song={song} songShow='true' />
               <div className='songShowInfo'>
                 <p>{song.artist.username}</p>
                 <h2>{song.title}</h2>
