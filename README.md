@@ -14,13 +14,17 @@ On the backend, songs are stored in a single table on the database with columns 
 
 Songs are rendered on the index as well as on the song show page. On the song show page, an additional API call is made the fetch the comments on the song and render them beneath the song display. The UI strives to emulate that of SoundCloud as much as possible.
 
+![image of song show](docs/screenshots/song_show.png)
+
 ### Current Song Player
 
-The current song player operates through a separate segment of state.
+The current song player operates through a separate segment of state. When a user clicks a play button, an action is sent to set the song assigned to the play button as the current song. After this point, navigating between pages will not change the current song unless a new song is played. As a result, music will play continuously as a user navigates between pages.
 
 ### Play Button
 
 When a play button is pressed on a song, an action is sent to replace the current song with the song on which the play button is pressed. Once the current song is replaced, it will play immediately and the play button will now act as a play and pause switch for the audio player. This is done through comparisons between segments of state for the current song and the song to which the play button refers.
+
+This results in creating an intuitive, easy to use interface in which every play button behaves like it should.
 
 ### User Pages
 
