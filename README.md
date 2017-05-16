@@ -1,10 +1,10 @@
 # SonataCloud
 
-[Heroku link][heroku]
+[Live][heroku]
 
-[heroku]: https://sonatacloud.herokuapp.com/#/
+[heroku]: https://sonatacloud.us/#/
 
-## Minimum Viable Product
+## Features & Implementation
 
 SoundCloud is a web application for music hosting and streaming that was built using Ruby on Rails. By the end of Week 9, this application will satisfy the following criteria and hopefully more, including sufficient seed data and CSS styling:
 
