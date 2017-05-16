@@ -12,7 +12,6 @@ class Song extends React.Component {
       isCurrentSong: false
     };
 
-    this.togglePlay = this.togglePlay.bind(this);
     this.removeSong = this.removeSong.bind(this);
     this.directToEdit = this.directToEdit.bind(this);
   }
@@ -28,14 +27,15 @@ class Song extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSong(this.props.params.id);
-    this.wavesurfer = WaveSurfer.create({
-      container: `#waveform-${this.props.song.id}`,
-      waveColor: 'gray',
-      progressColor: '#f50',
-      height: '200'
+    this.props.fetchSong(this.props.params.id).then(() => {
+      this.wavesurfer = WaveSurfer.create({
+        container: `#waveform-${this.props.song.id}`,
+        waveColor: 'gray',
+        progressColor: '#f50',
+        height: '200'
+      });
+      this.wavesurfer.load(this.props.song.data);
     });
-    this.wavesurfer.load(this.props.song.data);
   }
 
   componentWillReceiveProps(newProps) {
