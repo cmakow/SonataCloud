@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import SongProgressBar from './song_progress_bar';
+import PlayButtonContainer from '../play_button/play_button_container';
 
 class SongIndexItem extends React.Component {
   constructor(props) {
@@ -84,7 +85,8 @@ class SongIndexItem extends React.Component {
         </div>
         <div className='songIndexItem'>
           <img src={song.cover_art} className='artistImage'/>
-          <button onClick={this.togglePlay} className='playButton'><i className='fa fa-play' aria-hidden='true'></i></button>
+          <PlayButtonContainer song={this.props.song} />
+          {/* <button onClick={this.togglePlay} className='playButton'><i className='fa fa-play' aria-hidden='true'></i></button> */}
           <div className='songIndexItemHeader'>
             {/* change to link to user page later */}
             <Link to={`/profile/${song.artist.id}`} className='artistName'>{song.artist.username}</Link> <br />

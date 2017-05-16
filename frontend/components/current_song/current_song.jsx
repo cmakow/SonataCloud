@@ -1,10 +1,11 @@
 import React from 'react';
+import PlayButtonContainer from '../play_button/play_button_container';
 
 class CurrentSong extends React.Component {
   constructor(props) {
     super(props);
 
-    this.togglePlay = this.togglePlay.bind(this);
+    // this.togglePlay = this.togglePlay.bind(this);
     this.updateVolume = this.updateVolume.bind(this);
     this.toggleVolume = this.toggleVolume.bind(this);
     this.renderVolumeButton = this.renderVolumeButton.bind(this);
@@ -19,31 +20,28 @@ class CurrentSong extends React.Component {
   }
 
   // componentWillReceiveProps(newProps) {
-  //   if(!newProps.currentUser) {
-  //     this.setState({playing: false});
-  //     this.props.clearCurrentSong();
+  //   const song = this.refs.song;
+  //   if(newProps.playing !== this.props.playing) {
+  //     if (newProps.playing) {
+  //       this.setState({playing: true});
+  //       song.play();
+  //     } else {
+  //       this.setState({playing: false});
+  //       song.pause();
+  //     }
   //   }
   // }
 
-  togglePlay(e) {
-    const song = this.refs.song;
-    if (song.paused) {
-      song.play();
-      this.setState({playing: true});
-      e.currentTarget.innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";
-    } else {
-      song.pause();
-      this.setState({playing: false});
-      e.currentTarget.innerHTML = "<i id='play' class='fa fa-play' aria-hidden='true'></i>";
-    }
-  }
-
   componentDidMount() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       if (this.state.playing) {
         this.setState({currentTime: this.refs.song.currentTime});
       }
     }, 1000); //THANKS BRANDON
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   updateVolume(e) {
@@ -60,7 +58,6 @@ class CurrentSong extends React.Component {
       song.play().then(() => {
         this.setState({duration: song.duration, playing: true});
       });
-      $('#currentSongPlay')[0].innerHTML = "<i id='pause' class='fa fa-pause' aria-hidden='true'></i>";
     }
   }
 
@@ -126,7 +123,8 @@ class CurrentSong extends React.Component {
             <div className='currentSongControls'>
               <audio ref='song' src={this.props.currentSong.data} />
               <img src={this.props.currentSong.cover_art} className='currentSongThumb' />
-              <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='pause' className='fa fa-pause' aria-hidden='true'></i></button>
+              <PlayButtonContainer currentSongPlay='true' song={this.props.currentSong}/>
+              {/* <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='pause' className='fa fa-pause' aria-hidden='true'></i></button> */}
               <div className='progressBarContainer'>
                 {this.parseTime(this.state.currentTime)}
                 <progress className='songProgressBar' value={this.state.currentTime} max={this.state.duration}></progress>

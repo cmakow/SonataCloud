@@ -9,12 +9,10 @@ export const receiveCurrentSong = currentSong => ({
   currentSong
 });
 
-export const playSong = currentSong => ({
-  type: PLAY_SONG,
-  currentSong
+export const playSong = () => ({
+  type: PLAY_SONG
 });
 
-export const pauseSong = currentSong => ({
-  type: PAUSE_SONG,
-  currentSong
+export const pauseSong = () => ({
+  type: PAUSE_SONG
 });
