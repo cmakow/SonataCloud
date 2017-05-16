@@ -6,40 +6,22 @@
 
 ## Features & Implementation
 
-SoundCloud is a web application for music hosting and streaming that was built using Ruby on Rails. By the end of Week 9, this application will satisfy the following criteria and hopefully more, including sufficient seed data and CSS styling:
+### Song Indexing
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, guest login, user login
-- [ ] Ability to upload songs and play them
-- [ ] Continuous play between page navigation
-- [ ] Comments on songs at specific times
-- [ ] User pages with their hosted songs
+On the backend, songs are stored in a single table on the database with columns for `id`, `artist_id`, `title`, `created_at`, `data`, and `cover_art`. When the feed is initially rendered, an API call is made to the songs table, gathering the 10 most recently uploaded songs. When scrolling down, there is a load more that will load the next 10 most recently uploaded songs. These songs are held in a segment of state and are cleared out whenever a new feed is loaded or song page is displayed.
 
-## Design Docs
+![image of song index](docs/screenshots/song_index.png)
 
-## Implementation Timeline
+Songs are rendered on the index as well as on the song show page. On the song show page, an additional API call is made the fetch the comments on the song and render them beneath the song display. The UI strives to emulate that of SoundCloud as much as possible.
 
-### Phase 1: Backend setup and Front End User Authentication (2 days)
+### Current Song Player
 
-**Objective:** Functioning rails project with front-end Authentication
+The current song player operates through a separate segment of state.
 
-### Phase 2: Song Model, API, and components (3 days)
+### Play Button
 
-**Objective:** Songs can be created and destroyed through the user interface.
+When a play button is pressed on a song, an action is sent to replace the current song with the song on which the play button is pressed. Once the current song is replaced, it will play immediately and the play button will now act as a play and pause switch for the audio player. This is done through comparisons between segments of state for the current song and the song to which the play button refers.
 
-### Phase 3: Continuous play between pages (2 days)
+### User Pages
 
-**Objective:** Songs continue to play as user navigates between pages.
-
-### Phase 4: User pages featuring their hosted music (1 day)
-
-**Objective:** Well styled user page featuring all of their hosted music.
-
-### Phase 5: Work on polishing previous aspects or bonus features (1 day)
-
-**Objective:** Work on polishing previous aspects if not looking great, or bonus features
-
-### Bonus Features:
-- [ ] Wave forms
-- [ ] Playlists
-- [ ] Likes
+Users are stored in the database with an association to the songs they have uploaded. Upon rendering a user page, a fetch is made to fetch all of the songs the user created and these songs replace the ones in the store, allowing the same feed component to be used on both the main feed page and the user pages.
