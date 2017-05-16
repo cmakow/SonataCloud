@@ -60,7 +60,6 @@ class PlayButton extends React.Component {
     } else {
       buttonText = <i id='play' className='fa fa-play' aria-hidden='true'></i>;
     }
-    debugger
     return (
       <button onClick={this.togglePlay} className='playButton' id={idText}>{buttonText}</button>
     )
