@@ -8,6 +8,7 @@ class CurrentSong extends React.Component {
     // this.togglePlay = this.togglePlay.bind(this);
     this.updateTime = this.updateTime.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleWaveClick = this.handleWaveClick.bind(this);
     this.updateVolume = this.updateVolume.bind(this);
     this.toggleVolume = this.toggleVolume.bind(this);
     this.renderVolumeButton = this.renderVolumeButton.bind(this);
@@ -20,19 +21,6 @@ class CurrentSong extends React.Component {
       lastVol: null
     };
   }
-
-  // componentWillReceiveProps(newProps) {
-  //   const song = this.refs.song;
-  //   if(newProps.playing !== this.props.playing) {
-  //     if (newProps.playing) {
-  //       this.setState({playing: true});
-  //       song.play();
-  //     } else {
-  //       this.setState({playing: false});
-  //       song.pause();
-  //     }
-  //   }
-  // }
 
   componentDidMount() {
     this.interval = setInterval(() => {
@@ -59,6 +47,12 @@ class CurrentSong extends React.Component {
     }
   }
 
+  handleWaveClick(e) {
+    const mouseX = e.originalEvent.layerX;
+    const newTime = mouseX / 700 * this.state.duration
+    this.refs.song.currentTime = newTime;
+  }
+
   handleClick(e) {
     const mouseX = e.nativeEvent.layerX;
     const newTime = mouseX / 720 * this.state.duration
@@ -76,6 +70,10 @@ class CurrentSong extends React.Component {
   componentDidUpdate(oldProps) {
     const song = this.refs.song;
     if(oldProps.currentSong !== this.props.currentSong) {
+      const waveform = $(`#waveform-${this.props.currentSong.id}`)
+      if(waveform) {
+        waveform.on('click', this.handleWaveClick);
+      }
       song.play().then(() => {
         this.setState({duration: song.duration, playing: true});
       });
