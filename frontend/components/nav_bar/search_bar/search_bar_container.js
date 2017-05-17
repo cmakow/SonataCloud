@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { fetchSearchSongs } from '../../../actions/song_search_actions';
 
 const mapStateToProps = state => {
+  debugger
   return ({
-    songs: Object.values(state.search)
+    songs: Object.keys(state.search).map(id => state.search[id])
   });
 };
 

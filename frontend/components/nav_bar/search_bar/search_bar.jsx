@@ -77,9 +77,9 @@ class SearchBar extends React.Component {
     let matches;
     if(this.state.input.length > 0) {
       if(Object.keys(this.props.songs).length > 0) {
-        matches = Object.values(this.props.songs).map((song, i) => {
+        matches = Object.keys(this.props.songs).map(id => this.props.songs[id]).map((song, i) => {
           return (
-            <Link to={`/songs/${song.id}`} className='searchResultLink'>
+            <Link to={`/songs/${song.id}`} className='searchResultLink' key={i}>
               <li key={i} className='searchResultLi'>
                 <img src={song.cover_art} className='searchResultIcon'/>
                 <div className='searchResultTitle'>{song.title}</div>

@@ -20,7 +20,7 @@ class CommentIndex extends React.Component {
   render() {
     let comments;
     if(Object.keys(this.props.comments).length > 0) {
-      comments = Object.values(this.props.comments).sort((a, b) => {
+      comments = Object.keys(this.props.comments).map(id => this.props.comments[id]).sort((a, b) => {
         if (a.id > b.id) {
           return -1;
         } else if (a.id < b.id) {

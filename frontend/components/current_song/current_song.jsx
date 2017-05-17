@@ -6,6 +6,8 @@ class CurrentSong extends React.Component {
     super(props);
 
     // this.togglePlay = this.togglePlay.bind(this);
+    this.updateTime = this.updateTime.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.updateVolume = this.updateVolume.bind(this);
     this.toggleVolume = this.toggleVolume.bind(this);
     this.renderVolumeButton = this.renderVolumeButton.bind(this);
@@ -42,6 +44,26 @@ class CurrentSong extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.interval);
+  }
+
+  updateTime() {
+    const progress_bar = $('.audio-player-progress-bar')
+    const newProgressWidth = (this.state.currentTime / this.state.duration) * 720;
+    progress_bar.css('width', newProgressWidth);
+    if(this.props.currentSong) {
+      const waveform = $(`#waveform-${this.props.currentSong.id}`)[0]
+      if(waveform) {
+        debugger
+        const newWaveWidth = (this.state.currentTime / this.state.duration) * 700;
+        waveform.firstChild.firstChild.style.width = `${newWaveWidth}px`;
+      }
+    }
+  }
+
+  handleClick(e) {
+    const mouseX = e.nativeEvent.layerX;
+    const newTime = mouseX / 720 * this.state.duration
+    this.refs.song.currentTime = newTime;
   }
 
   updateVolume(e) {
@@ -118,6 +140,7 @@ class CurrentSong extends React.Component {
         } else {
           songInfoComponent = songInfo;
         }
+        this.updateTime();
         return (
           <div className='currentSongPlayer'>
             <div className='currentSongControls'>
@@ -127,7 +150,10 @@ class CurrentSong extends React.Component {
               {/* <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='pause' className='fa fa-pause' aria-hidden='true'></i></button> */}
               <div className='progressBarContainer'>
                 {this.parseTime(this.state.currentTime)}
-                <progress className='songProgressBar' value={this.state.currentTime} max={this.state.duration}></progress>
+                {/* <progress className='songProgressBar' value={this.state.currentTime} max={this.state.duration}></progress> */}
+                <span className="audio-player-progress" onClick={this.handleClick}>
+                  <span className="audio-player-progress-bar"></span>
+                </span>
                 {this.parseTime(this.state.duration)}
               </div>
               { this.renderVolumeButton() }

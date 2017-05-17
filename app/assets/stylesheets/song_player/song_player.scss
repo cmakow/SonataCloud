@@ -52,7 +52,32 @@
 
 .progressBarContainer {
   width: 900px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
 }
+
+.audio-player-progress {
+  display: block;
+  width: 80%;
+  height: 5px;
+  border-radius: 25px;
+  background-color: gray;
+  overflow: hidden;
+  margin: 0px 10px;
+  margin-top: 5px;
+}
+
+.audio-player-progress-bar {
+  display: block;
+  height: 100%;
+  width: 0;
+  max-width: 100%;
+  background-color: #f50;
+  border-radius: 25px;
+}
+
+/* VOLUME */
 
 .volumeButton {
   border: none;
