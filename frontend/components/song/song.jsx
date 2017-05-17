@@ -32,7 +32,9 @@ class Song extends React.Component {
         container: `#waveform-${this.props.song.id}`,
         waveColor: 'gray',
         progressColor: '#f50',
-        height: '200'
+        height: '200',
+        barWidth: '3',
+        cursorWidth: '0'
       });
       this.wavesurfer.load(this.props.song.data);
     });
