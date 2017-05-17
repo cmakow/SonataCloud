@@ -53,7 +53,6 @@ class CurrentSong extends React.Component {
     if(this.props.currentSong) {
       const waveform = $(`#waveform-${this.props.currentSong.id}`)[0]
       if(waveform) {
-        debugger
         const newWaveWidth = (this.state.currentTime / this.state.duration) * 700;
         waveform.firstChild.firstChild.style.width = `${newWaveWidth}px`;
       }
