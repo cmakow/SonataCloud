@@ -38,5 +38,5 @@ export const fetchUserSongs = (userId, offset) => dispatch => (
 );
 
 export const deleteSong = id => dispatch => (
-  APIUtil.deleteSong(id).then(() => dispatch(fetchSongs()))
+  APIUtil.deleteSong(id).then(song => dispatch(removeSong(song)))
 );

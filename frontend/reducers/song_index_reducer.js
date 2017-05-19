@@ -17,6 +17,7 @@ const SongReducer = (state = {}, action) => {
       return nextState;
     case REMOVE_SONG:
       nextState = Object.assign({}, state);
+      debugger
       delete nextState[action.song.id];
       return nextState;
     default:
