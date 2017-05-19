@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router'
 import PlayButtonContainer from '../play_button/play_button_container';
 
 class CurrentSong extends React.Component {
@@ -12,6 +13,7 @@ class CurrentSong extends React.Component {
     this.updateVolume = this.updateVolume.bind(this);
     this.toggleVolume = this.toggleVolume.bind(this);
     this.renderVolumeButton = this.renderVolumeButton.bind(this);
+    this.waveOnClickSetup = this.waveOnClickSetup.bind(this);
 
     this.state = {
       volume: 1,
@@ -27,7 +29,7 @@ class CurrentSong extends React.Component {
       if (this.state.playing) {
         this.setState({currentTime: this.refs.song.currentTime});
       }
-    }, 50); //THANKS BRANDON
+    }, 30); //THANKS BRANDON
   }
 
   componentWillUnmount() {
@@ -41,8 +43,12 @@ class CurrentSong extends React.Component {
     if(this.props.currentSong) {
       const waveform = $(`#waveform-${this.props.currentSong.id}`)[0]
       if(waveform) {
-        const newWaveWidth = (this.state.currentTime / this.state.duration) * 700;
-        waveform.firstChild.firstChild.style.width = `${newWaveWidth}px`;
+        if(waveform.firstChild) {
+          if(waveform.firstChild.firstChild) {
+            const newWaveWidth = (this.state.currentTime / this.state.duration) * 700;
+            waveform.firstChild.firstChild.style.width = `${newWaveWidth}px`;
+          }
+        }
       }
     }
   }
@@ -67,13 +73,43 @@ class CurrentSong extends React.Component {
     song.volume = targetVol;
   }
 
+  waveOnClickSetup(newProps = this.props) {
+    const waveform = $(`#waveform-${newProps.currentSong.id}`)
+    if(waveform) {
+      if(this.waveform) {
+        if(this.waveform[0].firstChild) {
+          if(this.waveform[0].firstChild.firstChild) {
+            this.waveform[0].firstChild.firstChild.style.width = 0;
+          }
+        }
+        this.waveform.off('click');
+      }
+      waveform.on('click', this.handleWaveClick);
+      this.waveform = waveform;
+    }
+  }
+
+  // componentWillReceiveProps(newProps) {
+  //   if(newProps.currentSong) {
+  //     if(this.props.location.pathname !== newProps.location.pathname){
+  //       if(newProps.params.song_id) {
+  //         if(Number(newProps.params.song_id) === newProps.currentSong.id) {
+  //           this.waveOnClickSetup(newProps);
+  //         }
+  //       } else if (newProps.params.user_id) {
+  //         debugger
+  //         this.waveOnClickSetup(newProps);
+  //       } else if (newProps.location.pathname === '/feed') {
+  //         this.waveOnClickSetup(newProps);
+  //       }
+  //     }
+  //   }
+  // }
+
   componentDidUpdate(oldProps) {
     const song = this.refs.song;
     if(oldProps.currentSong !== this.props.currentSong) {
-      const waveform = $(`#waveform-${this.props.currentSong.id}`)
-      if(waveform) {
-        waveform.on('click', this.handleWaveClick);
-      }
+      // this.waveOnClickSetup();
       song.play().then(() => {
         this.setState({duration: song.duration, playing: true});
       });
@@ -180,4 +216,4 @@ class CurrentSong extends React.Component {
   }
 }
 
-export default CurrentSong;
+export default withRouter(CurrentSong);

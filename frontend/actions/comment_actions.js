@@ -21,19 +21,19 @@ export const removeComment = comment_id => ({
 });
 
 export const fetchUserComments = user_id => dispatch => (
-  APIUtil.fetchUserComments(user_id).then(comments => dispatch(receiveComments(comments)), err => dispatch(receiveCommentErrors(err)))
+  APIUtil.fetchUserComments(user_id).then(comments => dispatch(receiveComments(comments)))
 );
 
 export const fetchSongComments = song_id => dispatch => (
-  APIUtil.fetchSongComments(song_id).then(comments => dispatch(receiveComments(comments)), err => dispatch(receiveCommentErrors(err)))
+  APIUtil.fetchSongComments(song_id).then(comments => dispatch(receiveComments(comments)))
 );
 
 export const postComment = comment => dispatch => (
-  APIUtil.postComment(comment).then(comment => dispatch(receiveComment(comment)), err => dispatch(receiveCommentErrors(err)))
+  APIUtil.postComment(comment).then(comment => dispatch(receiveComment(comment)))
 );
 
 export const updateComment = comment => dispatch => (
-  APIUtil.updateComment(comment).then(comment => dispatch(receiveComment(comment)), err => dispatch(receiveCommentErrors(err)))
+  APIUtil.updateComment(comment).then(comment => dispatch(receiveComment(comment)))
 );
 
 export const deleteComment = id => dispatch => (

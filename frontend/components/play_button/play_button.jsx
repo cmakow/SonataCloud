@@ -29,7 +29,9 @@ class PlayButton extends React.Component {
   }
 
   isCurrentSong() {
-    return this.props.song === this.props.currentSong;
+    if(this.props.currentSong) {
+      return this.props.song.id === this.props.currentSong.id;
+    }
   }
 
   render() {

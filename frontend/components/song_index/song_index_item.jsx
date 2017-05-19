@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import SongProgressBar from './song_progress_bar';
 import PlayButtonContainer from '../play_button/play_button_container';
+import WaveformContainer from '../waveform/waveform_container';
 
 class SongIndexItem extends React.Component {
   constructor(props) {
@@ -9,24 +10,6 @@ class SongIndexItem extends React.Component {
 
     this.removeSong = this.removeSong.bind(this);
     this.directToEdit = this.directToEdit.bind(this);
-  }
-
-  componentDidMount() {
-    this.wavesurfer = WaveSurfer.create({
-      container: `#waveform-${this.props.song.id}`,
-      waveColor: 'gray',
-      progressColor: '#f50',
-      height: '75',
-      barWidth: '3',
-      cursorWidth: '0'
-    });
-    this.wavesurfer.load(this.props.song.data)
-  }
-
-  componentDidReceiveProps(oldProps) {
-    if(this.props.currentSong === this.props.song) {
-      this.wavesurfer.load($('audio')[0].src);
-    }
   }
 
   removeSong(e) {
@@ -76,9 +59,10 @@ class SongIndexItem extends React.Component {
               <Link to={`/profile/${song.artist.id}`} className='artistName'>{song.artist.username}</Link> <br />
               <Link to={`/songs/${song.id}`} className='songTitle'>{song.title}</Link>
             </div>
-            <div className='waveform'>
+            {/* <div className='waveform'>
               <div id={`waveform-${song.id}`} ></div>
-            </div>
+            </div> */}
+            <WaveformContainer song={song} />
             <br/>
             <div className='songButtons'>
               { editButtons }

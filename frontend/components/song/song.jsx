@@ -2,6 +2,7 @@ import React from 'react';
 import { hashHistory } from 'react-router';
 import CommentIndexContainer from '../comment/comment_index_container';
 import PlayButtonContainer from '../play_button/play_button_container';
+import WaveformContainer from '../waveform/waveform_container';
 
 class Song extends React.Component {
   constructor(props) {
@@ -27,22 +28,12 @@ class Song extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSong(this.props.params.id).then(() => {
-      this.wavesurfer = WaveSurfer.create({
-        container: `#waveform-${this.props.song.id}`,
-        waveColor: 'gray',
-        progressColor: '#f50',
-        height: '200',
-        barWidth: '3',
-        cursorWidth: '0'
-      });
-      this.wavesurfer.load(this.props.song.data);
-    });
+    this.props.fetchSong(this.props.params.song_id);
   }
 
   componentWillReceiveProps(newProps) {
-    if(this.props.params.id !== newProps.params.id) {
-      this.props.fetchSong(newProps.params.id);
+    if(this.props.params.song_id !== newProps.params.song_id) {
+      this.props.fetchSong(newProps.params.song_id);
     }
   }
 
@@ -66,9 +57,7 @@ class Song extends React.Component {
               <div className='songShowInfo'>
                 <p>{song.artist.username}</p>
                 <h2>{song.title}</h2>
-                <div className='songShowWaveform'>
-                  <div id={`waveform-${song.id}`}></div>
-                </div>
+                <WaveformContainer songShow='true' song={song} />
               </div>
             </div>
             <div className='songShowCoverArt'>
