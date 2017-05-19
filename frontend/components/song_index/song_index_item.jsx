@@ -59,9 +59,6 @@ class SongIndexItem extends React.Component {
               <Link to={`/profile/${song.artist.id}`} className='artistName'>{song.artist.username}</Link> <br />
               <Link to={`/songs/${song.id}`} className='songTitle'>{song.title}</Link>
             </div>
-            {/* <div className='waveform'>
-              <div id={`waveform-${song.id}`} ></div>
-            </div> */}
             <WaveformContainer song={song} />
             <br/>
             <div className='songButtons'>

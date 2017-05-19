@@ -6,14 +6,11 @@ class CurrentSong extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.togglePlay = this.togglePlay.bind(this);
     this.updateTime = this.updateTime.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.handleWaveClick = this.handleWaveClick.bind(this);
     this.updateVolume = this.updateVolume.bind(this);
     this.toggleVolume = this.toggleVolume.bind(this);
     this.renderVolumeButton = this.renderVolumeButton.bind(this);
-    this.waveOnClickSetup = this.waveOnClickSetup.bind(this);
 
     this.state = {
       volume: 1,
@@ -53,12 +50,6 @@ class CurrentSong extends React.Component {
     }
   }
 
-  handleWaveClick(e) {
-    const mouseX = e.originalEvent.layerX;
-    const newTime = mouseX / 700 * this.state.duration
-    this.refs.song.currentTime = newTime;
-  }
-
   handleClick(e) {
     const mouseX = e.nativeEvent.layerX;
     const newTime = mouseX / 720 * this.state.duration
@@ -73,43 +64,9 @@ class CurrentSong extends React.Component {
     song.volume = targetVol;
   }
 
-  waveOnClickSetup(newProps = this.props) {
-    const waveform = $(`#waveform-${newProps.currentSong.id}`)
-    if(waveform) {
-      if(this.waveform) {
-        if(this.waveform[0].firstChild) {
-          if(this.waveform[0].firstChild.firstChild) {
-            this.waveform[0].firstChild.firstChild.style.width = 0;
-          }
-        }
-        this.waveform.off('click');
-      }
-      waveform.on('click', this.handleWaveClick);
-      this.waveform = waveform;
-    }
-  }
-
-  // componentWillReceiveProps(newProps) {
-  //   if(newProps.currentSong) {
-  //     if(this.props.location.pathname !== newProps.location.pathname){
-  //       if(newProps.params.song_id) {
-  //         if(Number(newProps.params.song_id) === newProps.currentSong.id) {
-  //           this.waveOnClickSetup(newProps);
-  //         }
-  //       } else if (newProps.params.user_id) {
-  //         debugger
-  //         this.waveOnClickSetup(newProps);
-  //       } else if (newProps.location.pathname === '/feed') {
-  //         this.waveOnClickSetup(newProps);
-  //       }
-  //     }
-  //   }
-  // }
-
   componentDidUpdate(oldProps) {
     const song = this.refs.song;
     if(oldProps.currentSong !== this.props.currentSong) {
-      // this.waveOnClickSetup();
       song.play().then(() => {
         this.setState({duration: song.duration, playing: true});
       });
@@ -163,9 +120,6 @@ class CurrentSong extends React.Component {
     let playButton = <i id='pause' className='fa fa-pause' aria-hidden='true'></i>;
     if(this.props.currentUser) {
       if(this.props.currentSong) {
-        // if (this.refs.song) {
-        //   playButton = this.refs.song.paused ? <i id='play' className='fa fa-play' aria-hidden='true'></i> : <i id='pause' className='fa fa-pause' aria-hidden='true'></i>;
-        // }
         const songInfo = `${this.props.currentSong.title} - ${this.props.currentSong.artist.username}`;
         let songInfoComponent;
         if (songInfo.length > 20) {
@@ -180,10 +134,8 @@ class CurrentSong extends React.Component {
               <audio ref='song' src={this.props.currentSong.data} />
               <img src={this.props.currentSong.cover_art} className='currentSongThumb' />
               <PlayButtonContainer currentSongPlay='true' song={this.props.currentSong}/>
-              {/* <button onClick={this.togglePlay} className='playButton' id='currentSongPlay'><i id='pause' className='fa fa-pause' aria-hidden='true'></i></button> */}
               <div className='progressBarContainer'>
                 {this.parseTime(this.state.currentTime)}
-                {/* <progress className='songProgressBar' value={this.state.currentTime} max={this.state.duration}></progress> */}
                 <span className="audio-player-progress" onClick={this.handleClick}>
                   <span className="audio-player-progress-bar"></span>
                 </span>
