@@ -9,36 +9,36 @@ import UploadContainer from './upload/upload_container';
 import EditContainer from './edit_form/edit_form_container';
 import SongContainer from './song/song_container';
 import ProfileEditContainer from './profile_edit/profile_edit_container';
-import HomeContainer from './home_page/home_page_container';
+import HomePage from './home_page/home_page';
 
-const _redirectIfLoggedIn = (nextState, replace) => {
-  const currentUser = store.getState().session.currentUser;
-  if (currentUser) {
-    replace('/feed');
+
+const Root = ({store}) => {
+  const _redirectIfLoggedIn = (nextState, replace) => {
+    const currentUser = store.getState().session.currentUser;
+    if (currentUser) {
+      replace('/feed');
+    }
   }
-}
 
-const _redirectIfNotLoggedIn = (nextState, replace) => {
-  const currentUser = store.getState().session.currentUser;
-  if (!currentUser) {
-    replace('/login');
+  const _redirectIfNotLoggedIn = (nextState, replace) => {
+    const currentUser = store.getState().session.currentUser;
+    if (!currentUser) {
+      replace('/login');
+    }
   }
-}
 
-const _redirectIfNotArtist = (nextState, replace) => {
-  const currentUser = store.getState().session.currentUser;
-  const editedSongArtist = store.getState().edit.editedSong.artist;
-  if (currentUser.id !== editedSongArtist.id ) {
-    replace('/feed');
+  const _redirectIfNotArtist = (nextState, replace) => {
+    const currentUser = store.getState().session.currentUser;
+    const editedSongArtist = store.getState().edit.editedSong.artist;
+    if (currentUser.id !== editedSongArtist.id ) {
+      replace('/feed');
+    }
   }
-}
-
-const Root = ({ store }) => {
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={App} >
-          <IndexRoute component={HomeContainer} onEnter={_redirectIfLoggedIn} />
+          <IndexRoute component={HomePage} onEnter={_redirectIfLoggedIn} />
           <Route path="/login" component={AuthFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={AuthFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/profile/:user_id" component={ProfilePageContainer} onEnter={_redirectIfNotLoggedIn} />
