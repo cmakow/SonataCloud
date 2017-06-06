@@ -2,7 +2,7 @@
 
 [Live][heroku]
 
-[heroku]: https://sonatacloud.us/#/
+[heroku]: http://sonatacloud.us/#/
 
 ## Features & Implementation
 

@@ -3,8 +3,8 @@
 [Heroku link][heroku]
 [Trello link][trello]
 
-[heroku]: https://sonatacloud.herokuapp.com/#/
-[trello]: https://trello.com/b/x7EEipVm/sonatacloud
+[heroku]: http://sonatacloud.us
+[trello]: http://trello.com/b/x7EEipVm/sonatacloud
 
 ## Minimum Viable Product
 
