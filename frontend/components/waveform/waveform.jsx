@@ -17,7 +17,7 @@ class Waveform extends React.Component {
       waveColor: 'gray',
       progressColor: '#f50',
       height: `${height}`,
-      barWidth: '3',
+      barWidth: 3,
       cursorWidth: '0'
     });
     this.wavesurfer.load(this.props.song.data)
