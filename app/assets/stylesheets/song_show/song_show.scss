@@ -119,12 +119,12 @@
   position: absolute;
   display: block;
   width: 550px;
-  height: 20px;
-  border-radius: 25px;
+  height: 60px;
   background-color: gray;
   overflow: hidden;
   margin: 0px 10px;
   margin-top: 200px;
+  border: 2px solid #d3d3d3;
 }
 
 .song-show-progress-bar {
@@ -133,5 +133,4 @@
   width: 0;
   max-width: 100%;
   background-color: #f50;
-  border-radius: 25px;
 }
