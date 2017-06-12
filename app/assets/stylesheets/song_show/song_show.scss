@@ -114,3 +114,24 @@
   left: 100px;
   z-index: 0;
 }
+
+.song-show-progress {
+  position: absolute;
+  display: block;
+  width: 550px;
+  height: 20px;
+  border-radius: 25px;
+  background-color: gray;
+  overflow: hidden;
+  margin: 0px 10px;
+  margin-top: 200px;
+}
+
+.song-show-progress-bar {
+  display: block;
+  height: 100%;
+  width: 0;
+  max-width: 100%;
+  background-color: #f50;
+  border-radius: 25px;
+}

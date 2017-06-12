@@ -10,6 +10,7 @@ class SongIndexItem extends React.Component {
 
     this.removeSong = this.removeSong.bind(this);
     this.directToEdit = this.directToEdit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   removeSong(e) {
@@ -20,6 +21,15 @@ class SongIndexItem extends React.Component {
   directToEdit() {
     this.props.editSong(this.props.song);
     hashHistory.push(`/edit/${this.props.song.id}`);
+  }
+
+  handleClick(e) {
+    if(this.props.song.id === this.props.currentSong.id) {
+      const audio = $('audio')[0];
+      const mouseX = e.nativeEvent.layerX;
+      const newTime = mouseX / 550 * audio.duration
+      audio.currentTime = newTime;
+    }
   }
 
   render() {
@@ -59,7 +69,10 @@ class SongIndexItem extends React.Component {
               <Link to={`/profile/${song.artist.id}`} className='artistName'>{song.artist.username}</Link> <br />
               <Link to={`/songs/${song.id}`} className='songTitle'>{song.title}</Link>
             </div>
-            <WaveformContainer song={song} />
+            {/* <WaveformContainer song={song} /> */}
+            <span className="song-index-progress" onClick={this.handleClick}>
+              <span id={`progress-${this.props.song.id}`} className="song-index-progress-bar"></span>
+            </span>
             <br/>
             <div className='songButtons'>
               { editButtons }

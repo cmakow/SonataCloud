@@ -38,14 +38,20 @@ class CurrentSong extends React.Component {
     const newProgressWidth = (this.state.currentTime / this.state.duration) * 720;
     progress_bar.css('width', newProgressWidth);
     if(this.props.currentSong) {
-      const waveform = $(`#waveform-${this.props.currentSong.id}`)[0]
-      if(waveform) {
-        if(waveform.firstChild) {
-          if(waveform.firstChild.firstChild) {
-            const newWaveWidth = (this.state.currentTime / this.state.duration) * 700;
-            waveform.firstChild.firstChild.style.width = `${newWaveWidth}px`;
-          }
-        }
+      // const waveform = $(`#waveform-${this.props.currentSong.id}`)[0]
+      // if(waveform) {
+      //   if(waveform.firstChild) {
+      //     if(waveform.firstChild.firstChild) {
+      //       const newWaveWidth = (this.state.currentTime / this.state.duration) * 700;
+      //       waveform.firstChild.firstChild.style.width = `${newWaveWidth}px`;
+      //     }
+      //   }
+      // }
+      const progress = $(`#progress-${this.props.currentSong.id}`)[0]
+
+      if(progress) {
+        const newProgressWidth = (this.state.currentTime / this.state.duration) * 550;
+        progress.style.width = `${newProgressWidth}px`;
       }
     }
   }

@@ -15,6 +15,7 @@ class Song extends React.Component {
 
     this.removeSong = this.removeSong.bind(this);
     this.directToEdit = this.directToEdit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   removeSong(e) {
@@ -34,6 +35,15 @@ class Song extends React.Component {
   componentWillReceiveProps(newProps) {
     if(this.props.params.song_id !== newProps.params.song_id) {
       this.props.fetchSong(newProps.params.song_id);
+    }
+  }
+
+  handleClick(e) {
+    if(this.props.song.id === this.props.currentSong.id) {
+      const audio = $('audio')[0];
+      const mouseX = e.nativeEvent.layerX;
+      const newTime = mouseX / 550 * audio.duration
+      audio.currentTime = newTime;
     }
   }
 
@@ -57,7 +67,10 @@ class Song extends React.Component {
               <div className='songShowInfo'>
                 <p>{song.artist.username}</p>
                 <h2>{song.title}</h2>
-                <WaveformContainer songShow='true' song={song} />
+                {/* <WaveformContainer songShow='true' song={song} /> */}
+                <span className="song-show-progress" onClick={this.handleClick}>
+                  <span id={`progress-${this.props.song.id}`} className="song-show-progress-bar"></span>
+                </span>
               </div>
             </div>
             <div className='songShowCoverArt'>
